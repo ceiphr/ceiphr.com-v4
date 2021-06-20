@@ -35,6 +35,8 @@ const Bio = () => {
       <StaticImage
         className="bio-avatar"
         layout="fixed"
+        // TODO Fix this type issue.
+        // @ts-ignore
         formats={["AUTO", "WEBP", "AVIF"]}
         src="../images/profile-pic.png"
         width={50}

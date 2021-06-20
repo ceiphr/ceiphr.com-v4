@@ -1,11 +1,32 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link, PageProps } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
+type DataProps = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  allMarkdownRemark: {
+    nodes: {
+      excerpt: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        date: string
+        title: string
+        description: string
+      }
+    }[]
+  }
+}
+
+const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -36,7 +57,7 @@ const BlogIndex = ({ data, location }) => {
               <article
                 className="post-list-item"
                 itemScope
-                itemType="http://schema.org/Article"
+                itemType="https://schema.org/Article"
               >
                 <header>
                   <h2>
@@ -49,7 +70,7 @@ const BlogIndex = ({ data, location }) => {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.frontmatter.description || post.excerpt
                     }}
                     itemProp="description"
                   />
@@ -66,24 +87,24 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
+    query {
+        site {
+            siteMetadata {
+                title
+            }
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+            nodes {
+                excerpt
+                fields {
+                    slug
+                }
+                frontmatter {
+                    date(formatString: "MMMM DD, YYYY")
+                    title
+                    description
+                }
+            }
         }
-      }
     }
-  }
 `
