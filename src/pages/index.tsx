@@ -62,13 +62,14 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                      <span className="text-gray-900 dark:text-white" itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small className="text-gray-600 dark:text-gray-500">{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
+                    className="text-gray-600 dark:text-gray-400"
                     dangerouslySetInnerHTML={{
                       __html: post.frontmatter.description || post.excerpt
                     }}

@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-simple-analytics`,
       options: {

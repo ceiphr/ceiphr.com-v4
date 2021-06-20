@@ -27,14 +27,14 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+    <div className="bg-white dark:bg-black grid grid-cols-3 sm:grid-cols-1" data-is-root-path={isRootPath}>
+      {/*<header className="global-header">{header}</header>*/}
+      <main className="md:col-start-2 md:col-span-1">{children}</main>
+      {/*<footer>*/}
+      {/*  © {new Date().getFullYear()}, Built with*/}
+      {/*  {` `}*/}
+      {/*  <a href="https://www.gatsbyjs.com">Gatsby</a>*/}
+      {/*</footer>*/}
     </div>
   )
 }
