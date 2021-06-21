@@ -53,7 +53,17 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`
             }
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: "±",
+              prompt: {
+                user: "ari",
+                host: "localhost",
+                global: true
+              }
+            }
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`
         ]

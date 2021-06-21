@@ -3,6 +3,100 @@
  * Inspired by Visual Studio syntax coloring
  */
 
+.gatsby-highlight {
+    border-radius: .3em;
+    border: 1px solid #3d3d3d;
+    overflow-y: hidden;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+    overflow: initial;
+    float: left;
+    min-width: 100%;
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+    padding-left: 3.4em;
+}
+
+.gatsby-highlight-code-line {
+    background-color: hsl(0, 0%, 92%);
+
+    display: block;
+    margin-right: -1em;
+    margin-left: -4em;
+    padding-right: 1em;
+    padding-left: 4em;
+}
+
+.command-line-prompt > span:before {
+    color: black;
+    content: " ";
+    display: block;
+    padding-right: 0.8em;
+}
+
+/* Prompt for all users */
+.command-line-prompt > span[data-user]:before {
+    content: "$" !important;
+}
+
+/* Prompt for root */
+.command-line-prompt > span[data-user="root"]:before {
+    content: "#";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+    content: attr(data-prompt);
+}
+
+.command-line-prompt {
+    border-right: 0 !important;
+    display: block;
+    float: left;
+    font-size: 100%;
+    letter-spacing: -1px;
+    margin-right: 0 !important;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    padding-top: 15px;
+    padding-left: 12px;
+    padding-bottom: 15px;
+    top: 0;
+    font-size: 100%;
+    left: -3em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    text-shadow: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background: #cecece;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: hsl(0, 0%, 80%);
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
     color: #393A34;
@@ -41,9 +135,8 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
     padding: 1em;
-    margin: .5em 0;
+    margin: 0;
     overflow: auto;
-    border: 1px solid #dddddd;
     background-color: white;
 }
 
@@ -167,10 +260,30 @@ code[class*="language-css"] {
 }
 
 @media (prefers-color-scheme: dark) {
+    .gatsby-highlight {
+        border: 1px solid #3d3d3d;
+    }
+
+    .gatsby-highlight-code-line {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .command-line-prompt > span:before {
+        color: #eee;
+    }
+
+    .line-numbers .line-numbers-rows {
+        border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+        background: #151515;
+    }
+
+    .line-numbers-rows > span:before {
+        color: hsl(0, 0%, 48%);
+    }
+
     pre[class*="language-"],
     code[class*="language-"] {
         color: #d4d4d4;
-        border: 1px solid #3d3d3d;
     }
 
     pre[class*="language-"]::selection,
@@ -190,7 +303,7 @@ code[class*="language-css"] {
 
     pre[class*="language-"] {
         padding: 1em;
-        margin: .5em 0;
+        margin: 0;
         overflow: auto;
         background: black;
     }
@@ -202,6 +315,7 @@ code[class*="language-css"] {
         background: black;
         border: 1px solid #3d3d3d;
     }
+
     /*********************************************************
     * Tokens
     */
@@ -383,10 +497,10 @@ code[class*="language-css"] {
     .token.namespace {
         color: #4ec9b0;
     }
+
     /*********************************************************
     * Language Specific
     */
-
     pre[class*="language-javascript"],
     code[class*="language-javascript"],
     pre[class*="language-jsx"],
@@ -415,6 +529,7 @@ code[class*="language-css"] {
     .language-html .token.punctuation {
         color: #808080;
     }
+
     /*********************************************************
     * Line highlighting
     */
@@ -440,4 +555,5 @@ code[class*="language-css"] {
         line-height: inherit;
         white-space: pre;
     }
+
 }
