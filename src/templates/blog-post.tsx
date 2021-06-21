@@ -1,9 +1,10 @@
 import * as React from "react"
-import { graphql, Link, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Comment from "../components/comment"
 
 type DataProps = {
   site: {
@@ -20,20 +21,31 @@ type DataProps = {
       description: string
     }
   }
-  previous, next: {
-    fields: {
-      slug: string
-    }
-    frontmatter: {
-      title: string
-    }
-  }
 }
 
 const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+
+  // Used for https://utteranc.es/
+  // https://creativcoder.dev/how-to-add-github-utterances-blog
+  const commentBox = React.createRef<HTMLInputElement>()
+
+  React.useEffect(() => {
+    const scriptEl = document.createElement('script')
+    scriptEl.async = true
+    scriptEl.src = 'https://utteranc.es/client.js'
+    scriptEl.setAttribute('repo', 'ceiphr/ceiphr.com-comments')
+    scriptEl.setAttribute('issue-term', 'title')
+    scriptEl.setAttribute('id', 'utterances')
+    scriptEl.setAttribute('theme', 'preferred-color-scheme')
+    scriptEl.setAttribute('crossorigin', 'anonymous')
+    if (commentBox && commentBox.current) {
+      commentBox.current.appendChild(scriptEl)
+    } else {
+      console.log(`Error adding utterances comments on: ${commentBox}`)
+    }
+  }, [])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -47,44 +59,19 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         itemType="https://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1 itemProp="headline" className="text-gray-800 dark:text-gray-300 font-bold text-4xl">{post.frontmatter.title}</h1>
+          <p className="text-gray-400 dark:text-gray-500 uppercase">{post.frontmatter.date}</p>
         </header>
         <section
+          className="prose dark:prose-light lg:prose-xl mt-4 mb-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
-        <footer>
+        <footer className="mt-4 pt-2 border-t border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500">
           <Bio />
         </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <Comment commentBox={commentBox} />
     </Layout>
   )
 }
@@ -94,8 +81,6 @@ export default BlogPostTemplate
 export const pageQuery = graphql`
     query BlogPostBySlug(
         $id: String!
-        $previousPostId: String
-        $nextPostId: String
     ) {
         site {
             siteMetadata {
@@ -110,22 +95,6 @@ export const pageQuery = graphql`
                 title
                 date(formatString: "MMMM DD, YYYY")
                 description
-            }
-        }
-        previous: markdownRemark(id: { eq: $previousPostId }) {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-            }
-        }
-        next: markdownRemark(id: { eq: $nextPostId }) {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
             }
         }
     }

@@ -3,13 +3,14 @@ module.exports = {
     title: `Ceiphr`,
     author: {
       name: `Ari Birnbaum`,
-      summary: `is a student and technical writer studying at Stevens Institute of Technology.`
+      summary: `, a student and technical writer studying at Stevens Institute of Technology.`
     },
     description: `Technical articles written by Ari Birnbaum pertaining to 
     Django, Python, Node.js, Gatsby.js, TypeScript, GraphQL, and DevOps.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `ceiphr`
+      twitter: `ceiphr`,
+      github: `ceiphr`
     }
   },
   plugins: [

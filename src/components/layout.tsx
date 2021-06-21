@@ -27,14 +27,14 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
   }
 
   return (
-    <div className="bg-white dark:bg-black grid grid-cols-3 sm:grid-cols-1" data-is-root-path={isRootPath}>
-      {/*<header className="global-header">{header}</header>*/}
-      <main className="md:col-start-2 md:col-span-1">{children}</main>
-      {/*<footer>*/}
-      {/*  © {new Date().getFullYear()}, Built with*/}
-      {/*  {` `}*/}
-      {/*  <a href="https://www.gatsbyjs.com">Gatsby</a>*/}
-      {/*</footer>*/}
+    <div className="container max-w-xl mx-auto" data-is-root-path={isRootPath}>
+      <header>{header}</header>
+      <main>{children}</main>
+      <footer className="mt-4 mb-2 pt-2 border-t border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500">
+        <p>© 2021 Ari Birnbaum.{" "}
+        <span className="float-right"><a href="https://www.iubenda.com/privacy-policy/18781590/legal">Privacy</a></span>
+        </p>
+      </footer>
     </div>
   )
 }

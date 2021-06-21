@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Ari Birnbaum <ari@ceiphr.com>",
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
     "gatsby": "^3.6.2",
     "gatsby-plugin-feed": "^3.6.0",

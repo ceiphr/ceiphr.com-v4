@@ -53,7 +53,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
+            <li key={post.fields.slug} className="pt-4">
               <article
                 className="post-list-item"
                 itemScope
@@ -62,10 +62,10 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span className="text-gray-900 dark:text-white" itemProp="headline">{title}</span>
+                      <span className="text-gray-800 dark:text-gray-300 font-bold" itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small className="text-gray-600 dark:text-gray-500">{post.frontmatter.date}</small>
+                  <small className="text-gray-400 dark:text-gray-500 float-right uppercase">{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p

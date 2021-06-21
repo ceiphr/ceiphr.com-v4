@@ -19,7 +19,7 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            github
           }
         }
       }
@@ -33,7 +33,7 @@ const Bio = () => {
   return (
     <div className="bio">
       <StaticImage
-        className="bio-avatar"
+        className="float-left mr-2 rounded-full"
         layout="fixed"
         // TODO Fix this type issue.
         // @ts-ignore
@@ -45,12 +45,12 @@ const Bio = () => {
         alt="Profile picture"
       />
       {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
+        <p className="text-gray-600 dark:text-gray-400">
+          Written by <strong>{author.name}</strong>{author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
+          <a href={`https://github.com/${social?.github || ``}`}>
+            GitHub
+          </a>.
         </p>
       )}
     </div>

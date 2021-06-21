@@ -823,6 +823,7 @@ type SitePluginGroupConnection {
 }
 
 type SitePluginPackageJson {
+    author: String
     dependencies: [SitePluginPackageJsonDependencies]
     description: String
     devDependencies: [SitePluginPackageJsonDevDependencies]
@@ -861,6 +862,7 @@ type SitePluginPluginOptions {
     disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
     display: String
+    domain: String
     failOnError: Boolean
     feeds: [SitePluginPluginOptionsFeeds]
     icon: String
@@ -886,6 +888,7 @@ type SitePluginPluginOptions {
     theme_color: String
     theme_color_in_head: Boolean
     tracedSVG: Boolean
+    trackPageViews: Boolean
     withWebp: Boolean
     wrapperStyle: String
 }
@@ -931,6 +934,7 @@ type SiteSiteMetadata {
 }
 
 type Social {
+    github: String
     twitter: String
 }
 
@@ -1918,6 +1922,7 @@ enum SiteFieldsEnum {
     siteMetadata___author___summary
     siteMetadata___description
     siteMetadata___siteUrl
+    siteMetadata___social___github
     siteMetadata___social___twitter
     siteMetadata___title
 }
@@ -2142,6 +2147,7 @@ enum SitePageFieldsEnum {
     pluginCreator___internal___type
     pluginCreator___name
     pluginCreator___nodeAPIs
+    pluginCreator___packageJson___author
     pluginCreator___packageJson___dependencies
     pluginCreator___packageJson___dependencies___name
     pluginCreator___packageJson___dependencies___version
@@ -2183,6 +2189,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___disableBgImage
     pluginCreator___pluginOptions___disableBgImageOnAlpha
     pluginCreator___pluginOptions___display
+    pluginCreator___pluginOptions___domain
     pluginCreator___pluginOptions___failOnError
     pluginCreator___pluginOptions___feeds
     pluginCreator___pluginOptions___feeds___output
@@ -2217,6 +2224,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___theme_color
     pluginCreator___pluginOptions___theme_color_in_head
     pluginCreator___pluginOptions___tracedSVG
+    pluginCreator___pluginOptions___trackPageViews
     pluginCreator___pluginOptions___withWebp
     pluginCreator___pluginOptions___wrapperStyle
     pluginCreator___resolve
@@ -2276,6 +2284,7 @@ enum SitePluginFieldsEnum {
     internal___type
     name
     nodeAPIs
+    packageJson___author
     packageJson___dependencies
     packageJson___dependencies___name
     packageJson___dependencies___version
@@ -2341,6 +2350,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___disableBgImage
     pluginOptions___disableBgImageOnAlpha
     pluginOptions___display
+    pluginOptions___domain
     pluginOptions___failOnError
     pluginOptions___feeds
     pluginOptions___feeds___output
@@ -2388,6 +2398,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___theme_color
     pluginOptions___theme_color_in_head
     pluginOptions___tracedSVG
+    pluginOptions___trackPageViews
     pluginOptions___withWebp
     pluginOptions___wrapperStyle
     resolve
@@ -2837,6 +2848,7 @@ input SitePluginPackageJsonDevDependenciesFilterListInput {
 }
 
 input SitePluginPackageJsonFilterInput {
+    author: StringQueryOperatorInput
     dependencies: SitePluginPackageJsonDependenciesFilterListInput
     description: StringQueryOperatorInput
     devDependencies: SitePluginPackageJsonDevDependenciesFilterListInput
@@ -2878,6 +2890,7 @@ input SitePluginPluginOptionsFilterInput {
     disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
     display: StringQueryOperatorInput
+    domain: StringQueryOperatorInput
     failOnError: BooleanQueryOperatorInput
     feeds: SitePluginPluginOptionsFeedsFilterListInput
     icon: StringQueryOperatorInput
@@ -2903,6 +2916,7 @@ input SitePluginPluginOptionsFilterInput {
     theme_color: StringQueryOperatorInput
     theme_color_in_head: BooleanQueryOperatorInput
     tracedSVG: BooleanQueryOperatorInput
+    trackPageViews: BooleanQueryOperatorInput
     withWebp: BooleanQueryOperatorInput
     wrapperStyle: StringQueryOperatorInput
 }
@@ -2957,6 +2971,7 @@ input SiteSortInput {
 }
 
 input SocialFilterInput {
+    github: StringQueryOperatorInput
     twitter: StringQueryOperatorInput
 }
 
