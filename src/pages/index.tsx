@@ -49,7 +49,8 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                     </Link>
                   </h2>
                   <small
-                    className="text-gray-400 dark:text-gray-500 float-right ml-2 uppercase">{post.frontmatter.date}</small>
+                    className="text-gray-400 dark:text-gray-500 float-right ml-2 uppercase">{post.frontmatter.date}
+                  </small>
                 </header>
                 <section>
                   <p

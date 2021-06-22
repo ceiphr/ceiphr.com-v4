@@ -13,6 +13,10 @@ module.exports = {
       'laptop': '1024px',
       'desktop': '1280px',
     },
+    borderRadius: {
+      'md': '0.3em',
+      'full': '9999px',
+    },
     extend: {
       fontFamily: {
         sans: ['Graphik', 'sans-serif'],

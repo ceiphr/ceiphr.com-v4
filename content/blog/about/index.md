@@ -4,11 +4,9 @@ unlisted: true
 comments: false
 ---
 
-Wow! I love blogging so much already.
+I'm a Computer Science student at Stevens Institute of Technology.
 
-Did you know that "despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich."?
-([Wikipedia Link](https://en.wikipedia.org/wiki/Salted_duck_egg))
-
-Yeah, I didn't either.
+I write technical articles pertaining to the Django Python framework and web
+development. My most recent article published in DigitalOcean Tutorials is on
+security hardening Django projects. I am currently working on open-source
+Electron-based desktop applications and Typescript-based PWAs right here on GitHub!
