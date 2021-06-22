@@ -4,6 +4,8 @@
 
 html, body {
     background: white;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .gatsby-resp-image-wrapper {

@@ -3,11 +3,18 @@ import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
+import { StaticImage } from "gatsby-plugin-image"
 
 type DataProps = {
   site: {
     siteMetadata: {
       title: string
+      author: {
+        name: string
+      }
+      social: {
+        github: string
+      }
     }
   }
   markdownRemark: {
@@ -17,12 +24,16 @@ type DataProps = {
       date: string
       title: string
       description: string
+      unlisted: boolean
+      comments: boolean
     }
   }
 }
 
 const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const post = data.markdownRemark
+  const authorName = data.site.siteMetadata?.author.name
+  const github = data.site.siteMetadata.social?.github
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   // Used for https://utteranc.es/
@@ -48,6 +59,8 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
     }
   }, [])
 
+  if (post.frontmatter.comments === null) post.frontmatter.comments = true
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -55,7 +68,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="pb-4 mb-4 border-b-2 border-gray-200 dark:border-gray-700"
         itemScope
         itemType="https://schema.org/Article"
       >
@@ -63,7 +75,28 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
           <h1 itemProp="headline"
               className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase"
           >{post.frontmatter.title}</h1>
-          <p className="text-gray-400 dark:text-gray-500 uppercase">{post.frontmatter.date}</p>
+          {post.frontmatter.date && <p
+            className="text-gray-400 dark:text-gray-500 uppercase">
+            <StaticImage
+              className="float-left mr-2 rounded-full"
+              layout="fixed"
+              // TODO Fix this type issue.
+              // @ts-ignore
+              formats={["AUTO", "WEBP", "AVIF"]}
+              src="../images/profile-pic.png"
+              width={25}
+              height={25}
+              quality={50}
+              alt="Profile picture"
+            />
+            <span>
+              <a href={`https://github.com/${github || ``}`}>{authorName}</a>
+              <strong> &#xb7; </strong>
+            </span>
+            <span>
+              {post.frontmatter.date}
+            </span>
+          </p>}
         </header>
         <section
           className="prose dark:prose-light lg:prose-xl pt-4"
@@ -71,7 +104,8 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
           itemProp="articleBody"
         />
       </article>
-      <Comment commentBox={commentBox} />
+      {post.frontmatter.comments &&
+      <Comment className="pt-4 mt-4 border-t-2 border-gray-200 dark:border-gray-700" commentBox={commentBox} />}
     </Layout>
   )
 }
@@ -85,6 +119,12 @@ export const pageQuery = graphql`
         site {
             siteMetadata {
                 title
+                author {
+                    name
+                }
+                social {
+                    github
+                }
             }
         }
         markdownRemark(id: { eq: $id }) {
@@ -95,6 +135,8 @@ export const pageQuery = graphql`
                 title
                 date(formatString: "MMMM DD, YYYY")
                 description
+                unlisted
+                comments
             }
         }
     }

@@ -27,6 +27,7 @@ type DataProps = {
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo />
@@ -77,7 +78,10 @@ export const pageQuery = graphql`
                 title
             }
         }
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(
+            sort: { fields: [frontmatter___date], order: DESC } 
+            filter: {frontmatter: {unlisted: {ne: true}}}
+        ) {
             nodes {
                 excerpt
                 fields {
