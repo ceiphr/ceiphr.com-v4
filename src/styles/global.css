@@ -4,8 +4,8 @@
 
 html, body {
     background: white;
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
 }
 
 .gatsby-resp-image-wrapper {
@@ -14,10 +14,15 @@ html, body {
     max-width: 100% !important;
 }
 
-.hero-icons {
+.hero-icons,
+.hero-banner {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.hero-banner {
+    width: 200px;
 }
 
 .hero-icons svg {
@@ -45,6 +50,10 @@ html, body {
 }
 
 @media (min-width: 640px) {
+    .hero-banner {
+        width: auto;
+    }
+
     .hero-icons svg {
         height: 96px;
         width: 96px;

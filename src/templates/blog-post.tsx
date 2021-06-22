@@ -3,7 +3,6 @@ import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Python from "../../static/icons/python.svg"
 import Django from "../../static/icons/django.svg"
@@ -94,18 +93,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
           </h1>
           {post.frontmatter.date && <><p
             className="text-gray-400 dark:text-gray-500 uppercase">
-            <StaticImage
-              className="float-left mr-2 rounded-full"
-              layout="fixed"
-              // TODO Fix this type issue.
-              // @ts-ignore
-              formats={["AUTO", "WEBP", "AVIF"]}
-              src="../images/profile-pic.png"
-              width={25}
-              height={25}
-              quality={50}
-              alt="Profile picture"
-            />
             <span>
               <a href={`https://github.com/${github || ``}`}>{authorName}</a>
               <strong> &#xb7; </strong>
@@ -114,13 +101,14 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
               {post.frontmatter.date}
             </span>
           </p>
-          <div className="mt-4 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
-            <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-icons">
-              {post.frontmatter.icons.map(icon => {
-                return allIcons[icon]
-              })}
+            <div className="mt-4 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
+              <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-icons">
+                {post.frontmatter.icons.map(icon => {
+                  return allIcons[icon]
+                })}
+              </div>
             </div>
-          </div></>}
+          </>}
         </header>
         <section
           className="prose dark:prose-light lg:prose-xl pt-4"

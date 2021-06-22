@@ -2,6 +2,10 @@ import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { useMediaPredicate } from "react-media-hook"
+
+import Banner from "../../static/banner-white.svg"
+import BannerDark from "../../static/banner-black.svg"
 
 type DataProps = {
   site: {
@@ -27,10 +31,16 @@ type DataProps = {
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  const isDark = useMediaPredicate("(prefers-color-scheme: dark)")
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo />
+      <div className="w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
+        <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-banner">
+          {isDark ? <BannerDark/> : <Banner/>}
+        </div>
+      </div>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
