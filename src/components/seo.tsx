@@ -8,12 +8,13 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
+import { useMediaPredicate } from "react-media-hook"
 
 type DataProps = {
   description?: string
   lang?: string
   meta?: any[]
-  title: string
+  title?: string
 }
 
 const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], title }) => {
@@ -23,6 +24,9 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
             site {
                 siteMetadata {
                     title
+                    author {
+                        name
+                    }
                     description
                     social {
                         twitter
@@ -33,16 +37,20 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
     `
   )
 
+  const authorName = site.siteMetadata.author.name
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const defaultTitle = site.siteMetadata.title
+  const favicon = useMediaPredicate("(prefers-color-scheme: dark)")
+    ? "/favicon-white.png"
+    : "/favicon-black.png"
 
   return (
     <Helmet
       htmlAttributes={{
         lang
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : `null`}
+      title={title ? title : authorName}
+      titleTemplate={title ? `%s | ${defaultTitle}` : `%s`}
       meta={[
         {
           name: `description`,
@@ -77,6 +85,14 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
           content: metaDescription
         }
       ].concat(meta)}
+      link={[
+        {
+          "rel": "icon",
+          "sizes": "32x32",
+          "type": "image/png",
+          "href": favicon
+        }
+      ]}
     />
   )
 }

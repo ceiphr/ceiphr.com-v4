@@ -1,7 +1,5 @@
 import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -29,25 +27,9 @@ type DataProps = {
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
-      <Bio />
+      <Seo />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -62,10 +44,11 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span className="text-gray-800 dark:text-gray-300 font-bold" itemProp="headline">{title}</span>
+                      <span className="text-gray-900 dark:text-gray-300 font-bold" itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small className="text-gray-400 dark:text-gray-500 float-right uppercase">{post.frontmatter.date}</small>
+                  <small
+                    className="text-gray-400 dark:text-gray-500 float-right ml-2 uppercase">{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p

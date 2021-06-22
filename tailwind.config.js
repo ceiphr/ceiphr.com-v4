@@ -25,6 +25,30 @@ module.exports = {
         pink: colors.fuchsia,
       },
       typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              "marginBottom": "0em",
+            },
+            h2: {
+              "marginBottom": "0em",
+            },
+            h3: {
+              "marginBottom": "0em",
+            },
+            h4: {
+              "marginBottom": "0em",
+            },
+            hr: {
+              "marginTop": "2em",
+              "marginBottom": "2em",
+              "borderTopWidth": "2px"
+            },
+            img: {
+              "borderRadius": ".3em"
+            }
+          },
+        },
         light: {
           css: [
             {

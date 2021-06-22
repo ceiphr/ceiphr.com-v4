@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Ceiphr`,
@@ -7,7 +9,7 @@ module.exports = {
     },
     description: `Technical articles written by Ari Birnbaum pertaining to 
     Django, Python, Node.js, Gatsby.js, TypeScript, GraphQL, and DevOps.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://www.ceiphr.com/`,
     social: {
       twitter: `ceiphr`,
       github: `ceiphr`
@@ -15,6 +17,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /static/ // See below to configure properly
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-simple-analytics`,
       options: {
@@ -132,9 +142,32 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+        include_favicon: false,
         icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
       }
     },
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        mode: `async`,
+        enableListener: true,
+        preconnect: [`https://fonts.gstatic.com`, `https://use.typekit.net`],
+        web: [
+          {
+            name: `roboto`,
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`
+          },
+          {
+            name: `neue-haas-grotesk-display`,
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`
+          },
+          {
+            name: `Fira Code`,
+            file: `https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap`
+          }
+        ]
+      }
+    }
   ]
 }

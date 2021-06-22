@@ -25,6 +25,8 @@ You can also write code blocks here!
 
 ```js
 const saltyDuckEgg = "chinese preserved food product"
+if(x >= 0) {return 0}
+if(x !== 1) {return 1}
 ```
 
 | Number | Title                                    | Year |

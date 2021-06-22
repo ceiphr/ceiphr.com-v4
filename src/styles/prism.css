@@ -20,7 +20,7 @@
 }
 
 .gatsby-highlight-code-line {
-    background-color: hsl(0, 0%, 92%);
+    background-color: rgba(0, 0, 0, 0.05);
 
     display: block;
     margin-right: -1em;
@@ -100,7 +100,9 @@
 code[class*="language-"],
 pre[class*="language-"] {
     color: #393A34;
-    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-family: "Fira Code", monospace;
+    font-feature-settings: "calt", "dlig", "liga", "odrn", "tnum";
+    text-rendering: optimizeLegibility;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -306,6 +308,8 @@ code[class*="language-css"] {
     }
 
     :not(pre) > code[class*="language-"] {
+        overflow-wrap: anywhere;
+        white-space: inherit;
         color: #db4c69;
         background: black;
         border: 1px solid #3d3d3d;
