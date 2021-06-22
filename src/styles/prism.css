@@ -5,7 +5,7 @@
 
 .gatsby-highlight {
     border-radius: .3em;
-    border: 1px solid #3d3d3d;
+    border: 1px solid #dbdbdb;
     overflow-y: hidden;
 }
 
@@ -74,8 +74,8 @@
     left: -3em;
     width: 3em; /* works for line-numbers below 1000 lines */
     text-shadow: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    background: #cecece;
+    border-right: 1px solid #dbdbdb !important;
+    background: #f7f7f7;
 
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -142,11 +142,11 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-    padding: .2em;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    background: #f8f8f8;
+    color: #A31515;
+    padding: 1px .2em;
+    background: white;
     border: 1px solid #dddddd;
+    border-radius: .3em;
 }
 
 .token.comment,
@@ -242,9 +242,6 @@ code[class*="language-css"] {
 /* overrides color-values for the Line Numbers plugin
  * http://prismjs.com/plugins/line-numbers/
  */
-.line-numbers .line-numbers-rows {
-    border-right-color: #a5a5a5;
-}
 
 .line-numbers-rows > span:before {
     color: #2B91AF;
@@ -273,7 +270,7 @@ code[class*="language-css"] {
     }
 
     .line-numbers .line-numbers-rows {
-        border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-right: 1px solid #3d3d3d !important;
         background: #151515;
     }
 
@@ -309,8 +306,6 @@ code[class*="language-css"] {
     }
 
     :not(pre) > code[class*="language-"] {
-        padding: .1em .3em;
-        border-radius: .3em;
         color: #db4c69;
         background: black;
         border: 1px solid #3d3d3d;

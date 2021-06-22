@@ -57,7 +57,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
+        className="pb-4 mb-4 border-b-2 border-gray-200 dark:border-gray-700"
         itemScope
         itemType="https://schema.org/Article"
       >
@@ -66,13 +66,10 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
           <p className="text-gray-400 dark:text-gray-500 uppercase">{post.frontmatter.date}</p>
         </header>
         <section
-          className="prose dark:prose-light lg:prose-xl mt-4 mb-4"
+          className="prose dark:prose-light lg:prose-xl"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <footer className="mt-4 pt-2 border-t border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500">
-          <Bio />
-        </footer>
       </article>
       <Comment commentBox={commentBox} />
     </Layout>
