@@ -48,29 +48,31 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
           return (
             <li key={post.fields.slug} className="pt-4">
               <article
-                className="post-list-item"
                 itemScope
                 itemType="https://schema.org/Article"
               >
                 <header>
-                  <h2>
+                  <h2 className="-mb-1">
                     <Link to={post.fields.slug} itemProp="url">
-                      <span className="text-gray-900 dark:text-gray-300 font-bold" itemProp="headline">{title}</span>
+                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold hover:underline" itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small
-                    className="text-gray-400 dark:text-gray-500 float-right ml-2 uppercase">{post.frontmatter.date}
-                  </small>
+                  <span
+                    className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">{post.frontmatter.date}
+                  </span>
                 </header>
                 <section>
                   <p
-                    className="text-gray-600 dark:text-gray-400"
+                    className="text-gray-600 dark:text-gray-400 mb-1"
                     dangerouslySetInnerHTML={{
                       __html: post.frontmatter.description || post.excerpt
                     }}
                     itemProp="description"
                   />
                 </section>
+                <Link to={post.fields.slug} itemProp="url" className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
+                  Read Post <strong>&#8594;</strong>
+                </Link>
               </article>
             </li>
           )

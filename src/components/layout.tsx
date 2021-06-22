@@ -28,8 +28,9 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
         <nav className="flex justify-between">
           {header}
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
-            <li className="pr-5"><Link to="/about">About</Link></li>
-            <li><a href="https://github.com/ceiphr/">GitHub</a></li>
+            <li className="pr-5"><Link className="inline-block pt-1" to="/about">About</Link></li>
+            <li className="pr-5"><a className="inline-block pt-1" href="https://www.paypal.me/ceiphr">Donate</a></li>
+            <li><a className="inline-block pt-1" href="https://github.com/ceiphr/">GitHub</a></li>
           </ul>
         </nav>
       </header>

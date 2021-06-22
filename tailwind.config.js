@@ -19,14 +19,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-      },
-      colors: {
-        black: colors.black,
-        gray: colors.coolGray,
-        blue: colors.lightBlue,
-        pink: colors.fuchsia,
+        sans: ['roboto', 'sans-serif'],
+        mono: ['Fira Code', 'monospace']
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -50,6 +44,9 @@ module.exports = {
             },
             img: {
               "borderRadius": ".3em"
+            },
+            a: {
+              color: theme('colors.blue.600'),
             }
           },
         },
@@ -61,7 +58,7 @@ module.exports = {
                 color: theme('colors.gray.300'),
               },
               a: {
-                color: theme('colors.gray.300'),
+                color: theme('colors.blue.400'),
               },
               strong: {
                 color: theme('colors.gray.300'),

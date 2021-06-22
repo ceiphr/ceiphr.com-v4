@@ -35,6 +35,14 @@ html, body {
     max-width: 100% !important;
 }
 
+.prose a {
+    text-decoration: none;
+}
+
+.prose a:hover {
+    text-decoration: underline;
+}
+
 .prose img {
     border: 1px solid #dbdbdb;
 }

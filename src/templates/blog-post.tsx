@@ -92,7 +92,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
             {post.frontmatter.title}
           </h1>
           {post.frontmatter.date && <><p
-            className="text-gray-400 dark:text-gray-500 uppercase">
+            className="text-gray-400 dark:text-gray-500">
             <span>
               <a href={`https://github.com/${github || ``}`}>{authorName}</a>
               <strong> &#xb7; </strong>
