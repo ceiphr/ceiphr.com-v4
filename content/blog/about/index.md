@@ -1,12 +1,47 @@
 ---
-title: About
-unlisted: true
+title: About 
+unlisted: true 
 comments: false
 ---
+My name is Ari. I am a twenty-something studying Computer Science at Stevens Institute of Technology.
 
-I'm a Computer Science student at Stevens Institute of Technology.
+I write technical articles. Not frequently, but I do. When I'm too busy not writing anything for this
+site, [I sometimes write for DigitalOcean](https://www.digitalocean.com/community/users/ceiphr). They pay well.
 
-I write technical articles pertaining to the Django Python framework and web
-development. My most recent article published in DigitalOcean Tutorials is on
-security hardening Django projects. I am currently working on open-source
-Electron-based desktop applications and Typescript-based PWAs right here on GitHub!
+Right now, I'm a technical writing intern for [Eastech Flow Controls](https://www.smartwastewater.com/). But, that's
+just for the summer.
+
+I don't really make that many Django projects anymore, but that's all I really write about since I enjoy Python so much.
+
+For the most part, everything I work on is using React. Fuck Facebook, but React… React is
+nice. [whereismaurice.com](https://whereismaurice.com) is one of my latest React projects (with Gatsby). It's doing
+pretty well (20k viewership a month).
+
+## This Site
+
+My website is really intended for writing, but I might put some other stuff on here. I don't really know yet.
+Regardless, let's discuss the technical aspects of this site.
+
+It's a Gatsby site. Hosted on Cloudflare pages ([ceiphr.pages.dev](https://ceiphr.pages.dev)). Tailwind CSS styles
+*almost* the entire site. There are those edge cases where it's inconvenient/clunky to use. Of course, I'm using
+TypeScript. I'm not a JavaScript masochist.
+
+I love open source, but I'm not open sourcing this site.
+
+Given that this is a server side rendered project, it would take someone with zero knowledge of web development maybe
+two minutes to copy everything on here and claim it as their own. In many cases that is alright. But when I imagine
+a situation where someone copies my entire site and its posts, I feel bad.
+
+## Contact
+
+You can contact me at [ari@ceiphr.com](mailto:ari@ceiphr.com). I'm quick to respond. Except on finals' week.
+
+I don't really like speaking or collaborative writing, so don't contact me about that stuff.
+
+If I fucked up something in an article, either email me or comment on the post. Either way, I won't fix it.
+
+Just kidding, I will.
+
+*P.S. If you think I should go to prison for crimes again humanity, here is my mugshot (double chin, included):*
+
+![Ari Birnbaum](ari-birnbaum.png)
