@@ -170,6 +170,14 @@ module.exports = {
           }
         ]
       }
-    }
+    },
+    `gatsby-plugin-remove-serviceworker`,
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: process.env.SENTRY_DSN, // this is the default
+        ignoreErrors: ["ChunkLoadError"],
+      },
+    },
   ]
 }
