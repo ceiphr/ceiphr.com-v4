@@ -6,228 +6,113 @@ description: "This is the online markdown editor with live preview."
 unlisted: true
 ---
 
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
-
-
-## Horizontal Rules
-
-___
+### This README can be used as a reference for github-flavored-markdown styling (and possibly behavior).
 
 ---
 
-***
+# H1
+followed by some text
 
+## H2
+followed by some text
 
-## Typographic replacements
+### H3
+followed by some text
 
-Enable typographer option to see result.
+#### H4
+followed by some text
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+##### H5
+followed by some text
 
-test.. test... test..... test?..... test!....
+###### H6
+followed by some text
 
-!!!!!! ???? ,,  -- ---
+Auto-detected link: http://www.france.com
 
-"Smartypants, double quotes" and 'single quotes'
+Some Ignored_multiple_underscore_italics here
 
+A line of normal text with `inline code` and *italics*, **strong font**, and even some μ†ℱ ╋ℯ╳╋. Followed by lots of Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem purus, eu commodo tortor. Donec malesuada ultricies dolor a eleifend. In hac habitasse platea dictumst. Vivamus a faucibus ligula. Nullam molestie tristique arcu, eu elementum metus ultricies sed. Aenean luctus congue lectus, vitae semper erat rhoncus non. Nulla facilisi.
 
-## Emphasis
+Followed by another line of normal text with `inline code` and *italics*, **strong font**, and even some μ†ℱ ╋ℯ╳╋. Followed by lots of Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem purus, eu commodo tortor. Donec malesuada ultricies dolor a eleifend. In hac habitasse platea dictumst. Vivamus a faucibus ligula. Nullam molestie tristique arcu, eu elementum metus ultricies sed. Aenean luctus congue lectus, vitae semper erat rhoncus non. Nulla facilisi.
 
-**This is bold text**
+Thin horizontal rule:
 
-__This is bold text__
+--
 
-*This is italic text*
+Thick horizontal rule:
 
-_This is italic text_
+------
 
-~~Strikethrough~~
+|Table Header 1|Table Header 2           |
+|--------------|-------------------------|
+|Content       |http://example.org       |
+|Content       |http://localhost:\<port\>|
+Text right below table. Follows is a table with an empty cell, and unaligned indenting.
 
+|Table Header 1|Table Header 2|
+|--------------|--------------|
+|Content  |  Cntent        |
+|Content       |      |
 
-## Blockquotes
+Empty line between table and this text
 
+    def this_is
+      puts "some #{4-space-indent} code"
+    end
 
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
+<code>
+def this_is
+  puts "some #{code tag} code"
+end
+</code>
 
-
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-    - Marker character change forces new list start:
-        * Ac tristique libero volutpat at
-        + Facilisis in pretium nisl aliquet
-        - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-
-## Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
+<pre>
+def this_is
+  puts "some #{pre tag} code"
+end
+</pre>
 
 ```
-Sample text here...
+def this_is
+  puts "some #{fenced} code"
+end
 ```
 
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
+```ruby
+class Classy
+  def this_is
+    puts "some #{colored} ruby code with ruby syntax highlighting"
+    @someobj.do_it(1, 2)
+  end
+end
 ```
 
-## Tables
+```javascript
+var test = function this_is(){
+  console.log("some" + colored + "javascript code with javascript syntax highlighting really long");
+}
+```
 
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+```clojure
+(defproject myproject "0.5.0-SNAPSHOT"
+  :description "Some clojure code with syntax highlighting."
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :plugins [[lein-tar "3.2.0"]])
+```
 
-Right aligned columns
+```js
+var test = function this_is(){
+  console.log("language declared as 'js' instead");
+}
+```
 
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+```bogus_language
+var test = function this_is(){
+  console.log("language declared as bogus_language");
+}
+```
 
+> here is blockquote
 
-## Links
-
-[link text](http://google.com)
-
-[link with title](http://google.com "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-## Images
-
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
-
-
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with *inline markup*
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-~ Definition 1
-
-Term 2
-~ Definition 2a
-~ Definition 2b
-
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::
+[Relative image link](afu.png)

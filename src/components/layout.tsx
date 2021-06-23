@@ -18,9 +18,9 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
         <nav className="flex justify-between">
           <Link to="/"><Logo alt="Ari" width="32" height="32" className="fill-current text-gray-900 dark:text-gray-300" /></Link>
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
-            <li className="pr-5"><Link className="inline-block pt-1" to="/about">About</Link></li>
-            <li className="pr-5"><a className="inline-block pt-1" href="https://www.paypal.me/ceiphr">Donate</a></li>
-            <li><a className="inline-block pt-1" href="https://github.com/ceiphr/">GitHub</a></li>
+            <li className="pr-5"><Link className="inline-block pt-1 hover:underline" to="/about">About</Link></li>
+            <li className="pr-5"><a className="inline-block pt-1 hover:underline" href="https://www.paypal.me/ceiphr">Donate</a></li>
+            <li><a className="inline-block pt-1 hover:underline" href="https://github.com/ceiphr/">GitHub</a></li>
           </ul>
         </nav>
       </header>
@@ -28,7 +28,7 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
       <footer
         className="mt-4 pt-4 border-t-2 border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500">
         <p>© 2021 Ari Birnbaum.{" "}
-          <span className="float-right"><a
+          <span className="float-right"><a className="hover:underline"
             href="https://www.iubenda.com/privacy-policy/18781590/legal">Privacy</a></span>
         </p>
       </footer>

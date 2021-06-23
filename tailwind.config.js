@@ -15,7 +15,7 @@ module.exports = {
     },
     borderRadius: {
       'md': '0.3em',
-      'full': '9999px',
+      'full': '100%',
     },
     extend: {
       fontFamily: {

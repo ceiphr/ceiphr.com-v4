@@ -23,8 +23,9 @@ My website is really intended for writing, but I might put some other stuff on h
 Regardless, let's discuss the technical aspects of this site.
 
 It's a Gatsby site. Hosted on Cloudflare pages ([ceiphr.pages.dev](https://ceiphr.pages.dev)). Tailwind CSS styles
-*almost* the entire site. There are those edge cases where it's inconvenient/clunky to use. Of course, I'm using
-TypeScript. I'm not a JavaScript masochist.
+*almost* the entire site. There are those edge cases where it's inconvenient/clunky to use.
+
+Of course, I'm using TypeScript. I'm not a JavaScript masochist.
 
 I love open source, but I'm not open sourcing this site.
 

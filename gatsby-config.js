@@ -141,7 +141,7 @@ module.exports = {
         short_name: `Ceiphr`,
         start_url: `/`,
         background_color: `#000`,
-        theme_color: `#000`,
+        theme_color: `#111827`,
         display: `minimal-ui`,
         include_favicon: false,
         icon: `src/images/ari.png` // This path is relative to the root of the site.

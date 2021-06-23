@@ -48,16 +48,15 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug} className="pt-4">
+              <Link to={post.fields.slug} itemProp="url">
               <article
                 itemScope
                 itemType="https://schema.org/Article"
               >
                 <header>
                   <h2 className="-mb-1">
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold hover:underline"
+                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold"
                             itemProp="headline">{title}</span>
-                    </Link>
                   </h2>
                   <span
                     className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">{post.frontmatter.date}
@@ -72,14 +71,15 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
-                <Link to={post.fields.slug} itemProp="url"
+                <p
                       className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
                   Read Post<span className="inline-block transform translate-y-1">
                   <Right className="fill-current text-blue-600 dark:text-blue-400"
                          width="21"
                          height="18" /></span>
-                </Link>
+                </p>
               </article>
+              </Link>
             </li>
           )
         })}
