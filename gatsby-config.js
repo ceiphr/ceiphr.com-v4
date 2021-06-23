@@ -16,7 +16,6 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-react-svg`,
@@ -176,8 +175,17 @@ module.exports = {
       resolve: "@sentry/gatsby",
       options: {
         dsn: process.env.SENTRY_DSN, // this is the default
-        ignoreErrors: ["ChunkLoadError"],
-      },
+        ignoreErrors: ["ChunkLoadError"]
+      }
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/`,
+        excludes: [
+          `/markdown-test/`
+        ]
+      }
+    }
   ]
 }
