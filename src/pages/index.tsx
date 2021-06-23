@@ -36,11 +36,13 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo />
-      <div className="w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
+      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
         <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-banner">
-          {isDark ? <BannerDark/> : <Banner/>}
+          {isDark ? <BannerDark /> : <Banner />}
         </div>
       </div>
+      <h1
+        className="text-gray-900 dark:text-gray-300 font-bold text-4xl  tk-neue-haas-grotesk-display uppercase">Latest Stuff</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -54,7 +56,8 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 <header>
                   <h2 className="-mb-1">
                     <Link to={post.fields.slug} itemProp="url">
-                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold hover:underline" itemProp="headline">{title}</span>
+                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold hover:underline"
+                            itemProp="headline">{title}</span>
                     </Link>
                   </h2>
                   <span
@@ -70,7 +73,8 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
-                <Link to={post.fields.slug} itemProp="url" className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
+                <Link to={post.fields.slug} itemProp="url"
+                      className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
                   Read Post <strong>&#8594;</strong>
                 </Link>
               </article>
@@ -92,7 +96,7 @@ export const pageQuery = graphql`
             }
         }
         allMarkdownRemark(
-            sort: { fields: [frontmatter___date], order: DESC } 
+            sort: { fields: [frontmatter___date], order: DESC }
             filter: {frontmatter: {unlisted: {ne: true}}}
         ) {
             nodes {

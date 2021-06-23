@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
@@ -86,29 +87,46 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         itemType="https://schema.org/Article"
       >
         <header>
+          {post.frontmatter.icons &&
+          <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
+            <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-icons">
+              {post.frontmatter.icons.map(icon => {
+                return allIcons[icon]
+              })}
+            </div>
+          </div>
+          }
           <h1 itemProp="headline"
               className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase"
           >
             {post.frontmatter.title}
           </h1>
-          {post.frontmatter.date && <><p
-            className="text-gray-400 dark:text-gray-500">
+          {post.frontmatter.date &&
+          <p
+            className="text-gray-400 dark:text-gray-500 mt-2 mb-2">
             <span>
-              <a href={`https://github.com/${github || ``}`}>{authorName}</a>
+              <a href={`https://github.com/${github || ``}`}>
+                <StaticImage
+                  className="float-left mr-2 inline-block rounded-full"
+                  layout="fixed"
+                  // TODO Fix this type issue.
+                  // @ts-ignore
+                  formats={["AUTO", "WEBP", "AVIF"]}
+                  src="../images/profile-pic.png"
+                  width={24}
+                  height={24}
+                  quality={50}
+                  alt="Profile picture"
+                />
+                {authorName}
+              </a>
               <strong> &#xb7; </strong>
             </span>
             <span>
               {post.frontmatter.date}
             </span>
           </p>
-            <div className="mt-4 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
-              <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-icons">
-                {post.frontmatter.icons.map(icon => {
-                  return allIcons[icon]
-                })}
-              </div>
-            </div>
-          </>}
+          }
         </header>
         <section
           className="prose dark:prose-light lg:prose-xl pt-4"

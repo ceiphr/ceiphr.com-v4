@@ -24,7 +24,7 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
 
   return (
     <div className="container max-w-2xl mx-auto p-4 tk-roboto" data-is-root-path={isRootPath}>
-      <header className="pb-4">
+      <header className="pb-6">
         <nav className="flex justify-between">
           {header}
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
