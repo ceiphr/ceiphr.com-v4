@@ -17,9 +17,14 @@ const NotFoundPage: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Seo title="404" />
+      <div style={{ height: `calc(100vh - 114px - 32px)` }}>
+        <div className="relative text-center top-1/3 transform -translate-y-1/2">
+          <h1
+            className="text-gray-900 dark:text-gray-300 font-bold text-6xl tablet:text-8xl uppercase">404</h1>
+          <p className="text-gray-600 dark:text-gray-400">Nothing here. Move along.</p>
+        </div>
+      </div>
     </Layout>
   )
 }

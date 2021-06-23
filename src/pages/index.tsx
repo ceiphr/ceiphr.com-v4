@@ -2,10 +2,9 @@ import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { useMediaPredicate } from "react-media-hook"
 
-import Banner from "../../static/banner-white.svg"
-import BannerDark from "../../static/banner-black.svg"
+import Banner from "../../static/banner.svg"
+import Right from "../../static/right.svg"
 
 type DataProps = {
   site: {
@@ -31,18 +30,18 @@ type DataProps = {
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  const isDark = useMediaPredicate("(prefers-color-scheme: dark)")
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo />
       <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
-        <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-banner">
-          {isDark ? <BannerDark /> : <Banner />}
+        <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 w-52 tablet:w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />
         </div>
       </div>
       <h1
-        className="text-gray-900 dark:text-gray-300 font-bold text-4xl  tk-neue-haas-grotesk-display uppercase">Latest Stuff</h1>
+        className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase">Latest
+        Stuff</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -75,7 +74,10 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 </section>
                 <Link to={post.fields.slug} itemProp="url"
                       className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
-                  Read Post <strong>&#8594;</strong>
+                  Read Post<span className="inline-block transform translate-y-1">
+                  <Right className="fill-current text-blue-600 dark:text-blue-400"
+                         width="21"
+                         height="18" /></span>
                 </Link>
               </article>
             </li>

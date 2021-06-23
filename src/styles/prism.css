@@ -292,7 +292,7 @@ code[class*="language-css"] {
     pre[class*="language-"] *::selection,
     code[class*="language-"] *::selection {
         text-shadow: none;
-        background: #75a7ca;
+        background: #454545;
     }
 
     @media print {

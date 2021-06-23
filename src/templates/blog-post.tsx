@@ -4,10 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
-
-import Python from "../../static/icons/python.svg"
-import Django from "../../static/icons/django.svg"
-import Web from "../../static/icons/web.svg"
+import Icons from "../components/icons"
 
 type DataProps = {
   site: {
@@ -40,16 +37,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
   const authorName = data.site.siteMetadata?.author.name
   const github = data.site.siteMetadata.social?.github
   const siteTitle = data.site.siteMetadata?.title || `Title`
-
-  interface allIcons {
-    [name: string]: object
-  }
-
-  const allIcons: allIcons = {
-    "python": <Python />,
-    "django": <Django />,
-    "web": <Web />
-  }
 
   // Used for https://utteranc.es/
   // https://creativcoder.dev/how-to-add-github-utterances-blog
@@ -89,9 +76,10 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         <header>
           {post.frontmatter.icons &&
           <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
-            <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 hero-icons">
-              {post.frontmatter.icons.map(icon => {
-                return allIcons[icon]
+            <div
+              className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              {post.frontmatter.icons.slice(0, 3).map(icon => {
+                return Icons[icon]
               })}
             </div>
           </div>
@@ -102,7 +90,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
             {post.frontmatter.title}
           </h1>
           {post.frontmatter.date &&
-          <p
+          <div
             className="text-gray-400 dark:text-gray-500 mt-2 mb-2">
             <span>
               <a href={`https://github.com/${github || ``}`}>
@@ -125,7 +113,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
             <span>
               {post.frontmatter.date}
             </span>
-          </p>
+          </div>
           }
         </header>
         <section

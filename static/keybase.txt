@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/ceiphr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.ceiphr.com
+  * I am ceiphr (https://keybase.io/ceiphr) on keybase.
+  * I have a public key with fingerprint 0EBE C415 386C 019E E744  63F4 F057 8AAF 3218 EA3A
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01016fdae09f5bdf537a35f7a9d1a920998a6fdb3b415008a5c4a4f09ad58f5258a40a",
+      "fingerprint": "0ebec415386c019ee74463f4f0578aaf3218ea3a",
+      "host": "keybase.io",
+      "key_id": "f0578aaf3218ea3a",
+      "kid": "01016fdae09f5bdf537a35f7a9d1a920998a6fdb3b415008a5c4a4f09ad58f5258a40a",
+      "uid": "57424693474525d096f18a06a175bb19",
+      "username": "ceiphr"
+    },
+    "service": {
+      "hostname": "www.ceiphr.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1591746487,
+  "expire_in": 157680000,
+  "prev": "29598205a71ea1f554684a64623163d118accc1093b6807e9cbbdf60b3154f48",
+  "seqno": 95,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMIlAnicrVJbSBRRGN5V09QyQ9oMBHMCIZJtzs45M3O2DEoqjMLKQIRoOzNzRgdz
+Z50dtbSV0IfIAoNojZCCLhKStwR76qKGJN0IBXvIMC0iCRMJyzTqjNVbj52Xw/m/
+y/n+n//RylhXknumqLHTlz7ldz/pu1TpOjKeebeWU0ztBOev5cro0kWPaTRsB8oM
+jfNzPOCBqGuE8lhHiqYjQSIC0iWCNUCwj8dYJgxXBAUCxPMyQSokUOcx0ZCsIx+S
+CeQJl8PpRrCEWiHLCNqOLVWoyhSCLKo8wJRKEIqCzoRIkgnRBR+QKREcYakZdhQs
+nELC1GuYrMYegaV4/+D/59yVS3ZIgj4oYgFKkGEaj0UdyIQXCZCQogDsEMPUCpJy
+ytgqNUKlFhfJ4VitylCpM1anjz94dXW19zfHq5rlTBuyTNtUzWMMK7XtUNjvaO0T
+oSUyVQJ/bAKKEdTYHJmiilphwwxyfsCYqm04vgBhIEERylIOR4+HDIsGDIeBJFHm
+2XH+oVXM0ocRln08IhKgBOgIQVGGRISiTwCioAHWmqqqgMeCwpQSxarCRijyigAQ
+1KHMOY1VBE3OjxHLSUqYZ9goCRK70qJcpP/h4TiXO8kVvyzGWTBXUmLq37Vrnk74
+WRnNl/bvbomeXiY/js04073nw+LeU20fn9W/bIg0FU5sjF6+VZFptu/b87nxa2R4
+5/j3yeauM5/cUzXzdLtd3J2Y1JY2eSfrypbl5N7To71ry9WrFbpnwbt+kivKjx+M
+ym+Kv6wZuFk1myVe+DAx2DKX0IzmbgxNl7Wt12Y3j0XgTMKq8WfHq8/dtt7VJL/G
+G+p7F9ufrxvd9Za/H78VpE2v+JHneREN0Nzc+fTzBzOaLkbyhnKjncP9m/pHvo0m
+r3yVua32ZHbHwg7jYvblkbqsB9dPr57I9xQciisam1iTEj9ZcO19n6ewroE09Qy0
+KBUZPZ6zHSmzqQe6OlbUtLbG/ALegEFr
+=R083
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ceiphr
+
+==================================================================

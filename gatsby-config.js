@@ -16,6 +16,7 @@ module.exports = {
     }
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-react-svg`,
@@ -113,6 +114,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: {unlisted: {ne: true}}}
                 ) {
                   nodes {
                     excerpt
@@ -139,11 +141,11 @@ module.exports = {
         name: `Ceiphr`,
         short_name: `Ceiphr`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
         include_favicon: false,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/ari.png` // This path is relative to the root of the site.
       }
     },
     `gatsby-plugin-react-helmet`,

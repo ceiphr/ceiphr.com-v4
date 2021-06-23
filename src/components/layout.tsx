@@ -1,8 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { useMediaPredicate } from "react-media-hook"
-import Logo from "../../static/logo-black.svg"
-import DarkLogo from "../../static/logo-white.svg"
+import Logo from "../../static/logo.svg"
 
 type DataProps = {
   children: any
@@ -11,22 +9,14 @@ type DataProps = {
 }
 
 const Layout: React.FC<DataProps> = ({ location, title, children }) => {
-  const isDark = useMediaPredicate("(prefers-color-scheme: dark)")
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header = (
-    <Link to="/">{isDark ? (
-      <DarkLogo alt="Ceiphr" width="32" height="32" />
-    ) : (
-      <Logo alt="Ceiphr" width="32" height="32" />
-    )}</Link>
-  )
 
   return (
     <div className="container max-w-2xl mx-auto p-4 tk-roboto" data-is-root-path={isRootPath}>
       <header className="pb-6">
         <nav className="flex justify-between">
-          {header}
+          <Link to="/"><Logo alt="Ari" width="32" height="32" className="fill-current text-gray-900 dark:text-gray-300" /></Link>
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
             <li className="pr-5"><Link className="inline-block pt-1" to="/about">About</Link></li>
             <li className="pr-5"><a className="inline-block pt-1" href="https://www.paypal.me/ceiphr">Donate</a></li>
