@@ -38,7 +38,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
   const github = data.site.siteMetadata.social?.github
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
-  // Used for https://utteranc.es/
+  // Used for https://giscus.app/
   // https://creativcoder.dev/how-to-add-github-utterances-blog
   const commentBox = React.createRef<HTMLInputElement>()
 
@@ -56,8 +56,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
     scriptEl.setAttribute("crossorigin", "anonymous")
     if (commentBox && commentBox.current) {
       commentBox.current.appendChild(scriptEl)
-    } else {
-      console.log(`Error adding utterances comments on: ${commentBox}`)
     }
   }, [])
 
