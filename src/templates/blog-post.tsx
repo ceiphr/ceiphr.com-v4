@@ -45,6 +45,14 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        meta={[{
+          name: `og:image`,
+          content: `https://og.ceiphr.com/${post.frontmatter.title}?fontSize=110px${
+            post.frontmatter.icons.slice(0, 3).map(icon =>
+              `&images=https://www.ceiphr.com/icons/${icon}.svg`
+            ).join("")
+          }`
+        }]}
       />
       <article
         itemScope

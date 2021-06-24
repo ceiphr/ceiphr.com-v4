@@ -70,7 +70,7 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary_large_image`
         },
         {
           name: `twitter:creator`,

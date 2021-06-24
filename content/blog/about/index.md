@@ -22,16 +22,10 @@ pretty well (20k viewership a month).
 My website is really intended for writing, but I might put some other stuff on here. I don't really know yet.
 Regardless, let's discuss the technical aspects of this site.
 
-It's a Gatsby site. Hosted on Cloudflare pages ([ceiphr.pages.dev](https://ceiphr.pages.dev)). Tailwind CSS styles
+It's a Gatsby site. Hosted on Vercel ([ceiphr.vercel.app/](https://ceiphr.vercel.app/)). Tailwind CSS styles
 *almost* the entire site. There are those edge cases where it's inconvenient/clunky to use.
 
 Of course, I'm using TypeScript. I'm not a JavaScript masochist.
-
-I love open source, but I'm not open sourcing this site.
-
-Given that this is a server side rendered project, it would take someone with zero knowledge of web development maybe
-two minutes to copy everything on here and claim it as their own. In many cases that is alright. But when I imagine
-a situation where someone copies my entire site and its posts, I feel bad.
 
 ## Contact
 

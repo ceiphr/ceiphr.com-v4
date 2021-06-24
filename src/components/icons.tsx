@@ -1,24 +1,24 @@
 import * as React from "react"
-import Ae from "../../static/icons/adobe-after-effects.svg"
-import Ai from "../../static/icons/adobe-illustrator.svg"
-import Ps from "../../static/icons/adobe-photoshop.svg"
-import Android from "../../static/icons/android.svg"
-import AndroidOS from "../../static/icons/android-os.svg"
+import Ae from "../../static/icons/ae.svg"
+import Ai from "../../static/icons/ai.svg"
+import Ps from "../../static/icons/ps.svg"
+import Android from "../../static/icons/phone.svg"
+import AndroidOS from "../../static/icons/android.svg"
 import API from "../../static/icons/api.svg"
 import Borderlands from "../../static/icons/borderlands.svg"
 import Console from "../../static/icons/console.svg"
-import CSS from "../../static/icons/css3.svg"
+import CSS from "../../static/icons/css.svg"
 import Django from "../../static/icons/django.svg"
 import Gatsby from "../../static/icons/gatsby.svg"
-import IDEA from "../../static/icons/intellij-idea.svg"
-import IOS from "../../static/icons/ios-logo.svg"
-import Java from "../../static/icons/java-file.svg"
-import JavaScript from "../../static/icons/javascript-logo.svg"
-import LeagueOfLegends from "../../static/icons/league-of-legends.svg"
+import IDEA from "../../static/icons/idea.svg"
+import IOS from "../../static/icons/ios.svg"
+import Java from "../../static/icons/java.svg"
+import JavaScript from "../../static/icons/javascript.svg"
+import LeagueOfLegends from "../../static/icons/leagueoflegends.svg"
 import Map from "../../static/icons/map.svg"
-import Script from "../../static/icons/property-script.svg"
+import Script from "../../static/icons/script.svg"
 import Python from "../../static/icons/python.svg"
-import ReactSVG from "../../static/icons/react-native.svg"
+import ReactSVG from "../../static/icons/reactn.svg"
 import Safari from "../../static/icons/safari.svg"
 import Server from "../../static/icons/server.svg"
 import TypeScript from "../../static/icons/typescript.svg"
@@ -50,7 +50,7 @@ const Icons: allIcons = {
   "map": <Map className={iconClasses} key="Map" />,
   "script": <Script className={iconClasses} key="Script" />,
   "python": <Python className={iconClasses} key="Python" />,
-  "react": <ReactSVG className={iconClasses} key="ReactSVG" />,
+  "reactn": <ReactSVG className={iconClasses} key="ReactSVG" />,
   "safari": <Safari className={iconClasses} key="Safari" />,
   "server": <Server className={iconClasses} key="Server" />,
   "typescript": <TypeScript className={iconClasses} key="TypeScript" />,
