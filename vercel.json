@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Referrer-Policy": "no-referrer-when-downgrade",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "Feature-Policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'",
+        "Cache-Control": "s-maxage=1, stale-while-revalidate"
+      },
+      "continue": true
+    },
+    {
+      "src": "/rss.xml",
+      "headers": {
+        "content-type": "application/rss+xml; charset=UTF-8"
+      }
+    },
+    {
+      "src": "/rss",
+      "headers": {
+        "content-type": "application/rss+xml; charset=UTF-8"
+      },
+      "dest": "/rss.xml"
+    },
+    {
+      "src": "/sitemap.xml",
+      "headers": {
+        "content-type": "application/xml; charset=UTF-8"
+      },
+      "dest": "/sitemap-index.xml"
+    },
+    {
+      "src": "/sitemap",
+      "headers": {
+        "content-type": "application/xml; charset=UTF-8"
+      },
+      "dest": "/sitemap-index.xml"
+    },
+    {
+      "src": "/blog/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/$1"
+      }
+    }
+  ]
+}
