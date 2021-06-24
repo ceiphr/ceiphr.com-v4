@@ -12,15 +12,34 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
+  // https://asciiart.club/
+  console.log(
+    "             .,»╓▄▄▄▄▄▄¿:,.\n" +
+    "          .;▄██████████████▄¿.\n" +
+    "        ,╓████████████████████▄:\n" +
+    "       .▓███████████████████████¿\n" +
+    "      .████████████  ║███████████@\n" +
+    "     »████████████████████████████»\n" +
+    "     »████████▌  ██  ║████████████M\n" +
+    "     »████████▌  ██  ║█▀ ▀████████M\n" +
+    "     »█████████▄████▄███▄█████████`\n" +
+    "     `╙███████▌  ██  ██  ║███████▀`\n" +
+    "      `╙████████████████████████▀`\n" +
+    "       ``▀████████████████████▀``\n" +
+    "         ``╙▀██████████████▀▀``\n" +
+    "            ```╙▀▀▀▀▀▀▀▀╙````\n" +
+    "                 ``````")
+  console.log("%cThank you for visiting!", "font-size:18px");
+
   return (
     <div className="container max-w-2xl mx-auto p-4 tk-roboto" data-is-root-path={isRootPath}>
       <header className="pb-6">
         <nav className="flex justify-between">
           <Link to="/"><Logo alt="Ari" width="32" height="32" className="fill-current text-gray-900 dark:text-gray-300" /></Link>
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
-            <li className="pr-5"><Link className="inline-block pt-1 hover:underline" to="/about/">About</Link></li>
-            <li className="pr-5"><a className="inline-block pt-1 hover:underline" href="https://www.paypal.me/ceiphr">Donate</a></li>
-            <li><a className="inline-block pt-1 hover:underline" href="https://github.com/ceiphr/">GitHub</a></li>
+            <li className="pr-5"><Link className="inline-block mt-1 hover:underline" to="/about/">About</Link></li>
+            <li className="pr-5"><a className="inline-block mt-1 hover:underline" href="https://www.paypal.me/ceiphr">Donate</a></li>
+            <li><a className="inline-block mt-1 hover:underline" href="https://github.com/ceiphr/">GitHub</a></li>
           </ul>
         </nav>
       </header>

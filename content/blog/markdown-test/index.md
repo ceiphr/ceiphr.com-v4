@@ -2,7 +2,7 @@
 title: Markdown Test
 date: "2021-06-22T22:12:03.284Z"
 icons: ["leagueoflegends", "gatsby", "ae"]
-description: "This is the online markdown editor with live preview."
+description: "Test document. Not for public purposes. Disregard."
 unlisted: true
 ---
 
@@ -57,27 +57,13 @@ Text right below table. Follows is a table with an empty cell, and unaligned ind
 
 Empty line between table and this text
 
-    def this_is
-      puts "some #{4-space-indent} code"
-    end
-
-<code>
-def this_is
-  puts "some #{code tag} code"
-end
-</code>
-
-<pre>
-def this_is
-  puts "some #{pre tag} code"
-end
-</pre>
-
 ```
 def this_is
   puts "some #{fenced} code"
 end
 ```
+
+No lang.
 
 ```ruby
 class Classy
@@ -88,11 +74,15 @@ class Classy
 end
 ```
 
+Ruby.
+
 ```javascript
 var test = function this_is(){
   console.log("some" + colored + "javascript code with javascript syntax highlighting really long");
 }
 ```
+
+Javascript.
 
 ```clojure
 (defproject myproject "0.5.0-SNAPSHOT"
@@ -101,11 +91,15 @@ var test = function this_is(){
   :plugins [[lein-tar "3.2.0"]])
 ```
 
+Clojure.
+
 ```js
 var test = function this_is(){
   console.log("language declared as 'js' instead");
 }
 ```
+
+JS.
 
 ```bogus_language
 var test = function this_is(){
@@ -113,6 +107,6 @@ var test = function this_is(){
 }
 ```
 
-> here is blockquote
+Fake lang.
 
-[Relative image link](afu.png)
+> here is blockquote
