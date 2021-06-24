@@ -12,25 +12,6 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
-  // https://asciiart.club/
-  console.log(
-    "             .,»╓▄▄▄▄▄▄¿:,.\n" +
-    "          .;▄██████████████▄¿.\n" +
-    "        ,╓████████████████████▄:\n" +
-    "       .▓███████████████████████¿\n" +
-    "      .████████████  ║███████████@\n" +
-    "     »████████████████████████████»\n" +
-    "     »████████▌  ██  ║████████████M\n" +
-    "     »████████▌  ██  ║█▀ ▀████████M\n" +
-    "     »█████████▄████▄███▄█████████`\n" +
-    "     `╙███████▌  ██  ██  ║███████▀`\n" +
-    "      `╙████████████████████████▀`\n" +
-    "       ``▀████████████████████▀``\n" +
-    "         ``╙▀██████████████▀▀``\n" +
-    "            ```╙▀▀▀▀▀▀▀▀╙````\n" +
-    "                 ``````")
-  console.log("%cThank you for visiting!", "font-size:18px");
-
   return (
     <div className="container max-w-2xl mx-auto p-4 tk-roboto" data-is-root-path={isRootPath}>
       <header className="pb-6">
