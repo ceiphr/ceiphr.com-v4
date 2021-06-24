@@ -186,6 +186,13 @@ module.exports = {
           `/markdown-test/`
         ]
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-vercel",
+      options: {
+        // (optional) Prints metrics in the console when true
+        debug: false,
+      },
+    },
   ]
 }
