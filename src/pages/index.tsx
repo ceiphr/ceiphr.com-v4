@@ -7,8 +7,6 @@ import VideoTheme from "../components/video-theme"
 
 import Banner from "../../static/banner.svg"
 import Right from "../../static/right.svg"
-import Background from "../../static/videos/dark.webm"
-import BackgroundDark from "../../static/videos/light.webm"
 
 type DataProps = {
   site: {
@@ -44,7 +42,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
       }]}
       />
       <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-        {typeof window !== "undefined" && VideoTheme(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background)}
+        <VideoTheme />
         <div
           className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />
