@@ -4,7 +4,7 @@ import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
 function VideoTheme() {
-  if (typeof window === "undefined")
+  if (typeof window === "undefined" || !window.matchMedia)
     return (<></>)
 
   const [mQuery, setMQuery] = React.useState<any>({
@@ -15,7 +15,7 @@ function VideoTheme() {
   const previousUrl = React.useRef(mQuery)
 
   React.useEffect(() => {
-    let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)") //window.matchMedia &&
+    let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     mediaQuery.addEventListener("change", (e) => {
       e.matches ? setMQuery(BackgroundDark) : setMQuery(Background)
     })

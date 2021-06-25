@@ -25,4 +25,5 @@ console.log(
   "         ``╙▀██████████████▀▀``\n" +
   "            ```╙▀▀▀▀▀▀▀▀╙````\n" +
   "                 ``````")
-console.log("%cThank you for visiting!", "font-size:18px");
+console.log("I talk about the technologies behind this site here:");
+console.log("https://www.ceiphr.com/about/");
