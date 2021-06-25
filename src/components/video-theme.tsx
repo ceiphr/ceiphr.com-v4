@@ -1,24 +1,19 @@
 import * as React from "react"
 
 function VideoTheme(url: string) {
-  const videoRef = React.useRef()
+  const videoRef = React.useRef() as any
   const previousUrl = React.useRef(url)
 
   React.useEffect(() => {
-    if (previousUrl.current === url) {
+    if (previousUrl.current === url)
       return
-    }
-
-    if (typeof videoRef.current !== "undefined") {
-      // @ts-ignore
+    if (typeof videoRef.current !== "undefined")
       videoRef.current.load()
-    }
 
     previousUrl.current = url
   }, [url])
 
   return (
-    // @ts-ignore
     <video ref={videoRef} loop autoPlay muted className="object-cover h-full w-full"
            src={url} />
   )
