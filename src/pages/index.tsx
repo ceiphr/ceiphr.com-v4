@@ -1,15 +1,20 @@
 import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
+import { useMediaPredicate } from "react-media-hook"
+
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import Banner from "../../static/banner.svg"
 import Right from "../../static/right.svg"
+import BackgroundWeb from "../../static/videos/dark.webm"
+import BackgroundDarkWeb from "../../static/videos/light.webm"
 
 type DataProps = {
   site: {
     siteMetadata: {
       title: string
+      siteUrl: string
     }
   }
   allMarkdownRemark: {
@@ -33,9 +38,18 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo />
-      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300">
-        <div className="relative max-w-sm text-center text-gray-300 dark:text-gray-900 w-52 tablet:w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <Seo meta={[{
+        name: `og:image`,
+        content: `${data.site.siteMetadata.siteUrl}/og.jpg`
+      }]}
+      />
+      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
+        <video loop autoPlay muted className="object-cover h-full w-full">
+          <source src={useMediaPredicate("(prefers-color-scheme: dark)") ? BackgroundDarkWeb : BackgroundWeb}
+                  type="video/webm" />
+        </video>
+        <div
+          className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />
         </div>
       </div>
@@ -49,36 +63,36 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
           return (
             <li key={post.fields.slug} className="pt-4">
               <Link to={post.fields.slug} itemProp="url">
-              <article
-                itemScope
-                itemType="https://schema.org/Article"
-              >
-                <header>
-                  <h2 className="-mb-1">
+                <article
+                  itemScope
+                  itemType="https://schema.org/Article"
+                >
+                  <header>
+                    <h2 className="-mb-1">
                       <span className="text-gray-900 dark:text-gray-300 text-xl font-bold"
                             itemProp="headline">{title}</span>
-                  </h2>
-                  <span
-                    className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">{post.frontmatter.date}
+                    </h2>
+                    <span
+                      className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">{post.frontmatter.date}
                   </span>
-                </header>
-                <section>
+                  </header>
+                  <section>
+                    <p
+                      className="text-gray-600 dark:text-gray-400 mb-1"
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description || post.excerpt
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
                   <p
-                    className="text-gray-600 dark:text-gray-400 mb-1"
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-                <p
-                      className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
-                  Read Post<span className="inline-block transform translate-y-1">
+                    className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
+                    Read Post<span className="inline-block transform translate-y-1">
                   <Right className="fill-current text-blue-600 dark:text-blue-400"
                          width="21"
                          height="18" /></span>
-                </p>
-              </article>
+                  </p>
+                </article>
               </Link>
             </li>
           )
@@ -95,6 +109,7 @@ export const pageQuery = graphql`
         site {
             siteMetadata {
                 title
+                siteUrl
             }
         }
         allMarkdownRemark(

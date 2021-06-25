@@ -1,6 +1,6 @@
 ---
-title: About 
-unlisted: true 
+title: About
+unlisted: true
 comments: false
 ---
 My name is Ari. I am a twenty-something studying Computer Science at Stevens Institute of Technology.
@@ -37,6 +37,5 @@ If I fucked up something in an article, either email me or comment on the post. 
 
 Just kidding, I will.
 
-*P.S. If you think I should go to prison for crimes again humanity, here is my mugshot (double chin, included):*
-
-![Ari Birnbaum](ari-birnbaum.png)
+*P.S. If you think I should go to prison for crimes again
+humanity, [here is my mugshot (double chin, included)](/ari-birnbaum.png)*
