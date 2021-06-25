@@ -66,10 +66,8 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         <header>
           {post.frontmatter.icons &&
           <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-            <video loop autoPlay muted className="object-cover h-full w-full">
-              <source src={useMediaPredicate("(prefers-color-scheme: dark)") ? BackgroundDarkWeb : BackgroundWeb}
-                      type="video/webm" />
-            </video>
+            <video loop autoPlay muted className="object-cover h-full w-full"
+                   src={useMediaPredicate("(prefers-color-scheme: dark)") ? BackgroundDarkWeb : BackgroundWeb} />
             <div
               className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               {post.frontmatter.icons.slice(0, 3).map(icon => {
