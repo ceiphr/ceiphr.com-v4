@@ -1,14 +1,14 @@
 import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
-import { useMediaPredicate } from "react-media-hook"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import VideoTheme from "../components/video-theme"
 
 import Banner from "../../static/banner.svg"
 import Right from "../../static/right.svg"
-import BackgroundWeb from "../../static/videos/dark.webm"
-import BackgroundDarkWeb from "../../static/videos/light.webm"
+import Background from "../../static/videos/dark.webm"
+import BackgroundDark from "../../static/videos/light.webm"
 
 type DataProps = {
   site: {
@@ -44,10 +44,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
       }]}
       />
       <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-        <video loop autoPlay muted className="object-cover h-full w-full">
-          <source src={useMediaPredicate("(prefers-color-scheme: dark)") ? BackgroundDarkWeb : BackgroundWeb}
-                  type="video/webm" />
-        </video>
+        {typeof window !== "undefined" && VideoTheme(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background)}
         <div
           className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />

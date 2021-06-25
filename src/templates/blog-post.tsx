@@ -1,15 +1,15 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { useMediaPredicate } from "react-media-hook"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
+import VideoTheme from "../components/video-theme"
 import Icons from "../components/icons"
 
-import BackgroundWeb from "../../static/videos/dark.webm"
-import BackgroundDarkWeb from "../../static/videos/light.webm"
+import Background from "../../static/videos/dark.webm"
+import BackgroundDark from "../../static/videos/light.webm"
 
 type DataProps = {
   site: {
@@ -66,8 +66,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         <header>
           {post.frontmatter.icons &&
           <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-            <video loop autoPlay muted className="object-cover h-full w-full"
-                   src={useMediaPredicate("(prefers-color-scheme: dark)") ? BackgroundDarkWeb : BackgroundWeb} />
+            {typeof window !== "undefined" && VideoTheme(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background)}
             <div
               className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               {post.frontmatter.icons.slice(0, 3).map(icon => {
