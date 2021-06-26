@@ -9,6 +9,11 @@ html, body {
     overflow-x: hidden !important;
 }
 
+.safari-overflow-hidden {
+    /*noinspection CssInvalidPropertyValue*/
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
 .gatsby-resp-image-wrapper {
     margin-left: 0 !important;
     margin-right: 0 !important;

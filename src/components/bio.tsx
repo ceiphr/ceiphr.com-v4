@@ -31,9 +31,9 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
+    <div className="bio pt-4 pb-2">
       <StaticImage
-        className="float-left mr-2 rounded-full"
+        className="float-left mr-4 rounded-full safari-overflow-hidden"
         layout="fixed"
         // TODO Fix this type issue.
         // @ts-ignore
@@ -41,14 +41,14 @@ const Bio = () => {
         src="../images/profile-pic.png"
         width={50}
         height={50}
-        quality={95}
+        quality={96}
         alt="Profile picture"
       />
       {author?.name && (
         <p className="text-gray-600 dark:text-gray-400">
           Written by <strong>{author.name}</strong>{author?.summary || null}
           {` `}
-          <a href={`https://github.com/${social?.github || ``}`}>
+          Check out my <a className="hover:underline" href={`https://github.com/${social?.github || ``}`}>
             GitHub
           </a>.
         </p>

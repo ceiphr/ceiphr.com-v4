@@ -82,7 +82,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
       >
         <header>
           {post.frontmatter.icons &&
-          <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
+          <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
             {(safari || IOS) ? <ImageTheme /> : <VideoTheme />}
             <div
               className={`relative max-w-sm text-center -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
@@ -103,7 +103,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
             <span>
               <a href={`https://github.com/${github || ``}`} className="hover:underline">
                 <StaticImage
-                  className="float-left mr-2 inline-block rounded-full"
+                  className="float-left mr-2 inline-block rounded-full safari-overflow-hidden"
                   placeholder="blurred"
                   layout="fixed"
                   // @ts-ignore

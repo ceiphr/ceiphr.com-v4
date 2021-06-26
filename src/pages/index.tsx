@@ -4,6 +4,7 @@ import { isIOS, isSafari } from "react-device-detect"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Bio from "../components/bio"
 import VideoTheme from "../components/video-theme"
 import ImageTheme from "../components/image-theme"
 
@@ -64,7 +65,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
         content: `${data.site.siteMetadata.siteUrl}/og.jpg`
       }]}
       />
-      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
+      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
         {(safari || IOS) ? <ImageTheme /> : <VideoTheme />}
         <div
           className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -121,6 +122,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
           )
         })}
       </ol>
+      {/*<Bio/>*/}
     </Layout>
   )
 }
