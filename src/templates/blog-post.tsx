@@ -1,11 +1,13 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { isIOS, isSafari } from "react-device-detect"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
 import VideoTheme from "../components/video-theme"
+import ImageTheme from "../components/image-theme"
 import Icons from "../components/icons"
 
 type DataProps = {
@@ -43,6 +45,20 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
 
   if (post.frontmatter.comments === null) post.frontmatter.comments = true
 
+  const [safari, setSafari] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setSafari(isSafari)
+  }, [setSafari])
+
+  const [IOS, setIOS] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setIOS(isIOS)
+  }, [setIOS])
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -67,9 +83,9 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         <header>
           {post.frontmatter.icons &&
           <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-            <VideoTheme />
+            {(safari || IOS) ? <ImageTheme /> : <VideoTheme />}
             <div
-              className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              className={`relative max-w-sm text-center -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
               {post.frontmatter.icons.slice(0, 3).map(icon => {
                 return Icons[icon]
               })}
@@ -90,7 +106,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
                   className="float-left mr-2 inline-block rounded-full"
                   placeholder="blurred"
                   layout="fixed"
-                  // TODO Fix this type issue.
                   // @ts-ignore
                   formats={["AUTO", "WEBP", "AVIF"]}
                   src="../images/profile-pic.png"

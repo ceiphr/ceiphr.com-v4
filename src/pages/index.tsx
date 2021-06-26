@@ -1,9 +1,11 @@
 import * as React from "react"
 import { graphql, Link, PageProps } from "gatsby"
+import { isIOS, isSafari } from "react-device-detect"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import VideoTheme from "../components/video-theme"
+import ImageTheme from "../components/image-theme"
 
 import Banner from "../../static/banner.svg"
 import Right from "../../static/right.svg"
@@ -39,6 +41,20 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
+  const [safari, setSafari] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setSafari(isSafari)
+  }, [setSafari])
+
+  const [IOS, setIOS] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setIOS(isIOS)
+  }, [setIOS])
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -49,7 +65,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
       }]}
       />
       <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden">
-        <VideoTheme />
+        {(safari || IOS) ? <ImageTheme /> : <VideoTheme />}
         <div
           className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />

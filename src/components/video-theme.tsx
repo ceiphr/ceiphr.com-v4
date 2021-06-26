@@ -1,4 +1,5 @@
 import * as React from "react"
+import { isIOS, isSafari } from "react-device-detect"
 
 import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
@@ -6,6 +7,20 @@ import BackgroundDark from "../../static/videos/light.webm"
 function VideoTheme() {
   if (typeof window === "undefined" || !window.matchMedia)
     return (<></>)
+
+  const [safari, setSafari] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setSafari(isSafari)
+  }, [setSafari])
+
+  const [IOS, setIOS] = React.useState()
+
+  React.useEffect(() => {
+    // @ts-ignore
+    setIOS(isIOS)
+  }, [setIOS])
 
   const [mQuery, setMQuery] = React.useState<any>({
     matches: window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background
@@ -23,11 +38,13 @@ function VideoTheme() {
 
     if (previousUrl.current === mQuery)
       return
-    if (typeof videoRef.current !== "undefined")
+    if (typeof videoRef.current !== "undefined" && videoRef.current)
       videoRef.current.load()
 
     previousUrl.current = mQuery
   }, [mQuery])
+
+  if (safari || IOS) return (<></>)
 
   return (
     <>
