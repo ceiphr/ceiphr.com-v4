@@ -424,10 +424,6 @@ Follow [this tutorial by DigitalOcean](https://www.digitalocean.com/community/tu
 so you can learn how to host your Django creations for the world to see. If you want to host with
 DigitalOcean, [use my referral link for a discount](https://m.do.co/c/b95c2a8a5568).
 
-Article cover photo
-by [Fabian Grohs](https://unsplash.com/@grohsfabian?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-on [Unsplash](https://unsplash.com/@ceiphr/likes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
-
 _Edit: Renamed classes to adhere to PEP 8 and renamed database app to blog._
 
 _Edit: Fixed `return context`, `settings.py` template directory issue and references to blog models._ Thank you, Chris

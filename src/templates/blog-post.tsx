@@ -9,6 +9,7 @@ import Comment from "../components/comment"
 import VideoTheme from "../components/video-theme"
 import ImageTheme from "../components/image-theme"
 import Icons from "../components/icons"
+import { useMediaPredicate } from "react-media-hook"
 
 type DataProps = {
   site: {
@@ -42,6 +43,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
   const authorName = data.site.siteMetadata?.author.name
   const github = data.site.siteMetadata.social?.github
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const prefersReduced = useMediaPredicate("(prefers-reduced-motion: reduce)")
 
   if (post.frontmatter.comments === null) post.frontmatter.comments = true
 
@@ -83,7 +85,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
         <header>
           {post.frontmatter.icons &&
           <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
-            {(safari || IOS) ? <ImageTheme /> : <VideoTheme />}
+            {(prefersReduced || safari || IOS) ? <ImageTheme /> : <VideoTheme />}
             <div
               className={`relative max-w-sm text-center -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
               {post.frontmatter.icons.slice(0, 3).map(icon => {

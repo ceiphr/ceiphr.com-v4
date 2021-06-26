@@ -1,7 +1,10 @@
+require("dotenv").config()
+
+const isProduction = process.env.NODE_ENV === `production`
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: "jit",
+  mode: !isProduction ? "jit" : "",
   purge: [
     "./public/**/*.html",
     "./src/**/*.{js,jsx,ts,tsx,vue}"

@@ -10,8 +10,6 @@ const imageTheme = () => {
       // @ts-ignore
       formats={["AUTO", "WEBP", "AVIF"]}
       src="../images/light.jpg"
-      width={720}
-      height={405}
       quality={95}
       alt="Background Image"
     /></>)
@@ -24,8 +22,6 @@ const imageTheme = () => {
         // @ts-ignore
         formats={["AUTO", "WEBP", "AVIF"]}
         src="../images/dark.jpg"
-        width={720}
-        height={405}
         quality={95}
         alt="Background Image"
       />

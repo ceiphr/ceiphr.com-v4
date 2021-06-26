@@ -1,5 +1,7 @@
 require("dotenv").config()
 
+const isProduction = process.env.NODE_ENV === `production`
+
 module.exports = {
   siteMetadata: {
     title: `Ceiphr`,
@@ -29,7 +31,7 @@ module.exports = {
       resolve: `gatsby-plugin-simple-analytics`,
       options: {
         domain: `sa.ceiphr.com`,
-        trackPageViews: true
+        trackPageViews: isProduction
       }
     },
     `gatsby-plugin-image`,
@@ -153,7 +155,15 @@ module.exports = {
       options: {
         mode: `async`,
         enableListener: true,
-        preconnect: [`https://fonts.gstatic.com`, `https://use.typekit.net`],
+        preconnect: [`https://use.typekit.net`],
+        custom: [
+          {
+            /* Exact name of the font as defied in @font-face CSS rule */
+            name: [`Fira Code`, `Fira Code VF`],
+            /* Path to the font CSS file inside the "static" folder with @font-face definition */
+            file: `/fonts/fira_code/fira_code.css`
+          }
+        ],
         web: [
           {
             name: `roboto`,
@@ -162,10 +172,6 @@ module.exports = {
           {
             name: `neue-haas-grotesk-display`,
             file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`
-          },
-          {
-            name: `Fira Code`,
-            file: `https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap`
           }
         ]
       }
@@ -174,7 +180,7 @@ module.exports = {
     {
       resolve: "@sentry/gatsby",
       options: {
-        dsn: process.env.SENTRY_DSN, // this is the default
+        dsn: isProduction && process.env.SENTRY_DSN,
         ignoreErrors: ["ChunkLoadError"]
       }
     },
@@ -183,7 +189,6 @@ module.exports = {
       options: {
         output: `/`,
         excludes: [
-          `/markdown-test/`,
           `/how-to-display-data-from-the-digitalocean-api-with-django/`,
           `/how-to-harden-your-production-django-project/`
         ]
@@ -193,8 +198,8 @@ module.exports = {
       resolve: "gatsby-plugin-vercel",
       options: {
         // (optional) Prints metrics in the console when true
-        debug: false,
-      },
-    },
+        debug: !isProduction
+      }
+    }
   ]
 }

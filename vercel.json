@@ -1,39 +1,28 @@
 {
   "version": 2,
-  "routes": [
+  "redirects": [
     {
-      "src": "/rss.xml",
-      "headers": {
-        "content-type": "application/rss+xml; charset=UTF-8"
-      }
+      "source": "/rss",
+      "destination": "/rss.xml"
     },
     {
-      "src": "/rss",
-      "headers": {
-        "content-type": "application/rss+xml; charset=UTF-8"
-      },
-      "dest": "/rss.xml"
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml"
     },
     {
-      "src": "/sitemap.xml",
-      "headers": {
-        "content-type": "application/xml; charset=UTF-8"
-      },
-      "dest": "/sitemap-index.xml"
+      "source": "/blog/:path(.*)",
+      "destination": "/:path",
+      "permanent": false
     },
     {
-      "src": "/sitemap",
-      "headers": {
-        "content-type": "application/xml; charset=UTF-8"
-      },
-      "dest": "/sitemap-index.xml"
+      "source": "/how-to-harden-your-production-django-project",
+      "destination": "https://www.digitalocean.com/community/tutorials/how-to-harden-your-production-django-project",
+      "permanent": true
     },
     {
-      "src": "/blog/(.*)",
-      "status": 301,
-      "headers": {
-        "Location": "/$1"
-      }
+      "source": "/how-to-display-data-from-the-digitalocean-api-with-django",
+      "destination": "https://www.digitalocean.com/community/tutorials/how-to-harden-your-production-django-project",
+      "permanent": true
     }
   ],
   "github": {

@@ -14,7 +14,7 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
 
   return (
     <div className="container max-w-2xl mx-auto p-6 tk-roboto" data-is-root-path={isRootPath}>
-      <header className="pb-6">
+      <header className="mb-6">
         <nav className="flex justify-between">
           <Link to="/"><p className="sr-only">Homepage</p><Logo alt="Ari" width="32" height="32" className="fill-current text-gray-900 dark:text-gray-300" /></Link>
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
@@ -26,7 +26,7 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
       </header>
       <main>{children}</main>
       <footer
-        className="mt-4 pt-6 border-t-2 border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500">
+        className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500">
         <p>© 2021 Ari Birnbaum.{" "}
           <span className="float-right"><a className="hover:underline"
             href="https://www.iubenda.com/privacy-policy/18781590/legal">Privacy</a></span>

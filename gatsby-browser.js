@@ -25,5 +25,4 @@ console.log(
   "         ``╙▀██████████████▀▀``\n" +
   "            ```╙▀▀▀▀▀▀▀▀╙````\n" +
   "                 ``````")
-console.log("I talk about the technologies behind this site here:");
-console.log("https://www.ceiphr.com/about/");
+console.log("I talk about the technologies behind this site here: https://www.ceiphr.com/about/");
