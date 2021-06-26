@@ -14,7 +14,7 @@ type DataProps = {
   description?: string
   lang?: string
   meta?: any[]
-  title?: string
+  title: string
 }
 
 const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], title }) => {
@@ -24,9 +24,6 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
             site {
                 siteMetadata {
                     title
-                    author {
-                        name
-                    }
                     description
                     social {
                         twitter
@@ -37,7 +34,6 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
     `
   )
 
-  const authorName = site.siteMetadata.author.name
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata.title
   const favicon = useMediaPredicate("(prefers-color-scheme: dark)")
@@ -49,8 +45,8 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
       htmlAttributes={{
         lang
       }}
-      title={title ? title : authorName}
-      titleTemplate={title ? `%s | ${defaultTitle}` : `%s`}
+      title={title}
+      titleTemplate={title !== "Ari Birnbaum" ? `%s | ${defaultTitle}` : `%s`}
       meta={[
         {
           name: `description`,

@@ -30,8 +30,13 @@ function VideoTheme() {
   }, [mQuery])
 
   return (
-    <video ref={videoRef} loop autoPlay muted className="object-cover h-full w-full"
-           src={mQuery} />
+    <>
+      <label htmlFor="background" className="sr-only">
+        Background Video
+      </label>
+      <video id="background" ref={videoRef} loop autoPlay muted className="object-cover h-full w-full"
+             src={mQuery} />
+    </>
   )
 }
 

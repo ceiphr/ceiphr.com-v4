@@ -140,7 +140,7 @@ module.exports = {
         name: `Ceiphr`,
         short_name: `Ceiphr`,
         start_url: `/`,
-        background_color: `#000`,
+        background_color: `#111827`,
         theme_color: `#111827`,
         display: `minimal-ui`,
         include_favicon: false,
