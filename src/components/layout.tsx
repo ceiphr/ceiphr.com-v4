@@ -5,10 +5,9 @@ import Logo from "../../static/logo.svg"
 type DataProps = {
   children: any
   location: any
-  title: string
 }
 
-const Layout: React.FC<DataProps> = ({ location, title, children }) => {
+const Layout: React.FC<DataProps> = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 

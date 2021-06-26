@@ -1,7 +1,7 @@
 import React from "react"
 
 type DataProps = {
-  className: string
+  className?: string
 }
 
 const Comment: React.FC<DataProps> = ({ className }) => {

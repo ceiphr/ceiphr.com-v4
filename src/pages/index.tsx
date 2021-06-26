@@ -39,7 +39,6 @@ type DataProps = {
 }
 
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const prefersReduced = useMediaPredicate("(prefers-reduced-motion: reduce)")
 
@@ -58,7 +57,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   }, [setIOS])
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <Seo
         title={data.site.siteMetadata.author.name}
         meta={[{

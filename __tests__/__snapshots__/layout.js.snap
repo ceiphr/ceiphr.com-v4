@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  className="container max-w-2xl mx-auto p-6 tk-roboto"
+  data-is-root-path={false}
+>
+  <header
+    className="mb-6"
+  >
+    <nav
+      className="flex justify-between"
+    >
+      <a
+        href="/"
+      >
+        <p
+          className="sr-only"
+        >
+          Homepage
+        </p>
+        <test-file-stub
+          alt="Ari"
+          className="fill-current text-gray-900 dark:text-gray-300"
+          height="32"
+          width="32"
+        />
+      </a>
+      <ul
+        className="flex flex-row text-gray-400 dark:text-gray-500"
+      >
+        <li
+          className="pr-5"
+        >
+          <a
+            className="inline-block mt-1 hover:underline"
+            href="/about/"
+          >
+            About
+          </a>
+        </li>
+        <li
+          className="pr-5"
+        >
+          <a
+            className="inline-block mt-1 hover:underline"
+            href="https://www.paypal.me/ceiphr"
+          >
+            Donate
+          </a>
+        </li>
+        <li>
+          <a
+            className="inline-block mt-1 hover:underline"
+            href="https://github.com/ceiphr"
+          >
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div>
+      Hello World!
+    </div>
+  </main>
+  <footer
+    className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500"
+  >
+    <p>
+      © 2021 Ari Birnbaum.
+       
+      <span
+        className="float-right"
+      >
+        <a
+          className="hover:underline"
+          href="https://www.iubenda.com/privacy-policy/18781590/legal"
+        >
+          Privacy
+        </a>
+      </span>
+    </p>
+  </footer>
+</div>
+`;

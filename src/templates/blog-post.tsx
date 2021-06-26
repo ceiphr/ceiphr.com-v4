@@ -42,7 +42,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
   const post = data.markdownRemark
   const authorName = data.site.siteMetadata?.author.name
   const github = data.site.siteMetadata.social?.github
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const prefersReduced = useMediaPredicate("(prefers-reduced-motion: reduce)")
 
   if (post.frontmatter.comments === null) post.frontmatter.comments = true
@@ -62,7 +61,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
   }, [setIOS])
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
