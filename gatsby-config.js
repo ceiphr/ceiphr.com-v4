@@ -113,7 +113,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {frontmatter: {unlisted: {ne: true}}}
+                  filter: {frontmatter: {unlisted: {ne: true}, redirect: {eq: null}}}
                 ) {
                   nodes {
                     excerpt
@@ -183,7 +183,9 @@ module.exports = {
       options: {
         output: `/`,
         excludes: [
-          `/markdown-test/`
+          `/markdown-test/`,
+          `/how-to-display-data-from-the-digitalocean-api-with-django/`,
+          `/how-to-harden-your-production-django-project/`
         ]
       }
     },

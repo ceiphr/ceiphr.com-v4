@@ -305,6 +305,7 @@ type Frontmatter {
     ): Date
     description: String
     icons: [String]
+    redirect: String
     title: String
     unlisted: Boolean
 }
@@ -858,16 +859,22 @@ type SitePluginPluginOptions {
     base64Width: Int
     cacheDigest: String
     cache_busting_mode: String
+    createLinkInHead: Boolean
     crossOrigin: String
+    debug: Boolean
     defaultQuality: Int
     disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
     display: String
     domain: String
+    dsn: String
     enableListener: Boolean
+    entryLimit: Int
+    excludes: [String]
     failOnError: Boolean
     feeds: [SitePluginPluginOptionsFeeds]
     icon: String
+    ignoreErrors: [String]
     include_favicon: Boolean
     inlineCodeMarker: String
     isTSX: Boolean
@@ -879,6 +886,7 @@ type SitePluginPluginOptions {
     maxWidth: Int
     mode: String
     name: String
+    output: String
     path: String
     pathCheck: Boolean
     plugins: [SitePluginPluginOptionsPlugins]
@@ -1191,6 +1199,7 @@ enum FileFieldsEnum {
     childMarkdownRemark___frontmatter___date
     childMarkdownRemark___frontmatter___description
     childMarkdownRemark___frontmatter___icons
+    childMarkdownRemark___frontmatter___redirect
     childMarkdownRemark___frontmatter___title
     childMarkdownRemark___frontmatter___unlisted
     childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1324,6 +1333,7 @@ enum FileFieldsEnum {
     childrenMarkdownRemark___frontmatter___date
     childrenMarkdownRemark___frontmatter___description
     childrenMarkdownRemark___frontmatter___icons
+    childrenMarkdownRemark___frontmatter___redirect
     childrenMarkdownRemark___frontmatter___title
     childrenMarkdownRemark___frontmatter___unlisted
     childrenMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1699,6 +1709,7 @@ enum MarkdownRemarkFieldsEnum {
     frontmatter___date
     frontmatter___description
     frontmatter___icons
+    frontmatter___redirect
     frontmatter___title
     frontmatter___unlisted
     headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2217,18 +2228,24 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___base64Width
     pluginCreator___pluginOptions___cacheDigest
     pluginCreator___pluginOptions___cache_busting_mode
+    pluginCreator___pluginOptions___createLinkInHead
     pluginCreator___pluginOptions___crossOrigin
+    pluginCreator___pluginOptions___debug
     pluginCreator___pluginOptions___defaultQuality
     pluginCreator___pluginOptions___disableBgImage
     pluginCreator___pluginOptions___disableBgImageOnAlpha
     pluginCreator___pluginOptions___display
     pluginCreator___pluginOptions___domain
+    pluginCreator___pluginOptions___dsn
     pluginCreator___pluginOptions___enableListener
+    pluginCreator___pluginOptions___entryLimit
+    pluginCreator___pluginOptions___excludes
     pluginCreator___pluginOptions___failOnError
     pluginCreator___pluginOptions___feeds
     pluginCreator___pluginOptions___feeds___output
     pluginCreator___pluginOptions___feeds___query
     pluginCreator___pluginOptions___icon
+    pluginCreator___pluginOptions___ignoreErrors
     pluginCreator___pluginOptions___include_favicon
     pluginCreator___pluginOptions___inlineCodeMarker
     pluginCreator___pluginOptions___isTSX
@@ -2240,6 +2257,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___maxWidth
     pluginCreator___pluginOptions___mode
     pluginCreator___pluginOptions___name
+    pluginCreator___pluginOptions___output
     pluginCreator___pluginOptions___path
     pluginCreator___pluginOptions___pathCheck
     pluginCreator___pluginOptions___plugins
@@ -2388,18 +2406,24 @@ enum SitePluginFieldsEnum {
     pluginOptions___base64Width
     pluginOptions___cacheDigest
     pluginOptions___cache_busting_mode
+    pluginOptions___createLinkInHead
     pluginOptions___crossOrigin
+    pluginOptions___debug
     pluginOptions___defaultQuality
     pluginOptions___disableBgImage
     pluginOptions___disableBgImageOnAlpha
     pluginOptions___display
     pluginOptions___domain
+    pluginOptions___dsn
     pluginOptions___enableListener
+    pluginOptions___entryLimit
+    pluginOptions___excludes
     pluginOptions___failOnError
     pluginOptions___feeds
     pluginOptions___feeds___output
     pluginOptions___feeds___query
     pluginOptions___icon
+    pluginOptions___ignoreErrors
     pluginOptions___include_favicon
     pluginOptions___inlineCodeMarker
     pluginOptions___isTSX
@@ -2411,6 +2435,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___maxWidth
     pluginOptions___mode
     pluginOptions___name
+    pluginOptions___output
     pluginOptions___path
     pluginOptions___pathCheck
     pluginOptions___plugins
@@ -2622,6 +2647,7 @@ input FrontmatterFilterInput {
     date: DateQueryOperatorInput
     description: StringQueryOperatorInput
     icons: StringQueryOperatorInput
+    redirect: StringQueryOperatorInput
     title: StringQueryOperatorInput
     unlisted: BooleanQueryOperatorInput
 }
@@ -2940,16 +2966,22 @@ input SitePluginPluginOptionsFilterInput {
     base64Width: IntQueryOperatorInput
     cacheDigest: StringQueryOperatorInput
     cache_busting_mode: StringQueryOperatorInput
+    createLinkInHead: BooleanQueryOperatorInput
     crossOrigin: StringQueryOperatorInput
+    debug: BooleanQueryOperatorInput
     defaultQuality: IntQueryOperatorInput
     disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
     display: StringQueryOperatorInput
     domain: StringQueryOperatorInput
+    dsn: StringQueryOperatorInput
     enableListener: BooleanQueryOperatorInput
+    entryLimit: IntQueryOperatorInput
+    excludes: StringQueryOperatorInput
     failOnError: BooleanQueryOperatorInput
     feeds: SitePluginPluginOptionsFeedsFilterListInput
     icon: StringQueryOperatorInput
+    ignoreErrors: StringQueryOperatorInput
     include_favicon: BooleanQueryOperatorInput
     inlineCodeMarker: StringQueryOperatorInput
     isTSX: BooleanQueryOperatorInput
@@ -2961,6 +2993,7 @@ input SitePluginPluginOptionsFilterInput {
     maxWidth: IntQueryOperatorInput
     mode: StringQueryOperatorInput
     name: StringQueryOperatorInput
+    output: StringQueryOperatorInput
     path: StringQueryOperatorInput
     pathCheck: BooleanQueryOperatorInput
     plugins: SitePluginPluginOptionsPluginsFilterListInput

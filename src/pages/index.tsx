@@ -7,12 +7,16 @@ import VideoTheme from "../components/video-theme"
 
 import Banner from "../../static/banner.svg"
 import Right from "../../static/right.svg"
+import External from "../../static/external-link.svg"
 
 type DataProps = {
   site: {
     siteMetadata: {
       title: string
       siteUrl: string
+      author: {
+        name: string
+      }
     }
   }
   allMarkdownRemark: {
@@ -25,6 +29,7 @@ type DataProps = {
         date: string
         title: string
         description: string
+        redirect: string
       }
     }[]
   }
@@ -36,7 +41,9 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo meta={[{
+      <Seo
+        title={data.site.siteMetadata.author.name}
+        meta={[{
         name: `og:image`,
         content: `${data.site.siteMetadata.siteUrl}/og.jpg`
       }]}
@@ -57,7 +64,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug} className="pt-4">
-              <Link to={post.fields.slug} itemProp="url">
+              <Link to={post.frontmatter.redirect ? post.frontmatter.redirect : post.fields.slug} itemProp="url">
                 <article
                   itemScope
                   itemType="https://schema.org/Article"
@@ -83,9 +90,14 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                   <p
                     className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
                     Read Post<span className="inline-block transform translate-y-1">
-                  <Right className="fill-current text-blue-600 dark:text-blue-400"
-                         width="21"
-                         height="18" /></span>
+                    {post.frontmatter.redirect ?
+                      <External className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
+                             width="21"
+                             height="16" /> :
+                      <Right className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
+                             width="21"
+                             height="16" />}
+                    </span>
                   </p>
                 </article>
               </Link>
@@ -105,6 +117,9 @@ export const pageQuery = graphql`
             siteMetadata {
                 title
                 siteUrl
+                author {
+                    name
+                }
             }
         }
         allMarkdownRemark(
@@ -120,6 +135,7 @@ export const pageQuery = graphql`
                     date(formatString: "MMMM DD, YYYY")
                     title
                     description
+                    redirect
                 }
             }
         }
