@@ -421,8 +421,7 @@ or [this introduction (which got me started)](https://rnvarma.gitbooks.io/intro-
 
 **FYI** —
 Follow [this tutorial by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04)
-so you can learn how to host your Django creations for the world to see. If you want to host with
-DigitalOcean, [use my referral link for a discount](https://m.do.co/c/b95c2a8a5568).
+so you can learn how to host your Django creations for the world to see.
 
 _Edit: Renamed classes to adhere to PEP 8 and renamed database app to blog._
 

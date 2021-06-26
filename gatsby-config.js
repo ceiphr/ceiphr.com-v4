@@ -68,7 +68,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: "±",
+              noInlineHighlight: true,
+              inlineCodeMarker: ">",
               prompt: {
                 user: "ari",
                 host: "localhost",

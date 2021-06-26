@@ -20,7 +20,7 @@ const Layout: React.FC<DataProps> = ({ location, title, children }) => {
           <ul className="flex flex-row text-gray-400 dark:text-gray-500">
             <li className="pr-5"><Link className="inline-block mt-1 hover:underline" to="/about/">About</Link></li>
             <li className="pr-5"><a className="inline-block mt-1 hover:underline" href="https://www.paypal.me/ceiphr">Donate</a></li>
-            <li><a className="inline-block mt-1 hover:underline" href="https://github.com/ceiphr/">GitHub</a></li>
+            <li><a className="inline-block mt-1 hover:underline" href="https://github.com/ceiphr">GitHub</a></li>
           </ul>
         </nav>
       </header>

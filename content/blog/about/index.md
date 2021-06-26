@@ -22,7 +22,7 @@ My website is really intended for writing, but I might put some other stuff on h
 Regardless, let's discuss the technical aspects of this site.
 
 It's a Gatsby site. Hosted on Vercel ([ceiphr.vercel.app](https://ceiphr.vercel.app/)). Tailwind CSS styles
-*almost* the entire site. There are those edge cases where it's inconvenient/clunky to use.
+_almost_ the entire site. There are those edge cases where it's inconvenient/clunky to use.
 
 Of course, I'm using TypeScript. I'm not a JavaScript masochist.
 
@@ -36,5 +36,5 @@ If I fucked up something in an article, either email me or comment on the post. 
 
 Just kidding, I will.
 
-*P.S. If you think I should go to prison for crimes again
-humanity, [here is my mugshot (double chin, included)](/ari-birnbaum.png).*
+_P.S. If you think I should go to prison for crimes again
+humanity, [here is my mugshot (double chin, included)](/ari-birnbaum.png)._
