@@ -28,6 +28,9 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
                     social {
                         twitter
                     }
+                    author {
+                        name
+                    }
                 }
             }
         }
@@ -40,13 +43,15 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
     ? "/favicon-white.png"
     : "/favicon-black.png"
 
+  if (site.siteMetadata?.social?.twitter == null) site.siteMetadata.social.twitter = `ceiphr`
+
   return (
     <Helmet
       htmlAttributes={{
         lang
       }}
       title={title}
-      titleTemplate={title !== "Ari Birnbaum" ? `%s | ${defaultTitle}` : `%s`}
+      titleTemplate={title !== (site.siteMetadata?.author?.name || ``) ? `%s | ${defaultTitle}` : `%s`}
       meta={[
         {
           name: `description`,

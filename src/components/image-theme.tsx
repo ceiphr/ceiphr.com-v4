@@ -2,9 +2,9 @@ import React from "react"
 import { useMediaPredicate } from "react-media-hook"
 import { StaticImage } from "gatsby-plugin-image"
 
-const imageTheme = () => {
+const ImageTheme = () => {
   if (useMediaPredicate("(prefers-color-scheme: dark)"))
-    return (<><StaticImage
+    return (<StaticImage
       className="relative h-full w-full"
       layout="fullWidth"
       // @ts-ignore
@@ -12,10 +12,9 @@ const imageTheme = () => {
       src="../images/light.jpg"
       quality={95}
       alt="Background Image"
-    /></>)
+    />)
 
   return (
-    <>
       <StaticImage
         className="relative h-full w-full"
         layout="fullWidth"
@@ -25,7 +24,6 @@ const imageTheme = () => {
         quality={95}
         alt="Background Image"
       />
-    </>
   )
 }
-export default imageTheme
+export default ImageTheme
