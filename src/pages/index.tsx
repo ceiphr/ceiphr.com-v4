@@ -67,8 +67,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
       />
       <div
         className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
-        {(typeof window === "undefined" || !window.matchMedia || prefersReduced || safari || IOS) ? <ImageTheme /> :
-          <VideoTheme />}
+        {(prefersReduced || safari || IOS) ? <ImageTheme /> : <VideoTheme />}
         <div
           className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />
