@@ -20,20 +20,18 @@ function VideoTheme() {
   }, [setIOS])
 
   const [mQuery, setMQuery] = React.useState<any>({
-    matches: typeof window !== "undefined" ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background) : Background
+    matches: window.matchMedia("(prefers-color-scheme: dark)").matches ? BackgroundDark : Background
   })
 
   const videoRef = React.useRef() as any
   const previousUrl = React.useRef(mQuery)
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-      mediaQuery.addEventListener("change", (e) => {
-        e.matches ? setMQuery(BackgroundDark) : setMQuery(Background)
-      })
-      setMQuery(mediaQuery.matches ? BackgroundDark : Background)
-    }
+    let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    mediaQuery.addEventListener("change", (e) => {
+      e.matches ? setMQuery(BackgroundDark) : setMQuery(Background)
+    })
+    setMQuery(mediaQuery.matches ? BackgroundDark : Background)
 
     if (previousUrl.current === mQuery)
       return
