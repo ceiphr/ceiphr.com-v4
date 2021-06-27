@@ -22,6 +22,7 @@ const Comment: React.FC<DataProps> = ({ className }) => {
     scriptEl.setAttribute("data-theme", "preferred_color_scheme")
     scriptEl.setAttribute("crossorigin", "anonymous")
     if (commentBox && commentBox.current) {
+      while (commentBox.current.firstChild) if (commentBox.current.lastChild) commentBox.current.removeChild(commentBox.current.lastChild)
       commentBox.current.appendChild(scriptEl)
     }
   })
