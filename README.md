@@ -1,6 +1,12 @@
-![Ceiphr](static/banner.svg)
+<!--suppress HtmlDeprecatedAttribute -->
+<h3 align="center">
+  <a href="https://www.ceiphr.com/">
+    <!--suppress CheckImageSize -->
+    <img width="500px" alt="Profile Logo" src="readme-banner.png">
+  </a>
+  ![Node.js Workflow](https://github.com/ceiphr/ceiphr.com/actions/workflows/node.js.yml/badge.svg)
+</h3>
 
-![Node.js Workflow](https://github.com/ceiphr/ceiphr.com/actions/workflows/node.js.yml/badge.svg)
 
 Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on Vercel.
 
@@ -28,11 +34,11 @@ Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on
 
 1. **Open the source code and start editing!**
 
-   gatsby-ceiphr is now running at `http://localhost:8000`!
+   ceiphr.com is now running at `http://localhost:8000`!
 
    _Note: You'll also see a second link:_ `http://localhost:8000/___graphql`_. This is a tool you can use to experiment
    with querying your data. Learn more about using this tool in
    the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-   Open the `gatsby-ceiphr` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes
-   and the browser will update in real time!
+   Open the `ceiphr.com` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and
+   the browser will update in real time!
