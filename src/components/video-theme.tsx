@@ -5,9 +5,6 @@ import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
 function VideoTheme() {
-  if (typeof window === "undefined" || !window.matchMedia)
-    return (<></>)
-
   const [safari, setSafari] = React.useState()
 
   React.useEffect(() => {
