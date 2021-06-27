@@ -24,7 +24,7 @@ const Comment: React.FC<DataProps> = ({ className }) => {
     if (commentBox && commentBox.current) {
       commentBox.current.appendChild(scriptEl)
     }
-  }, [])
+  })
 
   return (<div ref={commentBox} className={`comments ${className}`} />)
 }
