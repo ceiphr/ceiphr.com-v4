@@ -41,12 +41,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    posts.forEach((post, index) => {
+    posts.forEach(post => {
+      // noinspection JSUnresolvedVariable
       createPage({
         path: post.fields.slug,
         component: blogPost,
         context: {
-          id: post.id
+          id: post.id,
         },
       })
     })

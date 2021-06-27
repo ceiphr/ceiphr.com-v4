@@ -12,13 +12,12 @@ const VideoTheme = () => {
   React.useEffect(() => {
     if (typeof window !== "undefined") {
       let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-      mediaQuery.addEventListener("change", (e) => {
+      mediaQuery.addEventListener("change", e => {
         e.matches ? setMQuery(BackgroundDark) : setMQuery(Background)
       })
       setMQuery(mediaQuery.matches ? BackgroundDark : Background)
 
-      if (previousUrl.current === mQuery)
-        return
+      if (previousUrl.current === mQuery) return
       if (typeof videoRef.current !== "undefined" && videoRef.current)
         videoRef.current.load()
 
@@ -31,8 +30,15 @@ const VideoTheme = () => {
       <label htmlFor="background" className="sr-only">
         Background Video
       </label>
-      <video id="background" ref={videoRef} loop autoPlay muted className="object-cover h-full w-full fade-in"
-             src={mQuery} />
+      <video
+        id="background"
+        ref={videoRef}
+        loop
+        autoPlay
+        muted
+        className="object-cover h-full w-full fade-in"
+        src={mQuery}
+      />
     </>
   )
 }

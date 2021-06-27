@@ -5,9 +5,7 @@ import videoTheme from "../src/components/video-theme"
 
 describe("Layout", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<videoTheme />)
-      .toJSON()
+    const tree = renderer.create(<videoTheme />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

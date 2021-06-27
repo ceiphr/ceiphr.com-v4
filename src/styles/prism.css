@@ -4,9 +4,25 @@
  */
 
 .gatsby-highlight {
-    border-radius: .3em;
+    border-radius: .6em;
     border: 1px solid #dbdbdb;
     overflow-y: hidden;
+}
+
+.gatsby-highlight::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.gatsby-highlight::-webkit-scrollbar-thumb {
+    height: 5px;
+    border: 5px solid rgba(0, 0, 0, 0);  /* Transparent border together with `background-clip: padding-box` does the trick */
+    background-clip: padding-box;
+    -webkit-border-radius: 9999px;
+    background-color: rgba(139, 139, 139, 0.25);
+}
+
+.gatsby-highlight::-webkit-scrollbar {
+    height: 15px;
 }
 
 .gatsby-highlight pre[class*="language-"] {

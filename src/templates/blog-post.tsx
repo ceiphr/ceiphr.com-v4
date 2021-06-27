@@ -38,7 +38,10 @@ type DataProps = {
   }
 }
 
-const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) => {
+const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
+  data,
+  location,
+}) => {
   const post = data.markdownRemark
   const authorName = data.site.siteMetadata?.author?.name || ``
   const github = data.site.siteMetadata?.social?.github || ``
@@ -65,66 +68,79 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-        meta={post.frontmatter.icons ? [{
-          name: `og:image`,
-          content: `https://og.ceiphr.com/${post.frontmatter.title}?fontSize=100px${
-            post.frontmatter.icons.slice(0, 3).map(icon =>
-              `&images=https://www.ceiphr.com/icons/${icon}.svg`
-            ).join("")
-          }`
-        }] : [{
-          name: `og:image`,
-          content: `${data.site.siteMetadata.siteUrl}/og.jpg`
-        }]}
+        meta={
+          post.frontmatter.icons
+            ? [
+                {
+                  name: `og:image`,
+                  content: `https://og.ceiphr.com/${
+                    post.frontmatter.title
+                  }?fontSize=100px${post.frontmatter.icons
+                    .slice(0, 3)
+                    .map(
+                      icon => `&images=https://www.ceiphr.com/icons/${icon}.svg`
+                    )
+                    .join("")}`,
+                },
+              ]
+            : [
+                {
+                  name: `og:image`,
+                  content: `${data.site.siteMetadata.siteUrl}/og.jpg`,
+                },
+              ]
+        }
       />
-      <article
-        itemScope
-        itemType="https://schema.org/Article"
-      >
+      <article itemScope itemType="https://schema.org/Article">
         <header>
-          {post.frontmatter.icons &&
-          <div
-            className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
-            {(prefersReduced || safari || IOS) ? <ImageTheme /> : <VideoTheme />}
-            <div
-              className={`relative max-w-sm text-center -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
-              {post.frontmatter.icons.slice(0, 3).map(icon => {
-                return Icons[icon]
-              })}
+          {post.frontmatter.icons && (
+            <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
+              {prefersReduced || safari || IOS ? (
+                <ImageTheme />
+              ) : (
+                <VideoTheme />
+              )}
+              <div
+                className={`relative max-w-sm text-center -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+              >
+                {post.frontmatter.icons.slice(0, 3).map(icon => {
+                  return Icons[icon]
+                })}
+              </div>
             </div>
-          </div>
-          }
-          <h1 itemProp="headline"
-              className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase"
+          )}
+          <h1
+            itemProp="headline"
+            className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase"
           >
             {post.frontmatter.title}
           </h1>
-          {post.frontmatter.date &&
-          <div
-            className="text-gray-400 dark:text-gray-500 mt-2 mb-2">
-            <span>
-              <a href={`https://github.com/${github || ``}`} className="hover:underline">
-                <StaticImage
-                  className="float-left mr-2 inline-block rounded-full safari-overflow-hidden"
-                  placeholder="blurred"
-                  layout="fixed"
-                  // @ts-ignore
-                  formats={["AUTO", "WEBP", "AVIF"]}
-                  src="../images/profile-pic.png"
-                  width={24}
-                  height={24}
-                  quality={50}
-                  alt="Profile picture"
-                />
-                {authorName}
-              </a>
-              <strong> &#xb7; </strong>
-            </span>
-            <span>
-              {post.frontmatter.date}
-            </span>
-          </div>
-          }
+          {post.frontmatter.date && (
+            <div className="text-gray-400 dark:text-gray-500 mt-2 mb-2">
+              <span>
+                <a
+                  href={`https://github.com/${github || ``}`}
+                  className="hover:underline"
+                >
+                  <StaticImage
+                    className="float-left mr-2 inline-block rounded-full safari-overflow-hidden"
+                    placeholder="blurred"
+                    layout="fixed"
+                    // @ts-ignore
+                    formats={["AUTO", "WEBP", "AVIF"]}
+                    src="../images/profile-pic.png"
+                    width={24}
+                    height={24}
+                    quality={50}
+                    alt="Profile picture"
+                  />
+                  {authorName}
+                </a>
+                <strong> &#xb7; </strong>
+              </span>
+              <span>{post.frontmatter.date}</span>
+            </div>
+          )}
         </header>
         <section
           className="prose dark:prose-light lg:prose-xl pt-4"
@@ -132,8 +148,9 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
           itemProp="articleBody"
         />
       </article>
-      {post.frontmatter.comments &&
-      <Comment className="pt-4 mt-4 border-t-2 border-gray-200 dark:border-gray-700" />}
+      {post.frontmatter.comments && (
+        <Comment className="pt-4 mt-4 border-t-2 border-gray-200 dark:border-gray-700" />
+      )}
     </Layout>
   )
 }
@@ -141,33 +158,31 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data, location }) =>
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug(
-        $id: String!
-    ) {
-        site {
-            siteMetadata {
-                title
-                siteUrl
-                author {
-                    name
-                }
-                social {
-                    github
-                }
-            }
+  query BlogPostBySlug($id: String!) {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        author {
+          name
         }
-        markdownRemark(id: { eq: $id }) {
-            id
-            excerpt(pruneLength: 160)
-            html
-            frontmatter {
-                title
-                date(formatString: "MMMM DD, YYYY")
-                description
-                unlisted
-                comments
-                icons
-            }
+        social {
+          github
         }
+      }
     }
+    markdownRemark(id: { eq: $id }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        unlisted
+        comments
+        icons
+      }
+    }
+  }
 `

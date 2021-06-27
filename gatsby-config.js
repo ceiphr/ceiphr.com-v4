@@ -7,15 +7,15 @@ module.exports = {
     title: `Ceiphr`,
     author: {
       name: `Ari Birnbaum`,
-      summary: `, a student and technical writer studying at Stevens Institute of Technology.`
+      summary: `, a student and technical writer studying at Stevens Institute of Technology.`,
     },
     description: `Technical articles written by Ari Birnbaum pertaining to 
     Django, Python, Node.js, Gatsby.js, TypeScript, GraphQL, and DevOps.`,
     siteUrl: `https://www.ceiphr.com/`,
     social: {
       twitter: `ceiphr`,
-      github: `ceiphr`
-    }
+      github: `ceiphr`,
+    },
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -23,31 +23,31 @@ module.exports = {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: /static/ // See below to configure properly
-        }
-      }
+          include: /static/, // See below to configure properly
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-simple-analytics`,
       options: {
         domain: `sa.ceiphr.com`,
-        trackPageViews: isProduction
-      }
+        trackPageViews: isProduction,
+      },
     },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`
-      }
+        name: `blog`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -56,14 +56,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630
-            }
+              maxWidth: 630,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -73,14 +73,14 @@ module.exports = {
               prompt: {
                 user: "ari",
                 host: "localhost",
-                global: true
-              }
-            }
+                global: true,
+              },
+            },
           },
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
-        ]
-      }
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -108,7 +108,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }]
+                  custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
@@ -132,10 +132,10 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml"
-          }
-        ]
-      }
+            output: "/rss.xml",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -153,7 +153,7 @@ module.exports = {
           // please see the section "Additional Resources" below.
           purpose: `any maskable`,
         },
-      }
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -167,28 +167,28 @@ module.exports = {
             /* Exact name of the font as defied in @font-face CSS rule */
             name: [`Fira Code`, `Fira Code VF`],
             /* Path to the font CSS file inside the "static" folder with @font-face definition */
-            file: `/fonts/fira_code/fira_code.css`
-          }
+            file: `/fonts/fira_code/fira_code.css`,
+          },
         ],
         web: [
           {
             name: `roboto`,
-            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`,
           },
           {
             name: `neue-haas-grotesk-display`,
-            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`
-          }
-        ]
-      }
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`,
+          },
+        ],
+      },
     },
     `gatsby-plugin-remove-serviceworker`,
     {
       resolve: "@sentry/gatsby",
       options: {
         dsn: isProduction && process.env.SENTRY_DSN,
-        ignoreErrors: ["ChunkLoadError"]
-      }
+        ignoreErrors: ["ChunkLoadError"],
+      },
     },
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -196,16 +196,16 @@ module.exports = {
         output: `/`,
         excludes: [
           `/how-to-display-data-from-the-digitalocean-api-with-django/`,
-          `/how-to-harden-your-production-django-project/`
-        ]
-      }
+          `/how-to-harden-your-production-django-project/`,
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-vercel",
       options: {
         // (optional) Prints metrics in the console when true
-        debug: !isProduction
-      }
-    }
-  ]
+        debug: !isProduction,
+      },
+    },
+  ],
 }

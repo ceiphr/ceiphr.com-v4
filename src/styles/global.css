@@ -42,7 +42,7 @@ html, body {
 
 a:focus-visible {
     outline: 1px solid #A31515;
-    border-radius: .3em;
+    border-radius: 4px;
 }
 
 .prose a {
@@ -65,6 +65,12 @@ a:focus-visible {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -25px);
+}
+
+@media (min-width: 640px) {
+    .prose img:before {
+        top: 50%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

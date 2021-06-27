@@ -24,37 +24,40 @@ import Server from "../../static/icons/server.svg"
 import TypeScript from "../../static/icons/typescript.svg"
 import Web from "../../static/icons/web.svg"
 
-const iconClasses = "inline-block fill-current tablet:h-24 tablet:w-24 m-2 tablet:m-4 text-white dark:text-black"
+const iconClasses =
+  "inline-block fill-current tablet:h-24 tablet:w-24 m-2 tablet:m-4 text-white dark:text-black"
 
 interface allIcons {
   [name: string]: object
 }
 
 const Icons: allIcons = {
-  "ae": <Ae className={iconClasses} key="Ae" />,
-  "ai": <Ai className={iconClasses} key="Ai" />,
-  "ps": <Ps className={iconClasses} key="Ps" />,
-  "phone": <Android className={iconClasses} key="Phone" />,
-  "android": <AndroidOS className={iconClasses} key="Android" />,
-  "api": <API className={iconClasses} key="API" />,
-  "borderlands": <Borderlands className={iconClasses} key="Borderlands" />,
-  "console": <Console className={iconClasses} key="Console" />,
-  "css": <CSS className={iconClasses} key="CSS" />,
-  "django": <Django className={iconClasses} key="Django" />,
-  "gatsby": <Gatsby className={iconClasses} key="Gatsby" />,
-  "idea": <IDEA className={iconClasses} key="IDEA" />,
-  "ios": <IOS className={iconClasses} key="IOS" />,
-  "java": <Java className={iconClasses} key="Java" />,
-  "javascript": <JavaScript className={iconClasses} key="JavaScript" />,
-  "leagueoflegends": <LeagueOfLegends className={iconClasses} key="LeagueOfLegends" />,
-  "map": <Map className={iconClasses} key="Map" />,
-  "script": <Script className={iconClasses} key="Script" />,
-  "python": <Python className={iconClasses} key="Python" />,
-  "reactn": <ReactSVG className={iconClasses} key="ReactSVG" />,
-  "safari": <Safari className={iconClasses} key="Safari" />,
-  "server": <Server className={iconClasses} key="Server" />,
-  "typescript": <TypeScript className={iconClasses} key="TypeScript" />,
-  "web": <Web className={iconClasses} key="Web" />
+  ae: <Ae className={iconClasses} key="Ae" />,
+  ai: <Ai className={iconClasses} key="Ai" />,
+  ps: <Ps className={iconClasses} key="Ps" />,
+  phone: <Android className={iconClasses} key="Phone" />,
+  android: <AndroidOS className={iconClasses} key="Android" />,
+  api: <API className={iconClasses} key="API" />,
+  borderlands: <Borderlands className={iconClasses} key="Borderlands" />,
+  console: <Console className={iconClasses} key="Console" />,
+  css: <CSS className={iconClasses} key="CSS" />,
+  django: <Django className={iconClasses} key="Django" />,
+  gatsby: <Gatsby className={iconClasses} key="Gatsby" />,
+  idea: <IDEA className={iconClasses} key="IDEA" />,
+  ios: <IOS className={iconClasses} key="IOS" />,
+  java: <Java className={iconClasses} key="Java" />,
+  javascript: <JavaScript className={iconClasses} key="JavaScript" />,
+  leagueoflegends: (
+    <LeagueOfLegends className={iconClasses} key="LeagueOfLegends" />
+  ),
+  map: <Map className={iconClasses} key="Map" />,
+  script: <Script className={iconClasses} key="Script" />,
+  python: <Python className={iconClasses} key="Python" />,
+  reactn: <ReactSVG className={iconClasses} key="ReactSVG" />,
+  safari: <Safari className={iconClasses} key="Safari" />,
+  server: <Server className={iconClasses} key="Server" />,
+  typescript: <TypeScript className={iconClasses} key="TypeScript" />,
+  web: <Web className={iconClasses} key="Web" />,
 }
 
-export default Icons;
+export default Icons

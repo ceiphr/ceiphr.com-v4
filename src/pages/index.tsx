@@ -60,68 +60,82 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
     <Layout location={location}>
       <Seo
         title={data.site.siteMetadata.author.name}
-        meta={[{
-          name: `og:image`,
-          content: `${data.site.siteMetadata.siteUrl}/og.jpg`
-        }]}
+        meta={[
+          {
+            name: `og:image`,
+            content: `${data.site.siteMetadata.siteUrl}/og.jpg`,
+          },
+        ]}
       />
-      <div
-        className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
-        {(prefersReduced || safari || IOS) ? <ImageTheme /> : <VideoTheme />}
-        <div
-          className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <Banner alt="Ceiphr" className="fill-current text-white dark:text-black" />
+      <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
+        {prefersReduced || safari || IOS ? <ImageTheme /> : <VideoTheme />}
+        <div className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Banner
+            alt="Ceiphr"
+            className="fill-current text-white dark:text-black"
+          />
         </div>
       </div>
-      <h1
-        className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase">Latest
-        Stuff</h1>
+      <h1 className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase">
+        Latest Stuff
+      </h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           const body = (
-            <article
-              itemScope
-              itemType="https://schema.org/Article"
-            >
+            <article itemScope itemType="https://schema.org/Article">
               <header>
                 <h2 className="-mb-1">
-                      <span className="text-gray-900 dark:text-gray-300 text-xl font-bold"
-                            itemProp="headline">{title}</span>
-                </h2>
-                <span
-                  className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">{post.frontmatter.date}
+                  <span
+                    className="text-gray-900 dark:text-gray-300 text-xl font-bold"
+                    itemProp="headline"
+                  >
+                    {title}
                   </span>
+                </h2>
+                <span className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">
+                  {post.frontmatter.date}
+                </span>
               </header>
               <section>
                 <p
                   className="text-gray-600 dark:text-gray-400 mb-1"
                   dangerouslySetInnerHTML={{
-                    __html: post.frontmatter.description || post.excerpt
+                    __html: post.frontmatter.description || post.excerpt,
                   }}
                   itemProp="description"
                 />
               </section>
-              <p
-                className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
-                Read Post<span className="inline-block transform translate-y-1">
-                    {post.frontmatter.redirect ?
-                      <External className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
-                                width="21"
-                                height="16" /> :
-                      <Right className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
-                             width="21"
-                             height="16" />}
-                    </span>
+              <p className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
+                Read Post
+                <span className="inline-block transform translate-y-1">
+                  {post.frontmatter.redirect ? (
+                    <External
+                      className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
+                      width="21"
+                      height="16"
+                    />
+                  ) : (
+                    <Right
+                      className="fill-current text-blue-600 dark:text-blue-400 pl-1 mb-0.5 pt-0.5"
+                      width="21"
+                      height="16"
+                    />
+                  )}
+                </span>
               </p>
             </article>
           )
 
           return (
             <li key={post.fields.slug} className="pt-4">
-              {post.frontmatter.redirect ?
-                <a href={post.frontmatter.redirect}>{body}</a> :
-                <Link to={post.fields.slug} itemProp="url">{body}</Link>}
+              {post.frontmatter.redirect ? (
+                <a href={post.frontmatter.redirect}>{body}</a>
+              ) : (
+                <Link to={post.fields.slug} itemProp="url">
+                  {body}
+                </Link>
+              )}
             </li>
           )
         })}
@@ -133,32 +147,32 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                siteUrl
-                author {
-                    name
-                }
-            }
+  query {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        author {
+          name
         }
-        allMarkdownRemark(
-            sort: {fields: [frontmatter___date], order: DESC}
-            filter: {frontmatter: {unlisted: {ne: true}}}
-        ) {
-            nodes {
-                excerpt
-                fields {
-                    slug
-                }
-                frontmatter {
-                    date(formatString: "MMMM DD, YYYY")
-                    title
-                    description
-                    redirect
-                }
-            }
-        }
+      }
     }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { unlisted: { ne: true } } }
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          redirect
+        }
+      }
+    }
+  }
 `

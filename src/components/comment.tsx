@@ -16,17 +16,22 @@ const Comment: React.FC<DataProps> = ({ className }) => {
     scriptEl.setAttribute("data-repo", "ceiphr/ceiphr.com-comments")
     scriptEl.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkzNzg3NDY2Mzg=")
     scriptEl.setAttribute("data-category", "Announcements")
-    scriptEl.setAttribute("data-category-id", "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMzMDQzMTY5")
+    scriptEl.setAttribute(
+      "data-category-id",
+      "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMzMDQzMTY5"
+    )
     scriptEl.setAttribute("data-mapping", "title")
     scriptEl.setAttribute("data-reactions-enabled", "1")
     scriptEl.setAttribute("data-theme", "preferred_color_scheme")
     scriptEl.setAttribute("crossorigin", "anonymous")
     if (commentBox && commentBox.current) {
-      while (commentBox.current.firstChild) if (commentBox.current.lastChild) commentBox.current.removeChild(commentBox.current.lastChild)
+      while (commentBox.current.firstChild)
+        if (commentBox.current.lastChild)
+          commentBox.current.removeChild(commentBox.current.lastChild)
       commentBox.current.appendChild(scriptEl)
     }
   })
 
-  return (<div ref={commentBox} className={`comments ${className}`} />)
+  return <div ref={commentBox} className={`comments ${className}`} />
 }
 export default Comment

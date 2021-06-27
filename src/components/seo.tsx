@@ -17,23 +17,28 @@ type DataProps = {
   title: string
 }
 
-const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], title }) => {
+const Seo: React.FC<DataProps> = ({
+  description = ``,
+  lang = `en`,
+  meta = [],
+  title,
+}) => {
   const { site } = useStaticQuery(
     graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                    description
-                    social {
-                        twitter
-                    }
-                    author {
-                        name
-                    }
-                }
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            social {
+              twitter
             }
+            author {
+              name
+            }
+          }
         }
+      }
     `
   )
 
@@ -46,51 +51,55 @@ const Seo: React.FC<DataProps> = ({ description = ``, lang = `en`, meta = [], ti
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang,
       }}
       title={title}
-      titleTemplate={title !== (site.siteMetadata.author.name || ``) ? `%s | ${defaultTitle}` : `%s`}
+      titleTemplate={
+        title !== (site.siteMetadata.author.name || ``)
+          ? `%s | ${defaultTitle}`
+          : `%s`
+      }
       meta={[
         {
           name: `description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:title`,
-          content: title
+          content: title,
         },
         {
           property: `og:description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:type`,
-          content: `website`
+          content: `website`,
         },
         {
           name: `twitter:card`,
-          content: `summary_large_image`
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter || ``
+          content: site.siteMetadata.social.twitter || ``,
         },
         {
           name: `twitter:title`,
-          content: title
+          content: title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription
-        }
+          content: metaDescription,
+        },
       ].concat(meta)}
       link={[
         {
-          "rel": "icon",
-          "sizes": "32x32",
-          "type": "image/png",
-          "href": favicon
-        }
+          rel: "icon",
+          sizes: "32x32",
+          type: "image/png",
+          href: favicon,
+        },
       ]}
     />
   )
