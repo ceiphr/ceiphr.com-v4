@@ -9,6 +9,22 @@ html, body {
     overflow-x: hidden !important;
 }
 
+.fade-in {
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .safari-overflow-hidden {
     /*noinspection CssInvalidPropertyValue*/
     -webkit-mask-image: -webkit-radial-gradient(white, black);
