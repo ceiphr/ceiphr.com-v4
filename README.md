@@ -1,12 +1,12 @@
 <!--suppress HtmlDeprecatedAttribute -->
-<h3 align="center">
-  <a href="https://www.ceiphr.com/">
-    <!--suppress CheckImageSize -->
-    <img width="500px" alt="Profile Logo" src="readme-banner.png">
-  </a>
-  ![Node.js Workflow](https://github.com/ceiphr/ceiphr.com/actions/workflows/node.js.yml/badge.svg)
-</h3>
-
+<h1 align="center">
+   <a href="https://www.ceiphr.com/">
+      <!--suppress CheckImageSize -->
+      <img width="500px" alt="Profile Logo" src="readme-banner.png">
+   </a>
+   
+   ![Node.js Workflow](https://github.com/ceiphr/ceiphr.com/actions/workflows/node.js.yml/badge.svg)
+</h1>
 
 Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on Vercel.
 
