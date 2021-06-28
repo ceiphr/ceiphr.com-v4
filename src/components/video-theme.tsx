@@ -34,6 +34,8 @@ const VideoTheme = () => {
         id="background"
         ref={videoRef}
         loop
+        disablePictureInPicture
+        disableRemotePlayback
         autoPlay
         muted
         className="object-cover h-full w-full fade-in"

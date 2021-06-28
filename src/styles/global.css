@@ -25,6 +25,10 @@ html, body {
     }
 }
 
+video {
+    pointer-events: none;
+}
+
 .safari-overflow-hidden {
     /*noinspection CssInvalidPropertyValue*/
     -webkit-mask-image: -webkit-radial-gradient(white, black);
