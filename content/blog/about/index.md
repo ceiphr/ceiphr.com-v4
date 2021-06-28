@@ -1,5 +1,6 @@
 ---
 title: About
+description: "I'm Ari. CS student at Stevens Institute of Technology. Technical Writer in my spare time."
 unlisted: true
 comments: false
 ---
