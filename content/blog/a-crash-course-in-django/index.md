@@ -1,5 +1,5 @@
 ---
-title: A Crash Course in Django 
+title: A Crash Course in Django
 date: "2019-06-28T22:12:03.284Z"
 icons: ["python", "django", "web"]
 description: "This crash course is a quick way to get started making a basic Django website without going in-depth about the underlying concepts."
@@ -9,7 +9,7 @@ description: "This crash course is a quick way to get started making a basic Dja
 
 **This is not a tutorial.** This crash course is a quick way to get started making a basic Django website **without**
 going in-depth about the underlying concepts that are required to make complex web applications. For every step of this
-crash course I will link a more thorough explanation of the tools and concept you're using so you can get a better
+crash course I will link a more thorough explanation of the tools and concept you're using, so you can get a better
 understanding of Django while creating your first project.
 
 ### Prerequisites
@@ -56,7 +56,7 @@ cd ~/Documents
 python3 -m venv django_cc
 ```
 
-`python3 -m venv django_cc` will create a virtual environment within a folder called `django_cc` for our project so all
+`python3 -m venv django_cc` will create a virtual environment within a folder called `django_cc` for our project, so all
 the stuff we install for it to work won't interfere with anything else on your
 system. [\[in-depth\]](https://virtualenv.pypa.io/en/stable/)
 
@@ -72,7 +72,7 @@ pip install django
 installed on the whole system, just in our project. `pip install django` will use Python's package manager to install
 the most recent version of Django.
 
-Now that Django is installed we get some new commands. Let's start by creating a project within Django, migrating our
+Now that Django is installed, we get some new commands. Let's start by creating a project within Django, migrating our
 development database and finally starting our local development server for the first time to ensure we did everything
 right.
 
@@ -93,21 +93,21 @@ activity logs, permissions, etc.). [\[in-depth\]](https://docs.djangoproject.com
 
 `python3 manage.py runserver` will start our development server where we will be testing our project.
 
-To see the development server in action go to [127.0.0.1:8000](http://127.0.0.1:8000/) in your browser. A Django start
+To see the development server in action, go to [127.0.0.1:8000](http://127.0.0.1:8000/) in your browser. A Django start
 up page should appear:
 
 ![Django Development Server Default Page](django-cc-default.png)
 
 ### The Database
 
-Next grab your favorite text editor or python IDE because we're going to delve into Django. We're going to start by
+Next, grab your favorite text editor or python IDE because we're going to delve into Django. We're going to start by
 creating a Django app where we will write all of our models for this project.
 
 ```bash
 python manage.py startapp blog
 ```
 
-In order for our core project to recognize this app we need to let it know our `blog` app exists by adding it
+In order for our core project to recognize this app, we need to let it know our `blog` app exists by adding it
 to `INSTALLED_APPS` in `django_cc/settings.py` like so:
 
 ```python{numberLines: true}
@@ -137,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 ```
 
-We'll need to do the same for our templates folder by updating `DIRS` to handle `[os.path.join(BASE_DIR, 'templates')]`
+We'll need to do the same for our `templates` folder by updating `DIRS` to handle `[os.path.join(BASE_DIR, 'templates')]`
 instead of the default `[]`:
 
 ```python{numberLines: true}
@@ -188,7 +188,7 @@ Great, our project is now set up, and we can begin by writing our models.
 
 ## Writing our models
 
-Inside our new `blog` app we will find a `models.py` file where we will write our models for our database. The
+Inside our new `blog` app, we will find a `models.py` file where we will write our models for our database. The
 class `Post` will act as our first model for uploading a post with an image, title, description, and date published.
 
 ```python{numberLines: true}
@@ -212,7 +212,7 @@ date and time.
 
 [\[in-depth\]](https://docs.djangoproject.com/en/2.2/topics/db/examples/many_to_many/)
 
-To finish off our models let's tell Django to order them based newest to oldest:
+To finish off our models, let's tell Django to order them based newest to oldest:
 
 ```python{numberLines: true}
 class Post(models.Model):
@@ -241,11 +241,11 @@ python3 manage.py migrate
 ```
 
 Congratulations! Our database is all set up for our posts. There is one issue, though. We can't edit them right now.
-Let's get you set up with the Django admin panel so you make some posts.
+Let's get you set up with the Django admin panel, so you make some posts.
 
 ### Admin control panel
 
-Inside our `blog` app go to `admin.py` and add the following:
+Inside our `blog` app, go to `admin.py` and add the following:
 
 ```python{numberLines: true}
 from django.contrib import admin
@@ -257,7 +257,7 @@ admin.site.register(Post)
 `from blog.models import Post` imports all the models that we've just created. `admin.site.register(<model_name>)` tells
 Django to display that model within the control panel.
 
-Next we will create a superuser, so we can log into the admin panel. Type the following command and follow the prompts.
+Next, we will create a superuser, so we can log into the admin panel. Type the following command and follow the prompts.
 You only need to fill out the username and passwords prompts.
 
 ```bash{outputLines: 2-6}
@@ -269,7 +269,7 @@ Password (again):
 Superuser created successfully.
 ```
 
-Once completed head over to [`127.0.0.1:8000/admin`](http://127.0.0.1:8000/admin) and sign in with the credentials you
+Once completed, head over to [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) and sign in with the credentials you
 just wrote. You should see this page:
 
 ![Django Development Server Admin Panel](django-cc-admin.png)
@@ -282,7 +282,7 @@ Django can serve our posts.
 ## View logic
 
 A view is how Django knows what to do when we ask for a page. The first thing we have to do is create a `views.py` file
-in `django_cc`. In that file paste the following:
+in `django_cc`. In that file, paste the following:
 
 ```python{numberLines: true}
 from django.shortcuts import render
@@ -344,8 +344,8 @@ Our basic view logic is now complete, now we need to build our index template fo
 
 ## Templates with Style
 
-In the root of our Django project where you can find our `blog` and `django_cc` folders create a `templates` folder and
-make an `index.html` file inside. For the design of our site we're going to use the
+In the root of our Django project where you can find our `blog` and `django_cc` folders, create a `templates` folder and
+make an `index.html` file inside. For the design of our site, we're going to use the
 framework [Bulma](https://bulma.io/documentation/) so we won't need to write any CSS. Here is a boilerplate we can use
 for our template.
 
@@ -366,7 +366,7 @@ for our template.
 ```
 
 Django templates utilize a DRY version of HTML called Django HTML. This is how we will send our context to render in
-our `index.html` template. In the body of the boilerplate let's add a basic card with the context for our posts.
+our `index.html` template. In the body of the boilerplate, let's add a basic card with the context for our posts.
 
 ```html{numberLines: true}
 <div class="container">
@@ -395,7 +395,7 @@ our `index.html` template. In the body of the boilerplate let's add a basic card
 
 `{% for post in posts %}` acts as a for loop that will duplicate its contents for each post inside `posts`.
 
-Every time the for loop runs the context for the post in the current iteration is placed in the HTML when it is referred
+Every time the `for` loop runs, the context for the post in the current iteration is placed in the HTML when it is referred
 to using `{{ <variable> }}`
 
 `{{ post.image.url }}` is how you refer to the image's URL, you cannot just reference the image itself.
@@ -413,7 +413,7 @@ Now we have a website that displays what we add to our control panel in Bulma ca
 
 ## Wrap Up
 
-Django is a wonderful framework for building websites and other complex things. Today you've created a very basic
+Django is a wonderful framework for building websites and other complex things. Today, you've created a very basic
 website that is capable of displaying posts akin to Instagram and in the future hopefully you can build Instagram
 yourself. For now, I suggest learning more about Django either
 through [their documentation](https://docs.djangoproject.com/en/2.2/)
@@ -421,7 +421,7 @@ or [this introduction (which got me started)](https://rnvarma.gitbooks.io/intro-
 
 **FYI** —
 Follow [this tutorial by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04)
-so you can learn how to host your Django creations for the world to see.
+so, you can learn how to host your Django creations for the world to see.
 
 _Edit: Renamed classes to adhere to PEP 8 and renamed database app to blog._
 
