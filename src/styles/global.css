@@ -87,7 +87,7 @@ a:focus-visible {
     }
 
     ::selection {
-        color: white;
+        color: #d1d5db;
         background: #047857;
     }
 
