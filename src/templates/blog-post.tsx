@@ -2,14 +2,19 @@ import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { isIOS, isSafari } from "react-device-detect"
+import { useMediaPredicate } from "react-media-hook"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Comment from "../components/comment"
 import VideoTheme from "../components/video-theme"
 import ImageTheme from "../components/image-theme"
+
 import Icons from "../components/icons"
-import { useMediaPredicate } from "react-media-hook"
+import CC from "../../static/creative-commons.svg"
+import CCBy from "../../static/creative-commons-by.svg"
+import CCNC from "../../static/creative-commons-nc.svg"
+import CCSA from "../../static/creative-commons-sa.svg"
 
 type DataProps = {
   site: {
@@ -126,8 +131,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
                     className="float-left mr-2 inline-block rounded-full safari-overflow-hidden"
                     placeholder="blurred"
                     layout="fixed"
-                    // @ts-ignore
-                    formats={["AUTO", "WEBP", "AVIF"]}
+                    formats={[`auto`, `webp`, `avif`]}
                     src="../images/profile-pic.png"
                     width={24}
                     height={24}
@@ -147,9 +151,31 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
+        <br />
+        {post.frontmatter.date && (
+          <div className="text-gray-400 dark:text-gray-500">
+            <CC className="inline-block fill-current" />
+            <CCBy className="inline-block fill-current" />
+            <CCNC className="inline-block fill-current" />
+            <CCSA className="inline-block fill-current" />
+            <p>
+              Except where otherwise noted, this post is licensed under a{` `}
+              <a
+                rel="license noopener noreferrer"
+                target="_blank"
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                className="hover:underline"
+              >
+                Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+                International (CC BY-NC-SA 4.0)
+              </a>
+              {` `} license.
+            </p>
+          </div>
+        )}
       </article>
       {post.frontmatter.comments && (
-        <Comment className="pt-4 mt-4 border-t-2 border-gray-200 dark:border-gray-700" />
+        <Comment className="pt-8 mt-8 border-t-2 border-gray-200 dark:border-gray-700" />
       )}
     </Layout>
   )

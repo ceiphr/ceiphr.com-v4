@@ -9,6 +9,10 @@ html, body {
     overflow-x: hidden !important;
 }
 
+::selection {
+    background: #FDE68A;
+}
+
 .fade-in {
     animation: fadein 2s;
 }
@@ -80,6 +84,11 @@ a:focus-visible {
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: dark;
+    }
+
+    ::selection {
+        color: white;
+        background: #047857;
     }
 
     a:focus-visible {

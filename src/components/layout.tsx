@@ -21,7 +21,6 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
           <Link to="/">
             <p className="sr-only">Homepage</p>
             <Logo
-              alt="Ari"
               width="32"
               height="32"
               className="fill-current text-gray-900 dark:text-gray-300"

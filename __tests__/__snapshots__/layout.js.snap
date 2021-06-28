@@ -20,7 +20,6 @@ exports[`Layout renders correctly 1`] = `
           Homepage
         </p>
         <test-file-stub
-          alt="Ari"
           className="fill-current text-gray-900 dark:text-gray-300"
           height="32"
           width="32"

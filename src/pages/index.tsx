@@ -70,10 +70,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
       <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
         {prefersReduced || safari || IOS ? <ImageTheme /> : <VideoTheme />}
         <div className="relative max-w-sm w-52 tablet:w-auto -top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <Banner
-            alt="Ceiphr"
-            className="fill-current text-white dark:text-black"
-          />
+          <Banner className="fill-current text-white dark:text-black" />
         </div>
       </div>
       <h1 className="text-gray-900 dark:text-gray-300 font-bold text-4xl tk-neue-haas-grotesk-display uppercase">
@@ -97,15 +94,13 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                   {post.frontmatter.date}
                 </span>
               </header>
-              <section>
-                <p
-                  className="text-gray-600 dark:text-gray-400 mb-1"
-                  dangerouslySetInnerHTML={{
-                    __html: post.frontmatter.description || post.excerpt,
-                  }}
-                  itemProp="description"
-                />
-              </section>
+              <p
+                className="text-gray-600 dark:text-gray-400 mb-1"
+                dangerouslySetInnerHTML={{
+                  __html: post.frontmatter.description || post.excerpt,
+                }}
+                itemProp="description"
+              />
               <p className="text-blue-600 dark:text-blue-400 text-sm uppercase hover:underline">
                 Read Post
                 <span className="inline-block transform translate-y-1">
