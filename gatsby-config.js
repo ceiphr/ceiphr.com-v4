@@ -22,7 +22,6 @@ module.exports = {
       options: {
         mergeStyleHashes: false,
         directives: {
-          "default-src": "'self' giscus.app",
           "connect-src": "'self' *.sentry.io *.vercel-analytics.com",
           "script-src":
             "'self' 'sha256-9EfSE/pxhsIRQAZ9nHpzZGKeEticJtki6BUxpyJY/VQ=' *.ceiphr.com *.sentry.io *.vercel-analytics.com giscus.app cdnjs.cloudflare.com",
@@ -30,6 +29,7 @@ module.exports = {
           "img-src": "'self' data: *.ceiphr.com",
           "font-src": "'self' *.typekit.net",
           "manifest-src": "'self'",
+          "frame-src": "'self' giscus.app codepen.io",
         },
       },
     },
