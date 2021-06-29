@@ -7,6 +7,7 @@
    
    ![Node.js Workflow](https://github.com/ceiphr/ceiphr.com/actions/workflows/node.js.yml/badge.svg)
    [![DeepScan grade](https://deepscan.io/api/teams/14605/projects/17692/branches/413247/badge/grade.svg?token=a1fa0980263b30233c0ddf1e9c3ed778290db2ee)](https://deepscan.io/dashboard#view=project&tid=14605&pid=17692&bid=413247)
+   [![Mozilla Observatory](https://img.shields.io/mozilla-observatory/grade/www.ceiphr.com?publish)](https://observatory.mozilla.org/analyze/www.ceiphr.com)
 </h1>
 
 Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on Vercel.
