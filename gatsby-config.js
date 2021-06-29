@@ -11,7 +11,7 @@ module.exports = {
     },
     description: `Technical articles written by Ari Birnbaum pertaining to 
     Django, Python, Node.js, Gatsby.js, TypeScript, GraphQL, and DevOps.`,
-    siteUrl: `https://www.ceiphr.com/`,
+    siteUrl: `https://ceiphr.com/`,
     social: {
       twitter: `ceiphr`,
       github: `ceiphr`,

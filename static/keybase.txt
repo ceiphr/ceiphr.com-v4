@@ -4,7 +4,7 @@ https://keybase.io/ceiphr
 
 I hereby claim:
 
-  * I am an admin of https://www.ceiphr.com
+  * I am an admin of https://ceiphr.com
   * I am ceiphr (https://keybase.io/ceiphr) on keybase.
   * I have a public key with fingerprint 0EBE C415 386C 019E E744  63F4 F057 8AAF 3218 EA3A
 
@@ -22,7 +22,7 @@ To do so, I am signing this object:
       "username": "ceiphr"
     },
     "service": {
-      "hostname": "www.ceiphr.com",
+      "hostname": "ceiphr.com",
       "protocol": "https:"
     },
     "type": "web_service_binding",

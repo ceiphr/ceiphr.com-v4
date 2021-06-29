@@ -22,5 +22,5 @@ console.log(
     "                 ``````"
 )
 console.log(
-  "I talk about the technologies behind this site here: https://www.ceiphr.com/about/"
+  "I talk about the technologies behind this site here: https://ceiphr.com/about/"
 )

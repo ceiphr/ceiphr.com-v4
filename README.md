@@ -1,6 +1,6 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <h1 align="center">
-   <a href="https://www.ceiphr.com/">
+   <a href="https://ceiphr.com/">
       <!--suppress CheckImageSize -->
       <img width="500px" alt="Profile Logo" src="readme-banner.png">
    </a>

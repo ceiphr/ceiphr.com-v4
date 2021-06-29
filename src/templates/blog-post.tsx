@@ -82,9 +82,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
                     post.frontmatter.title
                   }?fontSize=100px${post.frontmatter.icons
                     .slice(0, 3)
-                    .map(
-                      icon => `&images=https://www.ceiphr.com/icons/${icon}.svg`
-                    )
+                    .map(icon => `&images=https://ceiphr.com/icons/${icon}.svg`)
                     .join("")}`,
                 },
               ]
