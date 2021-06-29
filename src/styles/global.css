@@ -61,6 +61,11 @@ a:focus-visible {
     text-decoration: underline;
 }
 
+.prose .gatsby-resp-image-wrapper {
+    overflow: hidden;
+    border-radius: .6em;
+}
+
 .prose img {
     border: 1px solid #dbdbdb;
 }
