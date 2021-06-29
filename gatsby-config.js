@@ -18,6 +18,20 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        mergeScriptHashes: false,
+        mergeStyleHashes: false,
+        directives: {
+          "default-src": "'self' giscus.app",
+          "script-src":
+            "'self' 'unsafe-inline' *.ceiphr.com *.sentry.io *.vercel-analytics.com *.vercel-dns.com giscus.app cdnjs.cloudflare.com",
+          "style-src": "'self' 'unsafe-inline' *.typekit.net",
+          "font-src": "'self' *.typekit.net",
+        },
+      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-react-svg`,
