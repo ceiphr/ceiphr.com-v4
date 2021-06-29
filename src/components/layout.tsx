@@ -16,7 +16,7 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
       className="container max-w-2xl mx-auto p-6 tk-roboto"
       data-is-root-path={isRootPath}
     >
-      <header className="mb-6">
+      <header className="mb-6 no-print">
         <nav className="flex justify-between">
           <Link to="/">
             <p className="sr-only">Homepage</p>
@@ -52,7 +52,7 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
         </nav>
       </header>
       <main>{children}</main>
-      <footer className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500">
+      <footer className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500 no-print">
         <p>
           © 2021 Ari Birnbaum.{" "}
           <span className="float-right">

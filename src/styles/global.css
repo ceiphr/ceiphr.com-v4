@@ -44,13 +44,13 @@ video {
     max-width: 100% !important;
 }
 
-.prose {
-    max-width: 100% !important;
-}
-
 a:focus-visible {
     outline: 1px solid #A31515;
     border-radius: 4px;
+}
+
+.prose {
+    max-width: 100% !important;
 }
 
 .prose a {
@@ -113,5 +113,24 @@ a:focus-visible {
 
     html, body {
         background: black;
+    }
+}
+
+@media print {
+    body, a {
+        color: black !important;
+    }
+
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    a {
+        text-decoration: underline !important;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
     }
 }

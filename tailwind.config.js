@@ -11,6 +11,7 @@ module.exports = {
       tablet: "640px",
       laptop: "1024px",
       desktop: "1280px",
+      print: { raw: "print" },
     },
     borderRadius: {
       md: "0.6em",

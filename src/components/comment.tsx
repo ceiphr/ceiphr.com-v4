@@ -32,6 +32,6 @@ const Comment: React.FC<DataProps> = ({ className }) => {
     }
   })
 
-  return <div ref={commentBox} className={`comments ${className}`} />
+  return <div ref={commentBox} className={`comments no-print ${className}`} />
 }
 export default Comment

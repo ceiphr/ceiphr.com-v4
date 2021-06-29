@@ -15,7 +15,7 @@
 
 .gatsby-highlight::-webkit-scrollbar-thumb {
     height: 5px;
-    border: 5px solid rgba(0, 0, 0, 0);  /* Transparent border together with `background-clip: padding-box` does the trick */
+    border: 5px solid rgba(0, 0, 0, 0); /* Transparent border together with `background-clip: padding-box` does the trick */
     background-clip: padding-box;
     -webkit-border-radius: 9999px;
     background-color: rgba(139, 139, 139, 0.25);
@@ -567,4 +567,20 @@ code[class*="language-css"] {
         white-space: pre;
     }
 
+}
+
+@media print {
+    .gatsby-highlight {
+        border: 0;
+        overflow: visible !important;
+    }
+
+    pre * {
+        color: black !important;
+        padding: 0 !important;
+    }
+
+    .line-numbers .line-numbers-rows {
+        display: none;
+    }
 }

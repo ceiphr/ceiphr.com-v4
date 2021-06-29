@@ -97,7 +97,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
       <article itemScope itemType="https://schema.org/Article">
         <header>
           {post.frontmatter.icons && (
-            <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden">
+            <div className="mb-6 w-full tablet:h-96 h-48 rounded-md bg-gray-900 dark:bg-gray-300 overflow-hidden safari-overflow-hidden no-print">
               {prefersReduced || safari || IOS ? (
                 <ImageTheme />
               ) : (
@@ -145,14 +145,14 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
           )}
         </header>
         <section
-          className="prose dark:prose-light lg:prose-xl pt-4"
+          className="prose dark:prose-light lg:prose-xl print:text-black pt-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         {post.frontmatter.date && (
           <>
             <br />
-            <div className="text-gray-400 dark:text-gray-500">
+            <div className="text-gray-400 dark:text-gray-500 print:text-black">
               <CC className="inline-block fill-current" />
               <CCBy className="inline-block fill-current" />
               <CCNC className="inline-block fill-current" />
