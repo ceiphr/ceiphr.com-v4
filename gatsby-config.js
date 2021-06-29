@@ -25,6 +25,7 @@ module.exports = {
         mergeStyleHashes: false,
         directives: {
           "default-src": "'self' giscus.app",
+          "connect-src": "'self' *.sentry.io *.vercel-analytics.com",
           "script-src":
             "'self' 'unsafe-inline' *.ceiphr.com *.sentry.io *.vercel-analytics.com *.vercel-dns.com giscus.app cdnjs.cloudflare.com",
           "style-src": "'self' 'unsafe-inline' *.typekit.net",
