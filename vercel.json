@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Referrer-Policy",
-          "value": "strict-origin"
+          "value": "no-referrer-when-downgrade"
         },
         {
           "key": "Strict-Transport-Security",
