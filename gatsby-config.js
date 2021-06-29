@@ -30,6 +30,7 @@ module.exports = {
           "style-src": "'self' 'unsafe-inline' *.typekit.net",
           "img-src": "'self' data: *.ceiphr.com",
           "font-src": "'self' *.typekit.net",
+          "manifest-src": "'self",
         },
       },
     },
