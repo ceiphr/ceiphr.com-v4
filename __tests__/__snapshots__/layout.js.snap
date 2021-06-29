@@ -6,7 +6,7 @@ exports[`Layout renders correctly 1`] = `
   data-is-root-path={false}
 >
   <header
-    className="mb-6"
+    className="mb-6 no-print"
   >
     <nav
       className="flex justify-between"
@@ -65,7 +65,7 @@ exports[`Layout renders correctly 1`] = `
     </div>
   </main>
   <footer
-    className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500"
+    className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500 no-print"
   >
     <p>
       © 2021 Ari Birnbaum.
