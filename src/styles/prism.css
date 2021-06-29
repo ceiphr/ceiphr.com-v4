@@ -575,6 +575,10 @@ code[class*="language-css"] {
         overflow: visible !important;
     }
 
+    .gatsby-highlight-code-line {
+        margin-left: 0 !important;
+    }
+
     pre * {
         color: black !important;
         padding: 0 !important;
