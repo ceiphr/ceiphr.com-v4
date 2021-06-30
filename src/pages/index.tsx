@@ -90,7 +90,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                     {title}
                   </span>
                 </h2>
-                <span className="inline-block text-gray-400 dark:text-gray-500 text-sm uppercase">
+                <span className="inline-block text-gray-600 dark:text-gray-400 text-sm uppercase">
                   {post.frontmatter.date}
                 </span>
               </header>

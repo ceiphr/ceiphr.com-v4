@@ -119,7 +119,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
             {post.frontmatter.title}
           </h1>
           {post.frontmatter.date && (
-            <div className="text-gray-700 dark:text-gray-400 mt-2 mb-2">
+            <div className="text-gray-600 dark:text-gray-400 mt-2 mb-2">
               <span>
                 <a
                   href={`https://github.com/${github || ``}`}
@@ -145,14 +145,14 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
           )}
         </header>
         <section
-          className="prose dark:prose-light lg:prose-xl print:text-black pt-4"
+          className="prose dark:prose-light lg:prose-xl text-gray-600 print:text-black pt-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         {post.frontmatter.date && (
           <>
             <br />
-            <div className="text-gray-700 dark:text-gray-400 print:text-black">
+            <div className="text-gray-600 dark:text-gray-400 print:text-black">
               <CC className="inline-block fill-current" />
               <CCBy className="inline-block fill-current" />
               <CCNC className="inline-block fill-current" />

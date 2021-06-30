@@ -26,7 +26,7 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
               className="fill-current text-gray-900 dark:text-gray-300"
             />
           </Link>
-          <ul className="flex flex-row text-gray-700 dark:text-gray-400">
+          <ul className="flex flex-row text-gray-600 dark:text-gray-400">
             <li className="pr-5">
               <Link className="inline-block mt-1 hover:underline" to="/about/">
                 About
@@ -52,7 +52,7 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
         </nav>
       </header>
       <main>{children}</main>
-      <footer className="mt-6 dark:border-gray-700 text-gray-700 dark:text-gray-400 no-print">
+      <footer className="mt-6 dark:border-gray-700 text-gray-600 dark:text-gray-400 no-print">
         <p>
           © 2021 Ari Birnbaum.{" "}
           <span className="float-right">
