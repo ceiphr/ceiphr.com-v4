@@ -145,7 +145,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
           )}
         </header>
         <section
-          className="prose dark:prose-light lg:prose-xl text-gray-600 print:text-black pt-4"
+          className="prose text-gray-600 dark:prose-light lg:prose-xl print:text-black pt-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />

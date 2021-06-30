@@ -44,7 +44,8 @@ Django does more complex (and really fun) things, but if you're starting out tha
 
 ## Setting up our project
 
-**Notice for Windows users:** By default, Windows doesn't have a Unix command line, which is a prerequisite for this
+**Notice for Windows users:**<br/>
+By default, Windows doesn't have a Unix command line, which is a prerequisite for this
 crash course. The October 2018 update for Windows 10 offers Linux subsystems, such as Ubuntu. Please install and set up
 a Linux subsystem to utilize the Unix command line.
 
