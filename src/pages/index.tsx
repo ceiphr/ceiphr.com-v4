@@ -90,9 +90,6 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                     {title}
                   </span>
                 </h2>
-                <span className="inline-block text-gray-600 dark:text-gray-400 text-sm uppercase">
-                  {post.frontmatter.date}
-                </span>
               </header>
               <p
                 className="text-gray-600 dark:text-gray-400 mb-1"
@@ -162,7 +159,6 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
           title
           description
           redirect
