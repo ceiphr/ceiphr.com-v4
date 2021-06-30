@@ -110,7 +110,7 @@ python manage.py startapp blog
 In order for our core project to recognize this app, we need to let it know our `blog` app exists by adding it
 to `INSTALLED_APPS` in `django_cc/settings.py` like so:
 
-```python{numberLines: true}
+```python
 # Application definition
 
 INSTALLED_APPS = [
@@ -130,7 +130,7 @@ INSTALLED_APPS = [
 Let's add the following to the bottom of `settings.py` so Django knows where to store media files such as the images
 that we upload:
 
-```python{numberLines: true}
+```python
 # Media file support
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -140,7 +140,7 @@ MEDIA_URL = '/media/'
 We'll need to do the same for our `templates` folder by updating `DIRS` to handle `[os.path.join(BASE_DIR, 'templates')]`
 instead of the default `[]`:
 
-```python{numberLines: true}
+```python
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -162,7 +162,7 @@ TEMPLATES = [
 We will also need to add a few imports and a conditional at the bottom of `django_cc/urls.py` so the files are
 accessible on the development server:
 
-```python{numberLines: true}
+```python
 from django.conf.urls import url
 from django.contrib import admin
 
@@ -191,7 +191,7 @@ Great, our project is now set up, and we can begin by writing our models.
 Inside our new `blog` app, we will find a `models.py` file where we will write our models for our database. The
 class `Post` will act as our first model for uploading a post with an image, title, description, and date published.
 
-```python{numberLines: true}
+```python
 from django.db import models
 import datetime
 
@@ -214,7 +214,7 @@ date and time.
 
 To finish off our models, let's tell Django to order them based newest to oldest:
 
-```python{numberLines: true}
+```python
 class Post(models.Model):
     image = models.FileField(upload_to='images/')
     title = models.CharField(default="", max_length=64)
@@ -247,7 +247,7 @@ Let's get you set up with the Django admin panel, so you make some posts.
 
 Inside our `blog` app, go to `admin.py` and add the following:
 
-```python{numberLines: true}
+```python
 from django.contrib import admin
 from blog.models import Post
 
@@ -284,7 +284,7 @@ Django can serve our posts.
 A view is how Django knows what to do when we ask for a page. The first thing we have to do is create a `views.py` file
 in `django_cc`. In that file, paste the following:
 
-```python{numberLines: true}
+```python
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic import TemplateView
@@ -314,7 +314,7 @@ a list of all posts that is collected from the database using `Post.objects.all(
 
 In `urls.py` we will need to add a new path so Django knows when that URL is requested to call our view:
 
-```python{numberLines: true}
+```python
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
@@ -349,7 +349,7 @@ make an `index.html` file inside. For the design of our site, we're going to use
 framework [Bulma](https://bulma.io/documentation/) so we won't need to write any CSS. Here is a boilerplate we can use
 for our template.
 
-```html{numberLines: true}
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -368,7 +368,7 @@ for our template.
 Django templates utilize a DRY version of HTML called Django HTML. This is how we will send our context to render in
 our `index.html` template. In the body of the boilerplate, let's add a basic card with the context for our posts.
 
-```html{numberLines: true}
+```html
 <div class="container">
   {% for post in posts %}
   <div class="card">
