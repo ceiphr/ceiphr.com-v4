@@ -25,6 +25,7 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
+            color: theme("colors.gray.600"),
             h1: {
               marginBottom: "0em",
             },
