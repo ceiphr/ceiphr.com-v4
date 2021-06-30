@@ -2,7 +2,7 @@
 title: A Crash Course in Django
 date: "2019-06-28T22:12:03.284Z"
 icons: ["python", "django", "web"]
-description: "This crash course is a quick way to get started making a basic Django website without going in-depth about the underlying concepts."
+description: "A quick way to get started using Django without going too in-depth."
 ---
 
 ## Introduction

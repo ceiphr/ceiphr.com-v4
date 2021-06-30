@@ -82,7 +82,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
           const body = (
             <article itemScope itemType="https://schema.org/Article">
               <header>
-                <h2 className="-mb-1">
+                <h2>
                   <span
                     className="text-gray-900 dark:text-gray-300 text-xl font-bold"
                     itemProp="headline"
