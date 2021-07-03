@@ -39,7 +39,7 @@ video {
 }
 
 .anchor.before {
-    transform: translate(-100%, 8px);
+    transform: translate(-100%, 8px) !important;
     transition: opacity 200ms;
     opacity: 0.5;
 }
