@@ -23,10 +23,6 @@ Using a sprite map for beveled corners can be useful because it will work with m
 
   width: 28px;
   height: 61px;
-
-  position: relative;
-  display: block;
-  flex: 1 1 auto;
 }
 
 .button {
@@ -111,6 +107,7 @@ The main caveat with this approach is the _insane_ amount of CSS required to get
 
   &:after,
   &:before {
+    border-color: white;
     border-style: solid;
     content: "";
 
@@ -146,12 +143,13 @@ That chunk of code does everything _except_ the beveled corners. Yes, 34 lines o
   line-height: 16px;
 
   background-color: transparent;
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
-  color: #fff;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  color: white;
 
   &:after,
   &:before {
+    border-style: solid;
     border-color: transparent;
     border-width: 0 0 16px 16px;
     content: "";
@@ -160,8 +158,8 @@ That chunk of code does everything _except_ the beveled corners. Yes, 34 lines o
     background-size: 16px 24px;
     background-image: repeating-linear-gradient(
                     -45deg,
-                    #fff,
-                    #fff 1px,
+                    white,
+                    white 1px,
                     transparent 0,
                     transparent 16px
     );
@@ -283,13 +281,8 @@ Just kidding. Outlines. Outlines are annoying to implement. Here is some example
     padding: 0;
 
     .button {
-      // Override default values.
       background-color: black;
       margin: 1px;
-
-      // Offset for consistent size.
-      width: calc(100% - 2px);
-      padding: calc(1em - 1px) 1em;
     }
   }
 }
