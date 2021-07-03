@@ -80,7 +80,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
                   name: `og:image`,
                   content: `https://og.ceiphr.com/${
                     post.frontmatter.title
-                  }?fontSize=100px${post.frontmatter.icons
+                  }?fontSize=90px${post.frontmatter.icons
                     .slice(0, 3)
                     .map(icon => `&images=https://ceiphr.com/icons/${icon}.svg`)
                     .join("")}`,
