@@ -52,7 +52,7 @@ a Linux subsystem to utilize the Unix command line.
 We're going to use your computer's terminal to set up our python environment and Django. Let's make the project in our
 computer's `Documents` folder, so enter these commands:
 
-```bash:clipboard=false
+```bash
 cd ~/Documents
 python3 -m venv django_cc
 ```
@@ -63,7 +63,7 @@ system. [\[in-depth\]](https://virtualenv.pypa.io/en/stable/)
 
 Next we'll get in our project folder, enable our new python environment and install Django.
 
-```bash:clipboard=false
+```bash
 cd django_cc
 source bin/activate
 pip install django
@@ -77,7 +77,7 @@ Now that Django is installed, we get some new commands. Let's start by creating 
 development database and finally starting our local development server for the first time to ensure we did everything
 right.
 
-```bash:clipboard=false
+```bash
 django-admin startproject django_cc
 cd django_cc
 python3 manage.py migrate
@@ -104,7 +104,7 @@ up page should appear:
 Next, grab your favorite text editor or python IDE because we're going to delve into Django. We're going to start by
 creating a Django app where we will write all of our models for this project.
 
-```bash:clipboard=false
+```bash
 python manage.py startapp blog
 ```
 
@@ -236,7 +236,7 @@ in the Django admin panel. [\[in-depth\]](https://docs.djangoproject.com/en/2.2/
 Finish off our models with the following two commands that essentially tell Django that we've made some changes and that
 they should be applied to our database:
 
-```bash:clipboard=false
+```bash
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
@@ -261,25 +261,14 @@ Django to display that model within the control panel.
 Next, we will create a superuser, so we can log into the admin panel. Type the following command and follow the prompts.
 You only need to fill out the username and passwords prompts.
 
-```bash:clipboard=false
+```bash{outputLines: 2-6}
 python3 manage.py createsuperuser
+Username (leave blank to use 'ari'):
+Email address:
+Password:
+Password (again):
+Superuser created successfully.
 ```
-
-[comment]: <> (```bash{outputLines: 2-6})
-
-[comment]: <> (python3 manage.py createsuperuser)
-
-[comment]: <> (Username &#40;leave blank to use 'ari'&#41;:)
-
-[comment]: <> (Email address:)
-
-[comment]: <> (Password:)
-
-[comment]: <> (Password &#40;again&#41;:)
-
-[comment]: <> (Superuser created successfully.)
-
-[comment]: <> (```)
 
 Once completed, head over to [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) and sign in with the credentials you
 just wrote. You should see this page:

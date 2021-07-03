@@ -3,35 +3,11 @@
  * Inspired by Visual Studio syntax coloring
  */
 
-.copy-container {
-    top: 26px;
-    right: 8px;
-    margin-top: -18px;
-}
-
-.copy {
-    transition: opacity 200ms;
-    opacity: 0.5
-}
-
-.copy::after {
-    background-color: transparent;
-}
-
-.copy:hover {
-    opacity: 1;
-}
-
-@media (max-width: 640px) {
-    .copy-container {
-        display: none;
-    }
-}
-
 .gatsby-highlight {
     border-radius: .6em;
     border: 1px solid #dbdbdb;
     overflow-y: hidden;
+    position: relative;
 }
 
 .gatsby-highlight::-webkit-scrollbar-track {
@@ -54,10 +30,66 @@
     overflow: initial;
     float: left;
     min-width: 100%;
+    margin-top: 1em;
+}
+
+.gatsby-highlight pre[class*="language-"]::before {
+    border-radius: 0 0 .4rem .4rem;
+    font-size: 12px;
+    color: #4b5563;
+    border: 1px solid #dbdbdb;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    position: absolute;
+    left: 1rem;
+    text-align: right;
+    text-transform: uppercase;
+    transform: translateY(-1px);
+    top: 0;
+}
+
+/* Language types */
+
+.gatsby-highlight pre[class~="language-bash"]::before {
+    content: "BASH";
+}
+
+.gatsby-highlight pre[class~="language-html"]::before {
+    content: "HTML";
+}
+
+.gatsby-highlight pre[class~="language-css"]::before {
+    content: "CSS";
+}
+
+.gatsby-highlight pre[class~="language-scss"]::before {
+    content: "SCSS";
+}
+
+.gatsby-highlight pre[class~="language-c"]::before {
+    content: "C";
+}
+
+.gatsby-highlight pre[class~="language-rust"]::before {
+    content: "Rust";
+}
+
+.gatsby-highlight pre[class~="language-python"]::before {
+    content: "Python";
+}
+
+.gatsby-highlight pre[class~="language-js"]::before {
+    content: "JS";
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
     padding-left: 3.4em;
+}
+
+.gatsby-code-title {
+    text-align: center;
+    font-family: "Fira Code", monospace;
+    font-size: 14px;
 }
 
 .gatsby-highlight-code-line {
@@ -300,6 +332,11 @@ code[class*="language-css"] {
 
 @media (prefers-color-scheme: dark) {
     .gatsby-highlight {
+        border: 1px solid #3d3d3d;
+    }
+
+    .gatsby-highlight pre[class*="language-"]::before {
+        color: #9ca3af;
         border: 1px solid #3d3d3d;
     }
 
