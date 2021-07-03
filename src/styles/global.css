@@ -113,6 +113,19 @@ a:focus-visible {
         background: #047857;
     }
 
+    h1::selection,
+    h2::selection,
+    h3::selection,
+    h4::selection,
+    code::selection,
+    strong::selection {
+        color: white;
+    }
+
+    a::selection {
+        color: inherit;
+    }
+
     a:focus-visible {
         outline: 1px solid #db4c69;
     }

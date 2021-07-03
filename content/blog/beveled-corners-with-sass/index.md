@@ -197,6 +197,8 @@ No need to boot up Photoshop every time a button needs a color tweaked. Instead,
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
+Also, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my implementation, but this jankiness is also on [marvel.com](https://www.marvel.com/).
+
 ## Clip Path
 
 [whereismaurice.com](https://whereismaurice.com/) (ahem, a project of mine), takes the most flexible approach. Let me introduce the `clip-path`. It works just like Photoshop's clipping mask. Currently, all browsers _except_ IE support it with shapes and inline SVGs (Firefox includes support for external SVGs).
