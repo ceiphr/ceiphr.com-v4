@@ -132,6 +132,16 @@ a:focus-visible {
         color: black !important;
     }
 
+    .gatsby-resp-image-wrapper {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 50vw !important;
+    }
+
+    .prose iframe {
+        display: none !important;
+    }
+
     .container {
         margin: 0 !important;
         padding: 0 !important;

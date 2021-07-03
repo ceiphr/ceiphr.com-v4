@@ -32,6 +32,7 @@ import LeagueOfLegends from "../../static/icons/leagueoflegends.svg"
 import Logs from "../../static/icons/logs.svg"
 import Map from "../../static/icons/map.svg"
 import Markdown from "../../static/icons/markdown.svg"
+import Marvel from "../../static/icons/marvel.svg"
 import Module from "../../static/icons/module.svg"
 import Netlify from "../../static/icons/netlify.svg"
 import Next from "../../static/icons/next.svg"
@@ -104,6 +105,7 @@ const Icons: allIcons = {
   logs: <Logs className={iconClasses} key="Logs" />,
   map: <Map className={iconClasses} key="Map" />,
   markdown: <Markdown className={iconClasses} key="Markdown" />,
+  marvel: <Marvel className={iconClasses} key="Marvel" />,
   module: <Module className={iconClasses} key="Module" />,
   netlify: <Netlify className={iconClasses} key="Netlify" />,
   next: <Next className={iconClasses} key="Next" />,

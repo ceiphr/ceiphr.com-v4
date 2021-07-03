@@ -92,7 +92,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
                 </h2>
               </header>
               <p
-                className="text-gray-600 dark:text-gray-400 mb-1"
+                className="text-gray-600 dark:text-gray-400 leading-7 mb-1"
                 dangerouslySetInnerHTML={{
                   __html: post.frontmatter.description || post.excerpt,
                 }}

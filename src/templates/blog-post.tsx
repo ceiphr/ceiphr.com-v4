@@ -150,28 +150,28 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
           itemProp="articleBody"
         />
         {post.frontmatter.date && (
-          <>
+          <div className="text-gray-600 dark:text-gray-400 print:text-black leading-7">
             <br />
-            <div className="text-gray-600 dark:text-gray-400 print:text-black">
+            <div className="text-gray-900 dark:text-gray-300 mb-2">
               <CC className="inline-block fill-current" />
               <CCBy className="inline-block fill-current" />
               <CCNC className="inline-block fill-current" />
               <CCSA className="inline-block fill-current" />
-              <p>
-                Except where otherwise noted, this post is licensed under a{` `}
-                <a
-                  rel="license noopener noreferrer"
-                  target="_blank"
-                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-                  className="hover:underline"
-                >
-                  Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-                  International (CC BY-NC-SA 4.0)
-                </a>
-                {` `} license.
-              </p>
             </div>
-          </>
+            <p>
+              Except where otherwise noted, this post is licensed under a{` `}
+              <a
+                rel="license noopener noreferrer"
+                target="_blank"
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                className="hover:underline"
+              >
+                Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+                International (CC BY-NC-SA 4.0)
+              </a>
+              {` `} license.
+            </p>
+          </div>
         )}
       </article>
       {post.frontmatter.comments && (
