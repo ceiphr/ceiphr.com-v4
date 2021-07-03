@@ -48,6 +48,7 @@ For the button's body, you can use some Sass or CSS, since there isn't anything 
   background-size: 100% 100%;
 
   height: 61px;
+  max-width: 12em;
   min-width: 165px;
   margin-left: -1px;
   margin-right: -1px;
