@@ -38,6 +38,16 @@ video {
     -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
+.anchor.before {
+    transform: translate(-100%, 8px);
+    transition: opacity 200ms;
+    opacity: 0.5;
+}
+
+.anchor.before:hover {
+    opacity: 1;
+}
+
 .gatsby-resp-image-wrapper {
     margin-left: 0 !important;
     margin-right: 0 !important;

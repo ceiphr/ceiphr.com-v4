@@ -3,6 +3,31 @@
  * Inspired by Visual Studio syntax coloring
  */
 
+.copy-container {
+    top: 26px;
+    right: 8px;
+    margin-top: -18px;
+}
+
+.copy {
+    transition: opacity 200ms;
+    opacity: 0.5
+}
+
+.copy::after {
+    background-color: transparent;
+}
+
+.copy:hover {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    .copy-container {
+        display: none;
+    }
+}
+
 .gatsby-highlight {
     border-radius: .6em;
     border: 1px solid #dbdbdb;
@@ -584,6 +609,7 @@ code[class*="language-css"] {
         padding: 0 !important;
     }
 
+    .copy-container,
     .line-numbers .line-numbers-rows {
         display: none;
     }

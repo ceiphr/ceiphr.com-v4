@@ -6,7 +6,7 @@ import { useMediaPredicate } from "react-media-hook"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Comment from "../components/comment"
+import Giscus from "../components/giscus"
 import VideoTheme from "../components/video-theme"
 import ImageTheme from "../components/image-theme"
 
@@ -175,7 +175,17 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
         )}
       </article>
       {post.frontmatter.comments && (
-        <Comment className="pt-8 mt-8 border-t-2 border-gray-200 dark:border-gray-700" />
+        <div className="pt-8 mt-8 border-t-2 border-gray-200 dark:border-gray-700">
+          <Giscus
+            repo="ceiphr/ceiphr.com-comments"
+            repoId="MDEwOlJlcG9zaXRvcnkzNzg3NDY2Mzg"
+            category="Announcements"
+            categoryId="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMzMDQzMTY5"
+            mapping="title"
+            reactionsEnabled="1"
+            theme="preferred_color_scheme"
+          />
+        </div>
       )}
     </Layout>
   )
