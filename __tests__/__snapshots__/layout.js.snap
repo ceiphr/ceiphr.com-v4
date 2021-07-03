@@ -26,7 +26,7 @@ exports[`Layout renders correctly 1`] = `
         />
       </a>
       <ul
-        className="flex flex-row text-gray-400 dark:text-gray-500"
+        className="flex flex-row text-gray-600 dark:text-gray-400"
       >
         <li
           className="pr-5"
@@ -65,7 +65,7 @@ exports[`Layout renders correctly 1`] = `
     </div>
   </main>
   <footer
-    className="mt-6 dark:border-gray-700 text-gray-400 dark:text-gray-500 no-print"
+    className="mt-6 dark:border-gray-700 text-gray-600 dark:text-gray-400 no-print"
   >
     <p>
       © 2021 Ari Birnbaum.

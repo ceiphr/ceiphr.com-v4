@@ -1,11 +1,13 @@
+// TODO This is an example. Make it an actual test.
 import React from "react"
-import renderer from "react-test-renderer"
+import { render } from "@testing-library/react"
 
-import videoTheme from "../src/components/video-theme"
+// You have to write data-testid
+const Title = () => <h1 data-testid="hero-title">Gatsby is awesome!</h1>
 
-describe("Layout", () => {
-  it("renders correctly", () => {
-    const tree = renderer.create(<videoTheme />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
+test("Displays the correct title", () => {
+  const { getByTestId } = render(<Title />)
+  // Assertion
+  expect(getByTestId("hero-title")).toHaveTextContent("Gatsby is awesome!")
+  // --> Test will pass
 })
