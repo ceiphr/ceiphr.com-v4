@@ -283,6 +283,7 @@ Just kidding. Outlines. Outlines are annoying to implement. Here is some example
     .button {
       background-color: black;
       margin: 1px;
+      padding: calc(1em - 1px);
     }
   }
 }
