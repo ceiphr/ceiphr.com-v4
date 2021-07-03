@@ -1,6 +1,6 @@
 ---
 title: Beveled Corners with Sass
-date: "2021-07-04T22:12:03.284Z"
+date: "2021-07-05T22:12:03.284Z"
 icons: ["sass", "marvel", "borderlands"]
 description: "Three ways to create beveled corners with Sass and mixins."
 unlisted: true
@@ -207,14 +207,15 @@ The other two examples I've given have two key problems which makes them impract
 
 The fantastic [Chris Coyier on CSS-Tricks](https://css-tricks.com/notched-boxes/) found that if you apply a beveled polygon to a clip path, it can make any element look great beveled. And from my testing, that includes overflowing and scrollable elements.
 
-Use `@include bevel-diag()` to apply this Sass mixin on any element you want alternating beveled corners on:
+
+Want beveled corners on opposite sides of an element? Use `@include bevel-opp()` to apply this Sass mixin:
 
 ```scss
 /* 
  * @param $size   Bevel size.
  * @param $alt    Use alternate corners.
  */
-@mixin bevel-diag($size: 12px, $alt: false) {
+@mixin bevel-opp($size: 12px, $alt: false) {
   @if $alt {
     clip-path: polygon(
                     0% $size,
@@ -271,11 +272,11 @@ Just kidding. Outlines. Outlines are annoying to implement. Here is some example
   background-color: turquoise;
   display: inline-block;
   padding: 1em;
-  @include bevel-diag();
+  @include bevel-opp();
 
   &-alt {
     @extend .button;
-    @include bevel-diag($alt: true);
+    @include bevel-opp($alt: true);
   }
 
   &-outline {
@@ -286,6 +287,7 @@ Just kidding. Outlines. Outlines are annoying to implement. Here is some example
     .button {
       background-color: black;
       margin: 1px;
+      width: calc(100% - 2px);
       padding: calc(1em - 1px);
     }
   }
