@@ -147,7 +147,7 @@ lines of Sass to create a working example in CodePen. Here is the main bit:
 
 That chunk of code does everything _except_ the beveled corners. Yes, 34 lines of code for making half an outline for a
 button. At least, you only need one `div` element for it to work. Here are the other **40 LINES OF CODE** for the
-beveled edges:
+beveled corners:
 
 ```scss
 .inner {
