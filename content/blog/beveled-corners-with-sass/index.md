@@ -6,15 +6,20 @@ description: "Three ways to create beveled corners with Sass and mixins."
 unlisted: true
 ---
 
-Go to [borderlands.com](https://borderlands.com/en-US/), [marvel.com](https://www.marvel.com/) and [whereismaurice.com](https://whereismaurice.com/). All three sites contain elements with beveled (specifically, chamfered) corners. Each site has taken an entirely different approach when making them. Here are those approaches, their strengths and their shortcomings:
+Go to [borderlands.com](https://borderlands.com/en-US/), [marvel.com](https://www.marvel.com/)
+and [whereismaurice.com](https://whereismaurice.com/). All three sites contain elements with beveled (specifically,
+chamfered) corners. Each site has taken an entirely different approach when making them. Here are those approaches,
+their strengths and their shortcomings:
 
 ## Sprite Map
 
-On desktop, [borderlands.com](https://borderlands.com/en-US/) looks pretty clean. You wouldn't notice it, but they're leveraging a sprite map for a lot of their UI. Specifically, this sprite map:
+On desktop, [borderlands.com](https://borderlands.com/en-US/) looks pretty clean. You wouldn't notice it, but they're
+leveraging a sprite map for a lot of their UI. Specifically, this sprite map:
 
 ![Borderlands.com Sprite Map](borderlands-sprite-map.png)
 
-Using a sprite map for beveled corners can be useful because it will work with much older browsers, since a `background-image` for the sprite map and `flexbox` for connecting them is all you need:
+Using a sprite map for beveled corners can be useful because it will work with much older browsers, since
+a `background-image` for the sprite map and `flexbox` for connecting them is all you need:
 
 ```scss
 .sprite {
@@ -40,7 +45,9 @@ Using a sprite map for beveled corners can be useful because it will work with m
 }
 ```
 
-For the button's body, you can use some Sass or CSS, since there isn't anything fancy about it. But, if you're going to use sprites, you might as well make this a sprite too for consistency. I mean, _that is_ what the [borderlands.com](https://borderlands.com/en-US/) developers did after all:
+For the button's body, you can use some Sass or CSS, since there isn't anything fancy about it. But, if you're going to
+use sprites, you might as well make this a sprite too for consistency. I mean, _that is_ what
+the [borderlands.com](https://borderlands.com/en-US/) developers did after all:
 
 ```scss
 .button-body {
@@ -68,7 +75,9 @@ For the button's body, you can use some Sass or CSS, since there isn't anything 
 }
 ```
 
-Of course because the sides of the button are sprites, this approach is rigid. Each element may need multiple sprites. They must be appropriately sized. These elements can't stretch or shrink. And, if an element needs to be tweaked, you can't do much with Sass or CSS.
+Of course because the sides of the button are sprites, this approach is rigid. Each element may need multiple sprites.
+They must be appropriately sized. These elements can't stretch or shrink. And, if an element needs to be tweaked, you
+can't do much with Sass or CSS.
 
 It's also important to mention, this approach needs three `div` elements (one for each background image):
 
@@ -82,7 +91,8 @@ It's also important to mention, this approach needs three `div` elements (one fo
 </div>
 ```
 
-I would only recommend this approach if you're going to use it on elements with fixed sizes. You'll also need to spin up Photoshop anytime you want to tweak a button's color or dimensions, which isn't fun.
+I would only recommend this approach if you're going to use it on elements with fixed sizes. You'll also need to spin up
+Photoshop anytime you want to tweak a button's color or dimensions, which isn't fun.
 
 <iframe height="200" style="width: 100%;" scrolling="no" title="" src="https://codepen.io/ceiphr/embed/qBmEwMp?defaultTab=result&theme-id=39629" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/ceiphr/pen/qBmEwMp">
@@ -90,14 +100,17 @@ I would only recommend this approach if you're going to use it on elements with 
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-**Note**: I didn't make the sprites used for that button. They were taken from [borderlands.com](https://borderlands.com/en-US/) and are owned by Gearbox Software LLC.
+**Note**: I didn't make the sprites used for that button. They were taken
+from [borderlands.com](https://borderlands.com/en-US/) and are owned by Gearbox Software LLC.
 
 ## Pseudo Elements
 
 [marvel.com](https://www.marvel.com/) takes a slightly nicer approach.  `::before` and `::after` are used to create the
-top and bottom halves of elements. Both pseudo-elements contain a `repeating-linear-gradient` as their background image, which is a white line at a 45-degree angel.
+top and bottom halves of elements. Both pseudo-elements contain a `repeating-linear-gradient` as their background image,
+which is a white line at a 45-degree angel.
 
-The main caveat with this approach is the _insane_ amount of CSS required to get it working. It took me two hours and 70 lines of Sass to create a working example in CodePen. Here is the main bit:
+The main caveat with this approach is the _insane_ amount of CSS required to get it working. It took me two hours and 70
+lines of Sass to create a working example in CodePen. Here is the main bit:
 
 ```scss
 .button {
@@ -132,7 +145,9 @@ The main caveat with this approach is the _insane_ amount of CSS required to get
 }
 ```
 
-That chunk of code does everything _except_ the beveled corners. Yes, 34 lines of code for making half an outline for a button. At least, you only need one `div` element for it to work. Here are the other **40 LINES OF CODE** for the beveled edges:
+That chunk of code does everything _except_ the beveled corners. Yes, 34 lines of code for making half an outline for a
+button. At least, you only need one `div` element for it to work. Here are the other **40 LINES OF CODE** for the
+beveled edges:
 
 ```scss
 .inner {
@@ -158,11 +173,11 @@ That chunk of code does everything _except_ the beveled corners. Yes, 34 lines o
 
     background-size: 16px 24px;
     background-image: repeating-linear-gradient(
-                    -45deg,
-                    white,
-                    white 1px,
-                    transparent 0,
-                    transparent 16px
+        -45deg,
+        white,
+        white 1px,
+        transparent 0,
+        transparent 16px
     );
   }
 
@@ -179,7 +194,8 @@ That chunk of code does everything _except_ the beveled corners. Yes, 34 lines o
 }
 ```
 
-Nearly 80 lines, just for a button. But in the end, you didn't have to use sprites, and you get the ability to modify color and sizing using Sass, which is great. As a bonus, you only need one `div` and a `span` for this to work:
+Nearly 80 lines, just for a button. But in the end, you didn't have to use sprites, and you get the ability to modify
+color and sizing using Sass, which is great. As a bonus, you only need one `div` and a `span` for this to work:
 
 ```html
 <div class="button">
@@ -189,7 +205,8 @@ Nearly 80 lines, just for a button. But in the end, you didn't have to use sprit
 </div>
 ```
 
-No need to boot up Photoshop every time a button needs a color tweaked. Instead, get a migraine whenever you need to debug all that pseudo-element goodness.
+No need to boot up Photoshop every time a button needs a color tweaked. Instead, get a migraine whenever you need to
+debug all that pseudo-element goodness.
 
 <iframe height="200" style="width: 100%;" scrolling="no" title="Beveled Corners with Pseudo-elements" src="https://codepen.io/ceiphr/embed/b79c33ed3339000e33f8a3d50a1b3553?defaultTab=result&theme-id=39629" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/ceiphr/pen/b79c33ed3339000e33f8a3d50a1b3553">
@@ -197,16 +214,22 @@ No need to boot up Photoshop every time a button needs a color tweaked. Instead,
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-Also, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my implementation, but this jankiness is also on [marvel.com](https://www.marvel.com/).
+Also, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my
+implementation, but this jankiness is also on [marvel.com](https://www.marvel.com/).
 
 ## Clip Path
 
-[whereismaurice.com](https://whereismaurice.com/) (ahem, a project of mine), takes the most flexible approach. Let me introduce the `clip-path`. It works just like Photoshop's clipping mask. Currently, all browsers _except_ IE support it with shapes and inline SVGs (Firefox includes support for external SVGs).
+[whereismaurice.com](https://whereismaurice.com/) (ahem, a project of mine), takes the most flexible approach. Let me
+introduce the `clip-path`. It works just like Photoshop's clipping mask. Currently, all browsers _except_ IE support it
+with shapes and inline SVGs (Firefox includes support for external SVGs).
 
-The other two examples I've given have two key problems which makes them impractical for anything other than fixed UI elements. First, they are dependent on the size of the content and second, they cannot handle content overflow/scrolling. So, for anything other than buttons, they can be a disaster.
+The other two examples I've given have two key problems which makes them impractical for anything other than fixed UI
+elements. First, they are dependent on the size of the content and second, they cannot handle content
+overflow/scrolling. So, for anything other than buttons, they can be a disaster.
 
-The fantastic [Chris Coyier on CSS-Tricks](https://css-tricks.com/notched-boxes/) found that if you apply a beveled polygon to a clip path, it can make any element look great beveled. And from my testing, that includes overflowing and scrollable elements.
-
+The fantastic [Chris Coyier on CSS-Tricks](https://css-tricks.com/notched-boxes/) found that if you apply a beveled
+polygon to a clip path, it can make any element look great beveled. And from my testing, that includes overflowing and
+scrollable elements.
 
 Want beveled corners on opposite sides of an element? Use `@include bevel-opp()` to apply this Sass mixin:
 
@@ -218,31 +241,32 @@ Want beveled corners on opposite sides of an element? Use `@include bevel-opp()`
 @mixin bevel-opp($size: 12px, $alt: false) {
   @if $alt {
     clip-path: polygon(
-                    0% $size,
-                    $size 0%,
-                    100% 0%,
-                    100% 100%,
-                    100% calc(100% - #{$size}),
-                    calc(100% - #{$size}) 100%,
-                    100% 100%,
-                    0% 100%
+        0% $size,
+        $size 0%,
+        100% 0%,
+        100% 100%,
+        100% calc(100% - #{$size}),
+        calc(100% - #{$size}) 100%,
+        100% 100%,
+        0% 100%
     );
   } @else {
     clip-path: polygon(
-                    0% 0%,
-                    0% 0%,
-                    calc(100% - #{$size}) 0%,
-                    100% $size,
-                    100% 100%,
-                    100% 100%,
-                    $size 100%,
-                    0 calc(100% - #{$size})
+        0% 0%,
+        0% 0%,
+        calc(100% - #{$size}) 0%,
+        100% $size,
+        100% 100%,
+        100% 100%,
+        $size 100%,
+        0 calc(100% - #{$size})
     );
   }
 }
 ```
 
-Well, that's great and all, but what if you want all corners to be beveled corners? Here is a much simpler mixing for that:
+Well, that's great and all, but what if you want all corners to be beveled corners? Here is a much simpler mixing for
+that:
 
 ```scss
 /* 
@@ -250,21 +274,22 @@ Well, that's great and all, but what if you want all corners to be beveled corne
  */
 @mixin bevel-full($size: 12px) {
   clip-path: polygon(
-                  0% $size,
-                  $size 0%,
-                  calc(100% - #{$size}) 0%,
-                  100% $size,
-                  100% calc(100% - #{$size}),
-                  calc(100% - #{$size}) 100%,
-                  $size 100%,
-                  0 calc(100% - #{$size})
+      0% $size,
+      $size 0%,
+      calc(100% - #{$size}) 0%,
+      100% $size,
+      100% calc(100% - #{$size}),
+      calc(100% - #{$size}) 100%,
+      $size 100%,
+      0 calc(100% - #{$size})
   );
 }
 ```
 
 The only caveat? None. My code is divine.
 
-Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass of a beveled button, outline styles included:
+Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass of a beveled button, outline
+styles included:
 
 ```scss
 .button {
@@ -309,7 +334,8 @@ Not as bad as the pseudo-elements, but still not a Van Gogh. Regardless, the HTM
 </div>
 ```
 
-Overall, I think this solution works best. It applies to flexible and fixed elements. You don't need to worry about scrollable `div` elements or overflow. And the code is simpler than the other solutions I've mention.
+Overall, I think this solution works best. It applies to flexible and fixed elements. You don't need to worry about
+scrollable `div` elements or overflow. And the code is simpler than the other solutions I've mention.
 
 <iframe height="510" style="width: 100%;" scrolling="no" title="Beveled Corners with clip-path" src="https://codepen.io/ceiphr/embed/bGWNzYw?defaultTab=result&theme-id=39629" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/ceiphr/pen/bGWNzYw">
@@ -319,8 +345,16 @@ Overall, I think this solution works best. It applies to flexible and fixed elem
 
 ## Wrap Up
 
-Those were three ways to implement beveled corners with Sass. Of course, I'm going to recommend using `clip-path` since that's the approach I've taken with my projects. But, at the end of the day, if any of these approaches work for you, that's great!
+Those were three ways to implement beveled corners with Sass. Of course, I'm going to recommend using `clip-path` since
+that's the approach I've taken with my projects. But, at the end of the day, if any of these approaches work for you,
+that's great!
 
-If you've found another, _scarier_, way to implement beveled corners, please let me know. I love to see nightmarish spaghetti code for something as mundane as a border style.
+If you've found another, _scarier_, way to implement beveled corners, please let me know. I love to see nightmarish
+spaghetti code for something as mundane as a border style.
 
-P.S. In case you're from the future and one of the example websites has been updated, to no longer use beveled corners, here are Wayback Machine links for [borderlands.com](https://web.archive.org/web/20210701075945/https://borderlands.com/en-US/), [marvel.com](https://web.archive.org/web/20210702001617/https://www.marvel.com/) and [whereismaurice.com](https://web.archive.org/web/20210522172927/https://whereismaurice.com/). I hope you are doing well future person.
+P.S. In case you're from the future and one of the example websites has been updated, to no longer use beveled corners,
+here are Wayback Machine links
+for [borderlands.com](https://web.archive.org/web/20210701075945/https://borderlands.com/en-US/)
+, [marvel.com](https://web.archive.org/web/20210702001617/https://www.marvel.com/)
+and [whereismaurice.com](https://web.archive.org/web/20210522172927/https://whereismaurice.com/). I hope you are doing
+well future person.

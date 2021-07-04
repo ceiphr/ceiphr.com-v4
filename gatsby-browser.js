@@ -1,5 +1,5 @@
-import "./src/styles/global.css"
-import "./src/styles/prism.css"
+import "./src/styles/global.scss"
+import "./src/styles/prism.scss"
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "prismjs/plugins/command-line/prism-command-line.css"
 
