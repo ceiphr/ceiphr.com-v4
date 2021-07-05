@@ -21,7 +21,7 @@ html, body {
   0% {
     opacity: 0;
   }
-  75% {
+  50% {
     opacity: 0;
   }
   100% {
@@ -122,7 +122,7 @@ a:focus-visible {
     }
   }
 
-  a {
+  .prose a {
     &::selection {
       color: inherit;
     }
@@ -163,9 +163,7 @@ a:focus-visible {
   }
 
   .gatsby-resp-image-wrapper {
-    max-width: 50vw !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
+    width: 50vw !important;
   }
 
   .prose iframe {

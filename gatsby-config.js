@@ -9,7 +9,7 @@ module.exports = {
       name: `Ari Birnbaum`,
       summary: `, a student and technical writer studying at Stevens Institute of Technology.`,
     },
-    description: `Technical articles written by Ari Birnbaum pertaining to Django, Python, Node.js, Gatsby.js, TypeScript, GraphQL, and DevOps.`,
+    description: `Technical articles and other stuff from Ari Birnbaum. I mainly write about web development and Django. But, I may also write about Linux.`,
     siteUrl: `https://ceiphr.com/`,
     social: {
       twitter: `ceiphr`,

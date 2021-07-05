@@ -3,10 +3,6 @@ import * as React from "react"
 import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 const VideoTheme = () => {
   const [mQuery, setMQuery] = React.useState<string>(Background)
 
@@ -15,28 +11,24 @@ const VideoTheme = () => {
 
   React.useEffect(() => {
     async function setVideo() {
-      if (typeof window !== "undefined") {
-        let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-        mediaQuery.addEventListener("change", e => {
-          setMQuery(e.matches ? BackgroundDark : Background)
-        })
+      let mediaQuery = await window.matchMedia("(prefers-color-scheme: dark)")
+      mediaQuery.addEventListener("change", e => {
+        setMQuery(e.matches ? BackgroundDark : Background)
+      })
+      setMQuery(mediaQuery.matches ? BackgroundDark : Background)
 
-        if (!mediaQuery.matches) await sleep(1000)
-        setMQuery(mediaQuery.matches ? BackgroundDark : Background)
+      if (previousUrl.current === mQuery) return
+      if (typeof videoRef.current !== "undefined" && videoRef.current)
+        videoRef.current.load()
 
-        if (previousUrl.current === mQuery) return
-        if (typeof videoRef.current !== "undefined" && videoRef.current)
-          videoRef.current.load()
-
-        previousUrl.current = mQuery
-      }
+      previousUrl.current = mQuery
     }
 
-    // noinspection JSIgnoredPromiseFromCall
-    setVideo()
+    if (typeof window !== "undefined")
+      // noinspection JSIgnoredPromiseFromCall
+      setVideo()
   }, [mQuery])
 
-  if (!mQuery) return <></>
   return (
     <>
       <label htmlFor="background" className="sr-only">
