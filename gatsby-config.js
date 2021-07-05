@@ -172,7 +172,7 @@ module.exports = {
         theme_color: `#111827`,
         display: `minimal-ui`,
         include_favicon: false,
-        icon: `src/images/ari.png`, // This path is relative to the root of the site.
+        icon: `src/images/ari.jpg`, // This path is relative to the root of the site.
         icon_options: {
           // For all the options available,
           // please see the section "Additional Resources" below.
