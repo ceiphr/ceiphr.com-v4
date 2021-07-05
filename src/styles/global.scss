@@ -73,29 +73,26 @@ a:focus-visible {
   iframe {
     overflow: hidden;
     width: 100%;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #e5e7eb;
     border-radius: .6em;
   }
 
   .gatsby-resp-image-wrapper {
     overflow: hidden;
     border-radius: .6em;
+    border: 1px solid #e5e7eb;
   }
 
-  img {
-    border: 1px solid #dbdbdb;
-
-    &:before {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      display: inline;
-      transform: translate(-50%, -25px);
-      text-align: center;
-      white-space: initial;
-      @media (min-width: 640px) {
-        top: 50%;
-      }
+  img:before {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -25px);
+    text-align: center;
+    white-space: initial;
+    @media (min-width: 640px) {
+      top: 50%;
     }
   }
 }
@@ -136,9 +133,12 @@ a:focus-visible {
   }
 
   .prose {
+    .gatsby-resp-image-wrapper {
+      border: 1px solid #374151;
+    }
+
     img {
       transition: all 0.5s ease 0s !important;
-      border: 1px solid #3d3d3d;
       box-shadow: black 0 0 0 400px inset !important;
       filter: brightness(65%);
 
@@ -148,7 +148,7 @@ a:focus-visible {
     }
 
     iframe {
-      border: 1px solid #3d3d3d;
+      border: 1px solid #374151;
     }
   }
 }
