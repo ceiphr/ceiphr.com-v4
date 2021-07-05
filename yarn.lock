@@ -13094,6 +13094,14 @@ react-fast-compare@^3.1.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-giscus@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-giscus/-/react-giscus-0.1.3.tgz#9106ea54f67f25ae66b6b884b94adbf76005dcbb"
+  integrity sha512-RwNM1/XPIDkh5CZEJFzglUNyoXgNTn3davleI5y2Jhmi6/JKI0w99vVA74ShCPEdA4xG3s2VW2ljvh86jGX9EQ==
+  dependencies:
+    iframe-resizer-react "^1.1.0"
+    prop-types "^15.7.2"
+
 react-helmet@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"

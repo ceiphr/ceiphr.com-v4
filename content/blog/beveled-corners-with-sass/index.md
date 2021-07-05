@@ -1,6 +1,6 @@
 ---
 title: Beveled Corners with Sass
-date: "2021-07-05T22:12:03.284Z"
+date: "2021-07-06T22:12:03.284Z"
 icons: ["sass", "marvel", "borderlands"]
 description: "Three ways to create beveled corners with Sass and mixins."
 unlisted: true
@@ -11,7 +11,7 @@ and [whereismaurice.com](https://whereismaurice.com/). All three sites contain e
 chamfered) corners. Each site has taken an entirely different approach when making them. Here are those approaches,
 their strengths and their shortcomings:
 
-## Sprite Map
+## Sprite Maps
 
 On desktop, [borderlands.com](https://borderlands.com/en-US/) looks pretty clean. You wouldn't notice it, but they're
 leveraging a sprite map for a lot of their UI. Specifically, this sprite map:
@@ -19,7 +19,7 @@ leveraging a sprite map for a lot of their UI. Specifically, this sprite map:
 ![Borderlands.com Sprite Map](borderlands-sprite-map.png)
 
 Using a sprite map for beveled corners can be useful because it will work with much older browsers, since
-a `background-image` for the sprite map and `flexbox` for connecting them is all you need:
+a `background-image` for the sprite map and `flexbox` for connecting sprites is all you need:
 
 ```scss
 .sprite {
@@ -45,8 +45,8 @@ a `background-image` for the sprite map and `flexbox` for connecting them is all
 }
 ```
 
-For the button's body, you can use some Sass or CSS, since there isn't anything fancy about it. But, if you're going to
-use sprites, you might as well make this a sprite too for consistency. I mean, _that is_ what
+For the button's body, you can use some Sass, since there isn't anything fancy about it. But, if you're going to use
+sprites, you might as well make this a sprite too for consistency. I mean, _that is_ what
 the [borderlands.com](https://borderlands.com/en-US/) developers did after all:
 
 ```scss
@@ -77,9 +77,9 @@ the [borderlands.com](https://borderlands.com/en-US/) developers did after all:
 
 Of course because the sides of the button are sprites, this approach is rigid. Each element may need multiple sprites.
 They must be appropriately sized. These elements can't stretch or shrink. And, if an element needs to be tweaked, you
-can't do much with Sass or CSS.
+can't do much with a style sheet.
 
-It's also important to mention, this approach needs three `div` elements (one for each background image):
+It's also important to mention, this approach needs three `div` elements (one for each sprite):
 
 ```html
 <div class="button">
@@ -109,8 +109,8 @@ from [borderlands.com](https://borderlands.com/en-US/) and are owned by Gearbox 
 top and bottom halves of elements. Both pseudo-elements contain a `repeating-linear-gradient` as their background image,
 which is a white line at a 45-degree angel.
 
-The main caveat with this approach is the _insane_ amount of CSS required to get it working. It took me two hours and 70
-lines of Sass to create a working example in CodePen. Here is the main bit:
+The main caveat with this approach is the _insane_ amount of properties required to get it working. It took me two hours
+and 70 lines of Sass to create a working example in CodePen. Here is the main bit:
 
 ```scss
 .button {
@@ -214,10 +214,10 @@ debug all that pseudo-element goodness.
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-Also, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my
-implementation, but this jankiness is also on [marvel.com](https://www.marvel.com/).
+Moreover, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my
+implementation, but, from my testing, this jankiness is also on the buttons at [marvel.com](https://www.marvel.com/).
 
-## Clip Path
+## Clip Paths
 
 [whereismaurice.com](https://whereismaurice.com/) (ahem, a project of mine), takes the most flexible approach. Let me
 introduce the `clip-path`. It works just like Photoshop's clipping mask. Currently, all browsers _except_ IE support it
@@ -288,8 +288,8 @@ that:
 
 The only caveat? None. My code is divine.
 
-Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass of a beveled button, outline
-styles included:
+Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass of a beveled button, outline style
+included:
 
 ```scss
 .button {
@@ -312,7 +312,6 @@ styles included:
     .button {
       background-color: black;
       margin: 1px;
-      width: calc(100% - 2px);
       padding: calc(1em - 1px);
     }
   }
@@ -352,7 +351,7 @@ that's great!
 If you've found another, _scarier_, way to implement beveled corners, please let me know. I love to see nightmarish
 spaghetti code for something as mundane as a border style.
 
-P.S. In case you're from the future and one of the example websites has been updated, to no longer use beveled corners,
+P.S. In case you're from the future and one of the example websites has been updated to no longer use beveled corners,
 here are Wayback Machine links
 for [borderlands.com](https://web.archive.org/web/20210701075945/https://borderlands.com/en-US/)
 , [marvel.com](https://web.archive.org/web/20210702001617/https://www.marvel.com/)

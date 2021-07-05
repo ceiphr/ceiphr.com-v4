@@ -3,10 +3,10 @@ import { graphql, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { isIOS, isSafari } from "react-device-detect"
 import { useMediaPredicate } from "react-media-hook"
+import Giscus from "react-giscus"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Giscus from "../components/giscus"
 import VideoTheme from "../components/video-theme"
 import ImageTheme from "../components/image-theme"
 
@@ -160,7 +160,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
               </>
             )}
             <br />
-            <div className="text-gray-900 dark:text-gray-300 mb-2">
+            <div className="text-gray-900 dark:text-gray-300 mb-1">
               <CC className="inline-block fill-current" />
               <CCBy className="inline-block fill-current" />
               <CCNC className="inline-block fill-current" />
