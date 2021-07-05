@@ -7,7 +7,7 @@
   position: relative;
   z-index: 2;
   overflow-y: hidden;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #E5E7EB;
   border-radius: .6em;
   background-color: white;
 
@@ -57,7 +57,7 @@
       letter-spacing: 0.025rem;
       text-transform: uppercase;
       color: #4b5563;
-      border: 1px solid #dbdbdb;
+      border: 1px solid #E5E7EB;
       border-radius: 0 0 .4rem .4rem;
       background-color: white;
     }
@@ -70,7 +70,7 @@
   margin-bottom: -1em;
   padding-bottom: 1em;
   text-align: center;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #E5E7EB;
   border-top-left-radius: .6em;
   border-top-right-radius: .6em;
   background-color: #f7f7f7;
@@ -83,7 +83,7 @@
   margin-left: -4em;
   padding-right: 1em;
   padding-left: 4em;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(156, 163, 175, 0.15);
 }
 
 .command-line-prompt {
@@ -137,7 +137,7 @@
   transform: translateY(-20px);
 
   pointer-events: none;
-  border-right: 1px solid #dbdbdb !important;
+  border-right: 1px solid #E5E7EB !important;
   background: #f7f7f7;
   text-shadow: none;
 
@@ -183,11 +183,11 @@ pre code[class*="language-"] {
   font-size: 1em;
 }
 
-pre[class*="language-"],
-code[class*="language-"] {
-  &::selection {
-    background: #e5e7eb;
-  }
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] *::selection,
+code[class*="language-"] *::selection {
+  background: #e5e7eb;
 }
 
 /* Code blocks */
@@ -297,23 +297,23 @@ code[class*="language-css"] {
 
 @media (prefers-color-scheme: dark) {
   .gatsby-highlight {
-    border: 1px solid #3d3d3d;
+    border: 1px solid #374151;
     background-color: black;
 
     &[data-language]::before {
       color: #9ca3af;
-      border: 1px solid #3d3d3d;
+      border: 1px solid #374151;
       background: black;
     }
   }
 
   .gatsby-code-title {
-    border: 1px solid #3d3d3d;
+    border: 1px solid #374151;
     background: #151515;
   }
 
   .gatsby-highlight-code-line {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(75, 85, 99, 0.25);
   }
 
   .command-line-prompt span:before {
@@ -321,7 +321,7 @@ code[class*="language-css"] {
   }
 
   .line-numbers .line-numbers-rows {
-    border-right: 1px solid #3d3d3d !important;
+    border-right: 1px solid #374151 !important;
     background: #151515;
 
     span:before {
