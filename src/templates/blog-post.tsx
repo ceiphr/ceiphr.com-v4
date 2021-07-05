@@ -34,6 +34,7 @@ type DataProps = {
     html: string
     frontmatter: {
       date: string
+      modified: string
       title: string
       description: string
       unlisted: boolean
@@ -151,6 +152,13 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
         />
         {post.frontmatter.date && (
           <div className="text-gray-600 dark:text-gray-400 print:text-black leading-7">
+            {post.frontmatter.modified && (
+              <>
+                <br />
+                <i>Last modified: {post.frontmatter.modified}.</i>
+                <br />
+              </>
+            )}
             <br />
             <div className="text-gray-900 dark:text-gray-300 mb-2">
               <CC className="inline-block fill-current" />
@@ -214,6 +222,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        modified(formatString: "MMMM DD, YYYY")
         description
         unlisted
         comments

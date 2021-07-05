@@ -305,6 +305,16 @@ type Frontmatter {
     ): Date
     description: String
     icons: [String]
+    modified(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
     redirect: String
     title: String
     unlisted: Boolean
@@ -589,6 +599,7 @@ type Query {
     allSiteFunction(filter: SiteFunctionFilterInput, limit: Int, skip: Int, sort: SiteFunctionSortInput): SiteFunctionConnection!
     allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: SitePageSortInput): SitePageConnection!
     allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
+    allStaticImage(filter: StaticImageFilterInput, limit: Int, skip: Int, sort: StaticImageSortInput): StaticImageConnection!
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childMarkdownRemark: MarkdownRemarkFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenMarkdownRemark: MarkdownRemarkFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
@@ -598,6 +609,7 @@ type Query {
     siteFunction(absoluteCompiledFilePath: StringQueryOperatorInput, children: NodeFilterListInput, functionRoute: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, matchPath: StringQueryOperatorInput, originalAbsoluteFilePath: StringQueryOperatorInput, originalRelativeFilePath: StringQueryOperatorInput, parent: NodeFilterInput, pluginName: StringQueryOperatorInput, relativeCompiledFilePath: StringQueryOperatorInput): SiteFunction
     sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, context: SitePageContextFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
     sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
+    staticImage(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, id: StringQueryOperatorInput, ino: IntQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): StaticImage
 }
 
 type Site implements Node {
@@ -859,21 +871,25 @@ type SitePluginPluginOptions {
     base64Width: Int
     cacheDigest: String
     cache_busting_mode: String
+    className: String
     createLinkInHead: Boolean
     crossOrigin: String
+    custom: [SitePluginPluginOptionsCustom]
     debug: Boolean
     defaultQuality: Int
+    directives: SitePluginPluginOptionsDirectives
     disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
     display: String
     domain: String
-    dsn: String
+    dsn: Boolean
     enableListener: Boolean
     entryLimit: Int
     excludes: [String]
     failOnError: Boolean
     feeds: [SitePluginPluginOptionsFeeds]
     icon: String
+    icon_options: SitePluginPluginOptionsIcon_options
     ignoreErrors: [String]
     include_favicon: Boolean
     inlineCodeMarker: String
@@ -884,8 +900,11 @@ type SitePluginPluginOptions {
     loading: String
     markdownCaptions: Boolean
     maxWidth: Int
+    mergeStyleHashes: Boolean
     mode: String
     name: String
+    noInlineHighlight: Boolean
+    offsetY: Int
     output: String
     path: String
     pathCheck: Boolean
@@ -908,9 +927,28 @@ type SitePluginPluginOptions {
     wrapperStyle: String
 }
 
+type SitePluginPluginOptionsCustom {
+    file: String
+    name: [String]
+}
+
+type SitePluginPluginOptionsDirectives {
+    connect_src: String
+    font_src: String
+    frame_src: String
+    img_src: String
+    manifest_src: String
+    script_src: String
+    style_src: String
+}
+
 type SitePluginPluginOptionsFeeds {
     output: String
     query: String
+}
+
+type SitePluginPluginOptionsIcon_options {
+    purpose: String
 }
 
 type SitePluginPluginOptionsPlugins {
@@ -921,18 +959,23 @@ type SitePluginPluginOptionsPlugins {
     pluginFilepath: String
     pluginOptions: SitePluginPluginOptionsPluginsPluginOptions
     resolve: String
+    ssrAPIs: [String]
     version: String
 }
 
 type SitePluginPluginOptionsPluginsPluginOptions {
     backgroundColor: String
+    className: String
     disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
+    icon: String
     inlineCodeMarker: String
     linkImagesToOriginal: Boolean
     loading: String
     markdownCaptions: Boolean
     maxWidth: Int
+    noInlineHighlight: Boolean
+    offsetY: Int
     prompt: SitePluginPluginOptionsPluginsPluginOptionsPrompt
     quality: Int
     showCaptions: Boolean
@@ -970,6 +1013,144 @@ type SiteSiteMetadata {
 type Social {
     github: String
     twitter: String
+}
+
+type StaticImage implements Node {
+    absolutePath: String
+    accessTime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    atime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    atimeMs: Float
+    base: String
+    birthTime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    birthtime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    birthtimeMs: Float
+    blksize: Int
+    blocks: Int
+    changeTime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    children: [Node!]!
+    ctime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    ctimeMs: Float
+    dev: Int
+    dir: String
+    ext: String
+    extension: String
+    id: ID!
+    ino: Int
+    internal: Internal!
+    mode: Int
+    modifiedTime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    mtime(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date
+    mtimeMs: Float
+    name: String
+    nlink: Int
+    parent: Node
+    prettySize: String
+    rdev: Int
+    relativeDirectory: String
+    relativePath: String
+    root: String
+    size: Int
+    sourceInstanceName: String
+    uid: Int
+}
+
+type StaticImageConnection {
+    distinct(field: StaticImageFieldsEnum!): [String!]!
+    edges: [StaticImageEdge!]!
+    group(field: StaticImageFieldsEnum!, limit: Int, skip: Int): [StaticImageGroupConnection!]!
+    max(field: StaticImageFieldsEnum!): Float
+    min(field: StaticImageFieldsEnum!): Float
+    nodes: [StaticImage!]!
+    pageInfo: PageInfo!
+    sum(field: StaticImageFieldsEnum!): Float
+    totalCount: Int!
+}
+
+type StaticImageEdge {
+    next: StaticImage
+    node: StaticImage!
+    previous: StaticImage
+}
+
+type StaticImageGroupConnection {
+    edges: [StaticImageEdge!]!
+    field: String!
+    fieldValue: String
+    nodes: [StaticImage!]!
+    pageInfo: PageInfo!
+    totalCount: Int!
 }
 
 enum DirectoryFieldsEnum {
@@ -1199,6 +1380,7 @@ enum FileFieldsEnum {
     childMarkdownRemark___frontmatter___date
     childMarkdownRemark___frontmatter___description
     childMarkdownRemark___frontmatter___icons
+    childMarkdownRemark___frontmatter___modified
     childMarkdownRemark___frontmatter___redirect
     childMarkdownRemark___frontmatter___title
     childMarkdownRemark___frontmatter___unlisted
@@ -1333,6 +1515,7 @@ enum FileFieldsEnum {
     childrenMarkdownRemark___frontmatter___date
     childrenMarkdownRemark___frontmatter___description
     childrenMarkdownRemark___frontmatter___icons
+    childrenMarkdownRemark___frontmatter___modified
     childrenMarkdownRemark___frontmatter___redirect
     childrenMarkdownRemark___frontmatter___title
     childrenMarkdownRemark___frontmatter___unlisted
@@ -1709,6 +1892,7 @@ enum MarkdownRemarkFieldsEnum {
     frontmatter___date
     frontmatter___description
     frontmatter___icons
+    frontmatter___modified
     frontmatter___redirect
     frontmatter___title
     frontmatter___unlisted
@@ -2228,10 +2412,21 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___base64Width
     pluginCreator___pluginOptions___cacheDigest
     pluginCreator___pluginOptions___cache_busting_mode
+    pluginCreator___pluginOptions___className
     pluginCreator___pluginOptions___createLinkInHead
     pluginCreator___pluginOptions___crossOrigin
+    pluginCreator___pluginOptions___custom
+    pluginCreator___pluginOptions___custom___file
+    pluginCreator___pluginOptions___custom___name
     pluginCreator___pluginOptions___debug
     pluginCreator___pluginOptions___defaultQuality
+    pluginCreator___pluginOptions___directives___connect_src
+    pluginCreator___pluginOptions___directives___font_src
+    pluginCreator___pluginOptions___directives___frame_src
+    pluginCreator___pluginOptions___directives___img_src
+    pluginCreator___pluginOptions___directives___manifest_src
+    pluginCreator___pluginOptions___directives___script_src
+    pluginCreator___pluginOptions___directives___style_src
     pluginCreator___pluginOptions___disableBgImage
     pluginCreator___pluginOptions___disableBgImageOnAlpha
     pluginCreator___pluginOptions___display
@@ -2245,6 +2440,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___feeds___output
     pluginCreator___pluginOptions___feeds___query
     pluginCreator___pluginOptions___icon
+    pluginCreator___pluginOptions___icon_options___purpose
     pluginCreator___pluginOptions___ignoreErrors
     pluginCreator___pluginOptions___include_favicon
     pluginCreator___pluginOptions___inlineCodeMarker
@@ -2255,8 +2451,11 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___loading
     pluginCreator___pluginOptions___markdownCaptions
     pluginCreator___pluginOptions___maxWidth
+    pluginCreator___pluginOptions___mergeStyleHashes
     pluginCreator___pluginOptions___mode
     pluginCreator___pluginOptions___name
+    pluginCreator___pluginOptions___noInlineHighlight
+    pluginCreator___pluginOptions___offsetY
     pluginCreator___pluginOptions___output
     pluginCreator___pluginOptions___path
     pluginCreator___pluginOptions___pathCheck
@@ -2267,6 +2466,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___plugins___nodeAPIs
     pluginCreator___pluginOptions___plugins___pluginFilepath
     pluginCreator___pluginOptions___plugins___resolve
+    pluginCreator___pluginOptions___plugins___ssrAPIs
     pluginCreator___pluginOptions___plugins___version
     pluginCreator___pluginOptions___preconnect
     pluginCreator___pluginOptions___prompt___global
@@ -2406,10 +2606,21 @@ enum SitePluginFieldsEnum {
     pluginOptions___base64Width
     pluginOptions___cacheDigest
     pluginOptions___cache_busting_mode
+    pluginOptions___className
     pluginOptions___createLinkInHead
     pluginOptions___crossOrigin
+    pluginOptions___custom
+    pluginOptions___custom___file
+    pluginOptions___custom___name
     pluginOptions___debug
     pluginOptions___defaultQuality
+    pluginOptions___directives___connect_src
+    pluginOptions___directives___font_src
+    pluginOptions___directives___frame_src
+    pluginOptions___directives___img_src
+    pluginOptions___directives___manifest_src
+    pluginOptions___directives___script_src
+    pluginOptions___directives___style_src
     pluginOptions___disableBgImage
     pluginOptions___disableBgImageOnAlpha
     pluginOptions___display
@@ -2423,6 +2634,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___feeds___output
     pluginOptions___feeds___query
     pluginOptions___icon
+    pluginOptions___icon_options___purpose
     pluginOptions___ignoreErrors
     pluginOptions___include_favicon
     pluginOptions___inlineCodeMarker
@@ -2433,8 +2645,11 @@ enum SitePluginFieldsEnum {
     pluginOptions___loading
     pluginOptions___markdownCaptions
     pluginOptions___maxWidth
+    pluginOptions___mergeStyleHashes
     pluginOptions___mode
     pluginOptions___name
+    pluginOptions___noInlineHighlight
+    pluginOptions___offsetY
     pluginOptions___output
     pluginOptions___path
     pluginOptions___pathCheck
@@ -2445,13 +2660,17 @@ enum SitePluginFieldsEnum {
     pluginOptions___plugins___nodeAPIs
     pluginOptions___plugins___pluginFilepath
     pluginOptions___plugins___pluginOptions___backgroundColor
+    pluginOptions___plugins___pluginOptions___className
     pluginOptions___plugins___pluginOptions___disableBgImage
     pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha
+    pluginOptions___plugins___pluginOptions___icon
     pluginOptions___plugins___pluginOptions___inlineCodeMarker
     pluginOptions___plugins___pluginOptions___linkImagesToOriginal
     pluginOptions___plugins___pluginOptions___loading
     pluginOptions___plugins___pluginOptions___markdownCaptions
     pluginOptions___plugins___pluginOptions___maxWidth
+    pluginOptions___plugins___pluginOptions___noInlineHighlight
+    pluginOptions___plugins___pluginOptions___offsetY
     pluginOptions___plugins___pluginOptions___quality
     pluginOptions___plugins___pluginOptions___showCaptions
     pluginOptions___plugins___pluginOptions___sizeByPixelDensity
@@ -2459,6 +2678,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___plugins___pluginOptions___withWebp
     pluginOptions___plugins___pluginOptions___wrapperStyle
     pluginOptions___plugins___resolve
+    pluginOptions___plugins___ssrAPIs
     pluginOptions___plugins___version
     pluginOptions___preconnect
     pluginOptions___prompt___global
@@ -2488,6 +2708,127 @@ enum SitePluginFieldsEnum {
 enum SortOrderEnum {
     ASC
     DESC
+}
+
+enum StaticImageFieldsEnum {
+    absolutePath
+    accessTime
+    atime
+    atimeMs
+    base
+    birthTime
+    birthtime
+    birthtimeMs
+    blksize
+    blocks
+    changeTime
+    children
+    children___children
+    children___children___children
+    children___children___children___children
+    children___children___children___id
+    children___children___id
+    children___children___internal___content
+    children___children___internal___contentDigest
+    children___children___internal___description
+    children___children___internal___fieldOwners
+    children___children___internal___ignoreType
+    children___children___internal___mediaType
+    children___children___internal___owner
+    children___children___internal___type
+    children___children___parent___children
+    children___children___parent___id
+    children___id
+    children___internal___content
+    children___internal___contentDigest
+    children___internal___description
+    children___internal___fieldOwners
+    children___internal___ignoreType
+    children___internal___mediaType
+    children___internal___owner
+    children___internal___type
+    children___parent___children
+    children___parent___children___children
+    children___parent___children___id
+    children___parent___id
+    children___parent___internal___content
+    children___parent___internal___contentDigest
+    children___parent___internal___description
+    children___parent___internal___fieldOwners
+    children___parent___internal___ignoreType
+    children___parent___internal___mediaType
+    children___parent___internal___owner
+    children___parent___internal___type
+    children___parent___parent___children
+    children___parent___parent___id
+    ctime
+    ctimeMs
+    dev
+    dir
+    ext
+    extension
+    id
+    ino
+    internal___content
+    internal___contentDigest
+    internal___description
+    internal___fieldOwners
+    internal___ignoreType
+    internal___mediaType
+    internal___owner
+    internal___type
+    mode
+    modifiedTime
+    mtime
+    mtimeMs
+    name
+    nlink
+    parent___children
+    parent___children___children
+    parent___children___children___children
+    parent___children___children___id
+    parent___children___id
+    parent___children___internal___content
+    parent___children___internal___contentDigest
+    parent___children___internal___description
+    parent___children___internal___fieldOwners
+    parent___children___internal___ignoreType
+    parent___children___internal___mediaType
+    parent___children___internal___owner
+    parent___children___internal___type
+    parent___children___parent___children
+    parent___children___parent___id
+    parent___id
+    parent___internal___content
+    parent___internal___contentDigest
+    parent___internal___description
+    parent___internal___fieldOwners
+    parent___internal___ignoreType
+    parent___internal___mediaType
+    parent___internal___owner
+    parent___internal___type
+    parent___parent___children
+    parent___parent___children___children
+    parent___parent___children___id
+    parent___parent___id
+    parent___parent___internal___content
+    parent___parent___internal___contentDigest
+    parent___parent___internal___description
+    parent___parent___internal___fieldOwners
+    parent___parent___internal___ignoreType
+    parent___parent___internal___mediaType
+    parent___parent___internal___owner
+    parent___parent___internal___type
+    parent___parent___parent___children
+    parent___parent___parent___id
+    prettySize
+    rdev
+    relativeDirectory
+    relativePath
+    root
+    size
+    sourceInstanceName
+    uid
 }
 
 input AVIFOptions {
@@ -2647,6 +2988,7 @@ input FrontmatterFilterInput {
     date: DateQueryOperatorInput
     description: StringQueryOperatorInput
     icons: StringQueryOperatorInput
+    modified: DateQueryOperatorInput
     redirect: StringQueryOperatorInput
     title: StringQueryOperatorInput
     unlisted: BooleanQueryOperatorInput
@@ -2950,6 +3292,25 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
     elemMatch: SitePluginPackageJsonPeerDependenciesFilterInput
 }
 
+input SitePluginPluginOptionsCustomFilterInput {
+    file: StringQueryOperatorInput
+    name: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsCustomFilterListInput {
+    elemMatch: SitePluginPluginOptionsCustomFilterInput
+}
+
+input SitePluginPluginOptionsDirectivesFilterInput {
+    connect_src: StringQueryOperatorInput
+    font_src: StringQueryOperatorInput
+    frame_src: StringQueryOperatorInput
+    img_src: StringQueryOperatorInput
+    manifest_src: StringQueryOperatorInput
+    script_src: StringQueryOperatorInput
+    style_src: StringQueryOperatorInput
+}
+
 input SitePluginPluginOptionsFeedsFilterInput {
     output: StringQueryOperatorInput
     query: StringQueryOperatorInput
@@ -2966,21 +3327,25 @@ input SitePluginPluginOptionsFilterInput {
     base64Width: IntQueryOperatorInput
     cacheDigest: StringQueryOperatorInput
     cache_busting_mode: StringQueryOperatorInput
+    className: StringQueryOperatorInput
     createLinkInHead: BooleanQueryOperatorInput
     crossOrigin: StringQueryOperatorInput
+    custom: SitePluginPluginOptionsCustomFilterListInput
     debug: BooleanQueryOperatorInput
     defaultQuality: IntQueryOperatorInput
+    directives: SitePluginPluginOptionsDirectivesFilterInput
     disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
     display: StringQueryOperatorInput
     domain: StringQueryOperatorInput
-    dsn: StringQueryOperatorInput
+    dsn: BooleanQueryOperatorInput
     enableListener: BooleanQueryOperatorInput
     entryLimit: IntQueryOperatorInput
     excludes: StringQueryOperatorInput
     failOnError: BooleanQueryOperatorInput
     feeds: SitePluginPluginOptionsFeedsFilterListInput
     icon: StringQueryOperatorInput
+    icon_options: SitePluginPluginOptionsIcon_optionsFilterInput
     ignoreErrors: StringQueryOperatorInput
     include_favicon: BooleanQueryOperatorInput
     inlineCodeMarker: StringQueryOperatorInput
@@ -2991,8 +3356,11 @@ input SitePluginPluginOptionsFilterInput {
     loading: StringQueryOperatorInput
     markdownCaptions: BooleanQueryOperatorInput
     maxWidth: IntQueryOperatorInput
+    mergeStyleHashes: BooleanQueryOperatorInput
     mode: StringQueryOperatorInput
     name: StringQueryOperatorInput
+    noInlineHighlight: BooleanQueryOperatorInput
+    offsetY: IntQueryOperatorInput
     output: StringQueryOperatorInput
     path: StringQueryOperatorInput
     pathCheck: BooleanQueryOperatorInput
@@ -3015,6 +3383,10 @@ input SitePluginPluginOptionsFilterInput {
     wrapperStyle: StringQueryOperatorInput
 }
 
+input SitePluginPluginOptionsIcon_optionsFilterInput {
+    purpose: StringQueryOperatorInput
+}
+
 input SitePluginPluginOptionsPluginsFilterInput {
     browserAPIs: StringQueryOperatorInput
     id: StringQueryOperatorInput
@@ -3023,6 +3395,7 @@ input SitePluginPluginOptionsPluginsFilterInput {
     pluginFilepath: StringQueryOperatorInput
     pluginOptions: SitePluginPluginOptionsPluginsPluginOptionsFilterInput
     resolve: StringQueryOperatorInput
+    ssrAPIs: StringQueryOperatorInput
     version: StringQueryOperatorInput
 }
 
@@ -3032,13 +3405,17 @@ input SitePluginPluginOptionsPluginsFilterListInput {
 
 input SitePluginPluginOptionsPluginsPluginOptionsFilterInput {
     backgroundColor: StringQueryOperatorInput
+    className: StringQueryOperatorInput
     disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
+    icon: StringQueryOperatorInput
     inlineCodeMarker: StringQueryOperatorInput
     linkImagesToOriginal: BooleanQueryOperatorInput
     loading: StringQueryOperatorInput
     markdownCaptions: BooleanQueryOperatorInput
     maxWidth: IntQueryOperatorInput
+    noInlineHighlight: BooleanQueryOperatorInput
+    offsetY: IntQueryOperatorInput
     prompt: SitePluginPluginOptionsPluginsPluginOptionsPromptFilterInput
     quality: IntQueryOperatorInput
     showCaptions: BooleanQueryOperatorInput
@@ -3090,6 +3467,50 @@ input SiteSortInput {
 input SocialFilterInput {
     github: StringQueryOperatorInput
     twitter: StringQueryOperatorInput
+}
+
+input StaticImageFilterInput {
+    absolutePath: StringQueryOperatorInput
+    accessTime: DateQueryOperatorInput
+    atime: DateQueryOperatorInput
+    atimeMs: FloatQueryOperatorInput
+    base: StringQueryOperatorInput
+    birthTime: DateQueryOperatorInput
+    birthtime: DateQueryOperatorInput
+    birthtimeMs: FloatQueryOperatorInput
+    blksize: IntQueryOperatorInput
+    blocks: IntQueryOperatorInput
+    changeTime: DateQueryOperatorInput
+    children: NodeFilterListInput
+    ctime: DateQueryOperatorInput
+    ctimeMs: FloatQueryOperatorInput
+    dev: IntQueryOperatorInput
+    dir: StringQueryOperatorInput
+    ext: StringQueryOperatorInput
+    extension: StringQueryOperatorInput
+    id: StringQueryOperatorInput
+    ino: IntQueryOperatorInput
+    internal: InternalFilterInput
+    mode: IntQueryOperatorInput
+    modifiedTime: DateQueryOperatorInput
+    mtime: DateQueryOperatorInput
+    mtimeMs: FloatQueryOperatorInput
+    name: StringQueryOperatorInput
+    nlink: IntQueryOperatorInput
+    parent: NodeFilterInput
+    prettySize: StringQueryOperatorInput
+    rdev: IntQueryOperatorInput
+    relativeDirectory: StringQueryOperatorInput
+    relativePath: StringQueryOperatorInput
+    root: StringQueryOperatorInput
+    size: IntQueryOperatorInput
+    sourceInstanceName: StringQueryOperatorInput
+    uid: IntQueryOperatorInput
+}
+
+input StaticImageSortInput {
+    fields: [StaticImageFieldsEnum]
+    order: [SortOrderEnum] = [ASC]
 }
 
 input StringQueryOperatorInput {

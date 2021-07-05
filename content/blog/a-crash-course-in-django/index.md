@@ -1,6 +1,7 @@
 ---
 title: A Crash Course in Django
 date: "2019-06-28T22:12:03.284Z"
+modified: "2020-01-11T22:12:03.284Z"
 icons: ["python", "django", "web"]
 description: "A quick way to get started using Django without going too in-depth."
 ---
