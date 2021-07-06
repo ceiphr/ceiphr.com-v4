@@ -61,7 +61,7 @@ import Web from "../../static/icons/web.svg"
 import WebDesign from "../../static/icons/webdesign.svg"
 
 const iconClasses =
-  "inline-block fill-current tablet:h-24 tablet:w-24 m-2 tablet:m-4 text-white dark:text-black"
+  "inline-block fill-current h-16 w-16 tablet:h-24 tablet:w-24 m-2 tablet:m-4 text-white dark:text-black"
 
 interface allIcons {
   [name: string]: object
