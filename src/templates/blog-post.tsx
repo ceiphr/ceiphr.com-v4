@@ -69,19 +69,6 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
     setIOS(isIOS)
   }, [setIOS])
 
-  // https://github.com/giscus/react-giscus/issues/2
-  // This conditional is okay. It doesn't run when being
-  // built, but always runs in the browser.
-  if (typeof window !== "undefined") {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [title, setTitle] = React.useState("")
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    React.useEffect(() => {
-      if (document.title !== title) setTitle(document.title)
-    }, [title, document.title])
-  }
-
   return (
     <Layout location={location}>
       <Seo
@@ -202,9 +189,10 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
             repoId="MDEwOlJlcG9zaXRvcnkzNzg3NDY2Mzg"
             category="Announcements"
             categoryId="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMzMDQzMTY5"
-            mapping="title"
+            mapping="specific"
             reactionsEnabled="1"
             theme="preferred_color_scheme"
+            term={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
           />
         </div>
       )}

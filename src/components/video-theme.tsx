@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import ImageTheme from "./image-theme"
 import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
@@ -29,7 +30,7 @@ const VideoTheme = () => {
       setVideo()
   }, [mQuery])
 
-  if (mQuery === "") return <></>
+  if (mQuery === "") return <ImageTheme />
   return (
     <>
       <label htmlFor="background" className="sr-only">
