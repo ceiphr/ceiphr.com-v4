@@ -3,7 +3,6 @@ title: Beveled Corners with Sass
 date: "2021-07-06T22:12:03.284Z"
 icons: ["sass", "marvel", "borderlands"]
 description: "Three ways to create beveled corners with Sass and mixins."
-unlisted: true
 ---
 
 Go to [borderlands.com](https://borderlands.com/en-US/), [marvel.com](https://www.marvel.com/)
@@ -33,12 +32,12 @@ a `background-image` for the sprite map and `flexbox` for connecting sprites is 
 .button {
   display: flex;
 
-  &-left {
+  &__left {
     @extend .sprite;
     background-position: -286px -341px;
   }
 
-  &-right {
+  &__right {
     @extend .sprite;
     background-position: -257px -341px;
   }
@@ -50,7 +49,7 @@ sprites, you might as well make this a sprite too for consistency. I mean, _that
 the [borderlands.com](https://borderlands.com/en-US/) developers did after all:
 
 ```scss
-.button-body {
+.button__inner {
   background-image: url('https://example.com/sprite.png');
   background-size: 100% 100%;
 
@@ -83,11 +82,11 @@ It's also important to mention, this approach needs three `div` elements (one fo
 
 ```html
 <div class="button">
-  <div class="button-left"></div>
-  <div class="button-body">
+  <div class="button__left"></div>
+  <div class="button__inner">
     <p>Sprite Button</p>
   </div>
-  <div class="button-right"></div>
+  <div class="button__right"></div>
 </div>
 ```
 
@@ -106,8 +105,9 @@ from [borderlands.com](https://borderlands.com/en-US/) and are owned by Gearbox 
 ## Pseudo Elements
 
 [marvel.com](https://www.marvel.com/) takes a slightly nicer approach.  `::before` and `::after` are used to create the
-top and bottom halves of elements. Both pseudo-elements contain a `repeating-linear-gradient` as their background image,
-which is a white line at a 45-degree angel.
+top and bottom halves of elements. The pseudo-elements of the button create the rectangular border. The inner contents
+use another set of pseudo-elements for a `repeating-linear-gradient` as their background image, which is a white line at
+a 45-degree angel.
 
 The main caveat with this approach is the _insane_ amount of properties required to get it working. It took me two hours
 and 70 lines of Sass to create a working example in CodePen. Here is the main bit:
@@ -146,11 +146,10 @@ and 70 lines of Sass to create a working example in CodePen. Here is the main bi
 ```
 
 That chunk of code does everything _except_ the beveled corners. Yes, 34 lines of code for making half an outline for a
-button. At least, you only need one `div` element for it to work. Here are the other **40 LINES OF CODE** for the
-beveled corners:
+button. Here are the other **40 LINES OF CODE** for the beveled corners:
 
 ```scss
-.inner {
+.button__inner {
   display: block;
   padding: 0 35px;
 
@@ -195,11 +194,11 @@ beveled corners:
 ```
 
 Nearly 80 lines, just for a button. But in the end, you didn't have to use sprites, and you get the ability to modify
-color and sizing using Sass, which is great. As a bonus, you only need one `div` and a `span` for this to work:
+color and sizing using Sass, which is great. As a bonus, you only need a `div` and a `span` for this to work:
 
 ```html
 <div class="button">
-  <span class="inner">
+  <span class="button__inner">
     Button Out.
   </span>
 </div>
@@ -214,8 +213,9 @@ debug all that pseudo-element goodness.
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-Moreover, if you zoom in on that button, you may notice one or two minor disconnects. I thought this was a problem with my
-implementation, but, from my testing, this jankiness is also on the buttons at [marvel.com](https://www.marvel.com/).
+Useful to mention: Depending on the browser you're using, if you zoom in on that button, you may notice one or two minor
+disconnects. I thought this was a problem with my implementation, but, from my testing, this jankiness is also on the
+buttons at [marvel.com](https://www.marvel.com/).
 
 ## Clip Paths
 
@@ -231,14 +231,14 @@ The fantastic [Chris Coyier on CSS-Tricks](https://css-tricks.com/notched-boxes/
 polygon to a clip path, it can make any element look great beveled. And from my testing, that includes overflowing and
 scrollable elements.
 
-Want beveled corners on opposite sides of an element? Use `@include bevel-opp()` to apply this Sass mixin:
+Want beveled corners on opposite sides of an element? Use `@include bevel--opp()` to apply this Sass mixin:
 
 ```scss
 /* 
  * @param $size   Bevel size.
  * @param $alt    Use alternate corners.
  */
-@mixin bevel-opp($size: 12px, $alt: false) {
+@mixin bevel--opp($size: 12px, $alt: false) {
   @if $alt {
     clip-path: polygon(
         0% $size,
@@ -265,14 +265,14 @@ Want beveled corners on opposite sides of an element? Use `@include bevel-opp()`
 }
 ```
 
-Well, that's great and all, but what if you want all corners to be beveled corners? Here is a much simpler mixing for
+Well, that's great and all, but what if you want all corners to be beveled corners? Here is a much simpler mixin for
 that:
 
 ```scss
 /* 
  * @param $size   Bevel size.
  */
-@mixin bevel-full($size: 12px) {
+@mixin bevel--full($size: 12px) {
   clip-path: polygon(
       0% $size,
       $size 0%,
@@ -288,7 +288,7 @@ that:
 
 The only caveat? None. My code is divine.
 
-Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass of a beveled button, outline style
+Just kidding. Outlines. Outlines are annoying to implement. Here is some example Sass for beveled buttons, outline style
 included:
 
 ```scss
@@ -297,14 +297,14 @@ included:
   background-color: turquoise;
   display: inline-block;
   padding: 1em;
-  @include bevel-opp();
+  @include bevel--opp();
 
-  &-alt {
+  &--alt {
     @extend .button;
-    @include bevel-opp($alt: true);
+    @include bevel--opp($alt: true);
   }
 
-  &-outline {
+  &--outline {
     @extend .button;
     background-color: white;
     padding: 0;
@@ -325,10 +325,10 @@ Not as bad as the pseudo-elements, but still not a Van Gogh. Regardless, the HTM
 <div class="button">Button</div>
 
 <!-- Alternative Button -->
-<div class="button-alt">Button</div>
+<div class="button--alt">Button</div>
 
 <!-- Fancy Outline Button -->
-<div class="button-outline">
+<div class="button--outline">
   <div class="button">Button Out.</div>
 </div>
 ```
