@@ -109,7 +109,7 @@ top and bottom halves of elements. The pseudo-elements of the button create the 
 use another set of pseudo-elements for a `repeating-linear-gradient` as their background image, which is a white line at
 a 45-degree angel.
 
-The main caveat with this approach is the _insane_ amount of properties required to get it working. It took me two hours
+The main caveat with this approach is the _insane_ number of properties required to get it working. It took me two hours
 and 70 lines of Sass to create a working example in CodePen. Here is the main bit:
 
 ```scss
