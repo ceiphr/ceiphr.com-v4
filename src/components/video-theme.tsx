@@ -4,7 +4,7 @@ import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
 const VideoTheme = () => {
-  const [mQuery, setMQuery] = React.useState<string>(Background)
+  const [mQuery, setMQuery] = React.useState<string>("")
 
   const videoRef = React.useRef() as any
   const previousUrl = React.useRef(mQuery)
@@ -29,6 +29,7 @@ const VideoTheme = () => {
       setVideo()
   }, [mQuery])
 
+  if (mQuery === "") return <></>
   return (
     <>
       <label htmlFor="background" className="sr-only">
