@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import ImageTheme from "./image-theme"
 import Background from "../../static/videos/dark.webm"
 import BackgroundDark from "../../static/videos/light.webm"
 
