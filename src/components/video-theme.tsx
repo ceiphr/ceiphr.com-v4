@@ -30,7 +30,6 @@ const VideoTheme = () => {
       setVideo()
   }, [mQuery])
 
-  if (mQuery === "") return <ImageTheme />
   return (
     <>
       <label htmlFor="background" className="sr-only">
@@ -44,7 +43,9 @@ const VideoTheme = () => {
         disableRemotePlayback
         autoPlay
         muted
-        className="object-cover h-full w-full fade-in"
+        className={
+          `object-cover h-full w-full fade-in ` + (mQuery === "" && "opacity-0")
+        }
         src={mQuery}
       />
     </>
