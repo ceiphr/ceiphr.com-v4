@@ -25,9 +25,9 @@ module.exports = {
         directives: {
           "connect-src": "'self' *.sentry.io *.vercel-analytics.com",
           "script-src":
-            "'self' 'sha256-9EfSE/pxhsIRQAZ9nHpzZGKeEticJtki6BUxpyJY/VQ=' *.ceiphr.com *.sentry.io *.vercel-analytics.com player.vimeo.com giscus.app cdnjs.cloudflare.com",
+            "'self' 'sha256-9EfSE/pxhsIRQAZ9nHpzZGKeEticJtki6BUxpyJY/VQ=' *.ceiphr.com *.sentry.io player.vimeo.com giscus.app cdnjs.cloudflare.com *.carbonads.com *.carbonads.net",
           "style-src": "'self' 'unsafe-inline' *.typekit.net",
-          "img-src": "'self' data: *.ceiphr.com",
+          "img-src": "'self' data: *.ceiphr.com *.buysellads.net",
           "font-src": "'self' *.typekit.net",
           "manifest-src": "'self'",
           "frame-src":

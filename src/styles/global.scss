@@ -79,8 +79,8 @@ a:focus-visible {
 
   .gatsby-resp-image-wrapper {
     overflow: hidden;
-    border-radius: .6em;
     border: 1px solid #e5e7eb;
+    border-radius: .6em;
   }
 
   img:before {
@@ -94,6 +94,98 @@ a:focus-visible {
     @media (min-width: 640px) {
       top: 50%;
     }
+  }
+}
+
+// CarbonAd
+
+#carbonads {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-height: 100px;
+  margin-top: 1.5em;
+
+  border: 1px solid #e5e7eb;
+  border-radius: .6em;
+
+  > span {
+    position: relative;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4b5563;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.carbon-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.carbon-img {
+  line-height: 1;
+  display: block;
+  margin: 0;
+
+  img {
+    display: block;
+  }
+}
+
+.carbon-text {
+  line-height: 1.4;
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+
+  padding: 8px 3em 8px 1em;
+
+  &:after {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    display: table;
+    margin-left: 1.5em;
+    padding: 12px 16px;
+    content: "Learn More";
+    white-space: nowrap;
+    color: white;
+    border-radius: .6em;
+    background-color: #111827;
+  }
+}
+
+.carbon-poweredby {
+  font-size: 8px;
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  padding: 8px 15px;
+  transform: rotate(-90deg) translate(64%, 125%);
+  white-space: nowrap;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  border: 1px solid #e5e7eb;
+  background-color: #f7f7f7;
+}
+
+@media only screen and (max-width: 759px) {
+  #carbonads {
+    font-size: 11px;
+  }
+
+  .carbon-text:after {
+    display: none;
   }
 }
 
@@ -151,6 +243,26 @@ a:focus-visible {
       border: 1px solid #374151;
     }
   }
+
+  //  CarbonAd
+  #carbonads {
+    border: 1px solid #374151;
+
+    a {
+      color: #9ca3af;
+    }
+  }
+
+  .carbon-text:after {
+    color: black;
+    background-color: #d1d5db;
+  }
+
+  .carbon-poweredby {
+    border: 1px solid #374151;
+    background-color: #151515;
+  }
+
 }
 
 @media print {
