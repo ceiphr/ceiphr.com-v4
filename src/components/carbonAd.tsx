@@ -6,7 +6,6 @@ const CarbonAd = () => {
     const script = document.createElement("script")
     script.async = true
     script.type = "text/javascript"
-    // TODO Switch this script with my own.
     script.src =
       "//cdn.carbonads.com/carbon.js?serve=CK7I62QM&placement=ceiphrcom"
     script.id = "_carbonads_js"
