@@ -42,17 +42,15 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const prefersReduced = useMediaPredicate("(prefers-reduced-motion: reduce)")
 
-  const [safari, setSafari] = React.useState()
+  const [safari, setSafari] = React.useState<Boolean>()
 
   React.useEffect(() => {
-    // @ts-ignore
     setSafari(isSafari)
   }, [setSafari])
 
-  const [IOS, setIOS] = React.useState()
+  const [IOS, setIOS] = React.useState<Boolean>()
 
   React.useEffect(() => {
-    // @ts-ignore
     setIOS(isIOS)
   }, [setIOS])
 

@@ -56,17 +56,15 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
 
   if (post.frontmatter.comments === null) post.frontmatter.comments = true
 
-  const [safari, setSafari] = React.useState()
+  const [safari, setSafari] = React.useState<Boolean>()
 
   React.useEffect(() => {
-    // @ts-ignore
     setSafari(isSafari)
   }, [setSafari])
 
-  const [IOS, setIOS] = React.useState()
+  const [IOS, setIOS] = React.useState<Boolean>()
 
   React.useEffect(() => {
-    // @ts-ignore
     setIOS(isIOS)
   }, [setIOS])
 
