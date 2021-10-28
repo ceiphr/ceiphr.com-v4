@@ -8,11 +8,10 @@ My name is Ari. I am a twenty-something studying Computer Science at Stevens Ins
 
 I write technical articles. Not frequently, but I do. When I'm too busy not writing anything for this
 site, [I sometimes write for DigitalOcean](https://www.digitalocean.com/community/users/ceiphr). They pay well.
-Right now, I'm a technical writing intern for [Eastech Flow Controls](https://www.smartwastewater.com/). But, that's
-just for the summer.
+Right now though, I'm an Algorithms course assistant.
 
 I don't really make that many Django projects anymore, but that's all I really write about since I enjoy Python so much. 
-For the most part, everything I work on right now is using React. Fuck Facebook, but React… React is nice. 
+For the most part, everything I work on right now is using React. Fuck ~~Facebook~~ Meta, but React… React is nice. 
 
 [whereismaurice.com](https://whereismaurice.com) is one of my latest React projects. It's doing
 pretty well (20k views a month).
