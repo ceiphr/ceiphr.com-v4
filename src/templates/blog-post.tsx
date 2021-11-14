@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { isIOS, isSafari } from "react-device-detect"
 import { useMediaPredicate } from "react-media-hook"
-import Giscus from "react-giscus"
+import { Giscus } from "@giscus/react"
 
 import CarbonAd from "../components/carbonAd"
 import Layout from "../components/layout"
@@ -190,8 +190,8 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
             category="Announcements"
             categoryId="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMzMDQzMTY5"
             mapping="specific"
-            reactionsEnabled="1"
-            theme="preferred_color_scheme"
+            reactionsEnabled="0"
+            theme="https://ceiphr.com/giscus.css"
             term={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
           />
         </div>

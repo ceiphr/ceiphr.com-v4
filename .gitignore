@@ -71,5 +71,4 @@ yarn-error.log
 .vercel
 
 # DeepScan
-.ddcache
 .dccache
