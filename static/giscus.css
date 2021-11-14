@@ -12,6 +12,10 @@
     border-width: 0;
 }
 
+.gsc-comment-box, .gsc-comment-box-tabs button {
+    border-width: 0;
+}
+
 main {
     --color-prettylights-syntax-comment: #6e7781;
     --color-prettylights-syntax-constant: #0550ae;
@@ -88,8 +92,8 @@ main {
 
     /*! Extensions from @primer/css/alerts/flash.scss */
     --color-social-reaction-border: var(--color-scale-blue-1);
-    --color-social-reaction-bg: var(--color-scale-gray-0);
-    --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+    --color-social-reaction-bg: #ffffff;
+    --color-social-reaction-bg-hover: var(--color-scale-gray-0);
     --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
 }
 
