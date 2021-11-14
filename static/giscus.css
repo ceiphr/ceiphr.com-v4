@@ -3,6 +3,15 @@
  * https://github.com/primer/primitives/blob/main/LICENSE
  */
 
+/* Fixes weird clipping issue on right side */
+#__next {
+    margin-right: 1px;
+}
+
+.gsc-comment-box, .gsc-comment-box-tabs {
+    border-width: 0;
+}
+
 main {
     --color-prettylights-syntax-comment: #6e7781;
     --color-prettylights-syntax-constant: #0550ae;
@@ -44,26 +53,26 @@ main {
     --color-btn-active-bg: hsla(220, 14%, 93%, 1);
     --color-btn-active-border: rgba(27, 31, 36, 0.15);
     --color-btn-primary-text: #ffffff;
-    --color-btn-primary-bg: #2da44e;
+    --color-btn-primary-bg: #000000;
     --color-btn-primary-border: rgba(27, 31, 36, 0.15);
     --color-btn-primary-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
     --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-    --color-btn-primary-hover-bg: #2c974b;
+    --color-btn-primary-hover-bg: #1d1d1d;
     --color-btn-primary-hover-border: rgba(27, 31, 36, 0.15);
     --color-btn-primary-selected-bg: hsla(137, 55%, 36%, 1);
     --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0, 45, 17, 0.2);
     --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.8);
     --color-btn-primary-disabled-bg: #94d3a2;
     --color-btn-primary-disabled-border: rgba(27, 31, 36, 0.15);
-    --color-fg-default: #24292f;
-    --color-fg-muted: #57606a;
-    --color-fg-subtle: #6e7781;
+    --color-fg-default: #000000;
+    --color-fg-muted: #000000;
+    --color-fg-subtle: #000000;
     --color-canvas-default: #ffffff;
     --color-canvas-overlay: #ffffff;
-    --color-canvas-inset: #f6f8fa;
-    --color-canvas-subtle: #f6f8fa;
-    --color-border-default: #d0d7de;
-    --color-border-muted: hsla(210, 18%, 87%, 1);
+    --color-canvas-inset: #ffffff;
+    --color-canvas-subtle: #ffffff;
+    --color-border-default: rgb(229, 231, 235);
+    --color-border-muted: #E5E7EB;
     --color-neutral-muted: rgba(175, 184, 193, 0.2);
     --color-neutral-subtle: rgba(234, 238, 242, 0.5);
     --color-accent-fg: #0969da;
@@ -86,6 +95,10 @@ main {
 
 main .pagination-loader-container {
     background-image: url(https://github.com/images/modules/pulls/progressive-disclosure-line.svg);
+}
+
+main .gsc-comment .color-border-primary {
+    border-color: var(--color-border-muted);
 }
 
 /*! Custom CSS */
