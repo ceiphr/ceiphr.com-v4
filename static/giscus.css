@@ -63,10 +63,10 @@ main {
     --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     --color-btn-primary-hover-bg: #1d1d1d;
     --color-btn-primary-hover-border: rgba(27, 31, 36, 0.15);
-    --color-btn-primary-selected-bg: hsla(137, 55%, 36%, 1);
+    --color-btn-primary-selected-bg: #1d1d1d;
     --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0, 45, 17, 0.2);
     --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.8);
-    --color-btn-primary-disabled-bg: #94d3a2;
+    --color-btn-primary-disabled-bg: #000000;
     --color-btn-primary-disabled-border: rgba(27, 31, 36, 0.15);
     --color-fg-default: #000000;
     --color-fg-muted: #000000;
@@ -79,9 +79,9 @@ main {
     --color-border-muted: #E5E7EB;
     --color-neutral-muted: rgba(175, 184, 193, 0.2);
     --color-neutral-subtle: rgba(234, 238, 242, 0.5);
-    --color-accent-fg: #0969da;
-    --color-accent-emphasis: #0969da;
-    --color-accent-muted: rgba(84, 174, 255, 0.4);
+    --color-accent-fg: #2563eb;
+    --color-accent-emphasis: #2563eb;
+    --color-accent-muted: rgba(37, 99, 235, 0.5);
     --color-accent-subtle: #ddf4ff;
     --color-success-fg: #1a7f37;
     --color-danger-fg: #cf222e;

@@ -45,3 +45,7 @@ Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on
 
    Open the `ceiphr.com` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and
    the browser will update in real time!
+
+## Credit
+
+   All "tag" icons used for articles are owned by their respective companies.
