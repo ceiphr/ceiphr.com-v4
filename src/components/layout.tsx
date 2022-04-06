@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import External from "../../static/external-link.svg"
 import Logo from "../../static/logo.svg"
 
 type DataProps = {
@@ -28,9 +29,19 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
           </Link>
           <ul className="flex flex-row text-gray-600 dark:text-gray-400">
             <li className="pr-5">
-              <Link className="inline-block mt-1 hover:underline" to="/about/">
+              <a
+                className="inline-block mt-1 hover:underline"
+                href="https://ari.gg"
+              >
                 About
-              </Link>
+                <span className="inline-block transform translate-y-1">
+                  <External
+                    className="fill-current mb-0.5 pt-0.5"
+                    width="21"
+                    height="16"
+                  />
+                </span>
+              </a>
             </li>
             <li className="pr-5">
               <a
