@@ -11,7 +11,7 @@
    [![HSTS Preload](https://img.shields.io/hsts/preload/ceiphr.com)](https://hstspreload.org/?domain=ceiphr.com)
 </h1>
 
-Ari Birnbaum's website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on Vercel.
+Ari Birnbaum's *old* website. Built with Gatsby, TypeScript and TailwindCSS. Hosted on Vercel.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fceiphr%2Fceiphr.com&project-name=ceiphr&repo-name=ceiphr.com)
 
