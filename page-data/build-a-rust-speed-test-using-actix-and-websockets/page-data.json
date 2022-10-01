@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-tsx",
+    "path": "/build-a-rust-speed-test-using-actix-and-websockets/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Ceiphr","siteUrl":"https://ceiphr.com","author":{"name":"Ari Birnbaum"},"social":{"github":"ceiphr"}}},"markdownRemark":{"id":"82de983b-272b-5976-a38d-10736ddb9d6f","excerpt":"","html":"","frontmatter":{"title":"Build a Rust speed test using Actix and WebSockets","date":"March 04, 2022","modified":null,"description":"Learn how to make a speed test site using Rust Actix and WebSockets.","unlisted":null,"comments":false,"icons":null}}},"pageContext":{"id":"82de983b-272b-5976-a38d-10736ddb9d6f"}},
+    "staticQueryHashes": ["3647344670"]}

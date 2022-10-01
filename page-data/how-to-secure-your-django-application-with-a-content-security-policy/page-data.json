@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-tsx",
+    "path": "/how-to-secure-your-django-application-with-a-content-security-policy/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Ceiphr","siteUrl":"https://ceiphr.com","author":{"name":"Ari Birnbaum"},"social":{"github":"ceiphr"}}},"markdownRemark":{"id":"a692de96-5730-5fe9-8782-93834dc762a5","excerpt":"","html":"","frontmatter":{"title":"How To Secure Your Django Application with a CSP","date":"April 18, 2022","modified":null,"description":"In this tutorial, you will implement a CSP in a basic Django application.","unlisted":null,"comments":false,"icons":null}}},"pageContext":{"id":"a692de96-5730-5fe9-8782-93834dc762a5"}},
+    "staticQueryHashes": ["3647344670"]}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-tsx",
+    "path": "/how-to-deploy-a-rest-api-with-flask-fauna-and-authentication-on-koyeb/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Ceiphr","siteUrl":"https://ceiphr.com","author":{"name":"Ari Birnbaum"},"social":{"github":"ceiphr"}}},"markdownRemark":{"id":"1be21e2c-8228-5a62-a931-d559e0448e5e","excerpt":"","html":"","frontmatter":{"title":"How to Deploy a REST API with Flask and Fauna on Koyeb","date":"February 02, 2022","modified":null,"description":"This tutorial showcases how to build a REST API with Flask and Fauna.","unlisted":null,"comments":false,"icons":null}}},"pageContext":{"id":"1be21e2c-8228-5a62-a931-d559e0448e5e"}},
+    "staticQueryHashes": ["3647344670"]}

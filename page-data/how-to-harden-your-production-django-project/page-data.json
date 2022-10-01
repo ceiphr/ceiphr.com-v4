@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-tsx",
+    "path": "/how-to-harden-your-production-django-project/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Ceiphr","siteUrl":"https://ceiphr.com","author":{"name":"Ari Birnbaum"},"social":{"github":"ceiphr"}}},"markdownRemark":{"id":"3f8f8b8c-99b9-5540-9838-92c824a5b7b4","excerpt":"","html":"","frontmatter":{"title":"How To Harden the Security of Your Production Django Project","date":"December 09, 2020","modified":null,"description":"In this tutorial, you will leverage a security-oriented workflow for Django.","unlisted":null,"comments":false,"icons":null}}},"pageContext":{"id":"3f8f8b8c-99b9-5540-9838-92c824a5b7b4"}},
+    "staticQueryHashes": ["3647344670"]}

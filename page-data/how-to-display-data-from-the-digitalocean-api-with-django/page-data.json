@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-tsx",
+    "path": "/how-to-display-data-from-the-digitalocean-api-with-django/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Ceiphr","siteUrl":"https://ceiphr.com","author":{"name":"Ari Birnbaum"},"social":{"github":"ceiphr"}}},"markdownRemark":{"id":"3e9e5817-e6d4-54bb-b89f-61ac1a29c403","excerpt":"","html":"","frontmatter":{"title":"How To Display Data from the DigitalOcean API with Django","date":"December 20, 2019","modified":null,"description":"This tutorial is for leveraging DigitalOcean's API with Django.","unlisted":null,"comments":false,"icons":null}}},"pageContext":{"id":"3e9e5817-e6d4-54bb-b89f-61ac1a29c403"}},
+    "staticQueryHashes": ["3647344670"]}
