@@ -1,3 +1,6 @@
 {
-    "deepscan.enable": true
+    "deepscan.enable": true,
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///home/ari/GitHub/ceiphr.com-v4/.github/workflows/deploy.yml"
+    }
 }
