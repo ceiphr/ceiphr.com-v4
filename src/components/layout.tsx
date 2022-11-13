@@ -64,8 +64,11 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
       </header>
       <main>{children}</main>
       <footer className="mt-6 dark:border-gray-700 text-gray-600 dark:text-gray-400 no-print">
+        <a rel="me" className="hidden" href="https://social.lol/@ari">
+          Mastodon
+        </a>
         <p>
-          © 2021 Ari Birnbaum.{" "}
+          © 2022 Ari Birnbaum.{" "}
           <span className="float-right">
             <a
               className="hover:underline"
