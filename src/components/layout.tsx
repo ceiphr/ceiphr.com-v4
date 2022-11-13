@@ -64,7 +64,7 @@ const Layout: React.FC<DataProps> = ({ location, children }) => {
       </header>
       <main>{children}</main>
       <footer className="mt-6 dark:border-gray-700 text-gray-600 dark:text-gray-400 no-print">
-        <a rel="me" className="hidden" href="https://social.lol/@ari">
+        <a rel="me" className="hidden" href="https://fosstodon.org/@ceiphr">
           Mastodon
         </a>
         <p>
